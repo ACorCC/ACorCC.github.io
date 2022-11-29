@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Express安装12npm init -ynpm i express  创建server.js12345678910111213141516171819&#x2F;&#x2F; 1.引入expressconst express &#x3D; require(&amp;#x27;express&amp;#x27;)&#x2F;&#x2F; 2.创建应用对象const app &#x3D; express()&#x2F;&#x2F; 3.创建路由规则&#x2F;&#x2F; request是对请求报文的封装&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX">
+<meta property="og:url" content="https://acorcc.github.io/2022/08/10/AJAX/index.html">
+<meta property="og:site_name" content="ACorCC的个人网站">
+<meta property="og:description" content="Express安装12npm init -ynpm i express  创建server.js12345678910111213141516171819&#x2F;&#x2F; 1.引入expressconst express &#x3D; require(&amp;#x27;express&amp;#x27;)&#x2F;&#x2F; 2.创建应用对象const app &#x3D; express()&#x2F;&#x2F; 3.创建路由规则&#x2F;&#x2F; request是对请求报文的封装&#x2F;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-10T13:42:04.000Z">
+<meta property="article:modified_time" content="2022-08-10T13:42:28.600Z">
+<meta property="article:author" content="ACorCC">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://acorcc.github.io/2022/08/10/AJAX/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://acorcc.github.io/2022/08/10/AJAX/","path":"2022/08/10/AJAX/","title":"AJAX"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>AJAX | ACorCC的个人网站</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ACorCC的个人网站</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Express"><span class="nav-number">1.</span> <span class="nav-text">Express</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAserver-js"><span class="nav-number">1.2.</span> <span class="nav-text">创建server.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">1.3.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">HTML部分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E9%80%81GET%E8%AF%B7%E6%B1%82"><span class="nav-number">3.</span> <span class="nav-text">发送GET请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">设置请求参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E9%80%81POST%E8%AF%B7%E6%B1%82"><span class="nav-number">4.</span> <span class="nav-text">发送POST请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86"><span class="nav-number">4.1.</span> <span class="nav-text">前端部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E9%83%A8%E5%88%86"><span class="nav-number">4.2.</span> <span class="nav-text">后端部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0-1"><span class="nav-number">4.3.</span> <span class="nav-text">设置请求参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="nav-number">4.4.</span> <span class="nav-text">设置请求头</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="nav-number">4.4.1.</span> <span class="nav-text">预定义请求头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="nav-number">4.4.2.</span> <span class="nav-text">自定义请求头</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%93%8D%E5%BA%94json%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">服务端响应json数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E9%83%A8%E5%88%86-1"><span class="nav-number">5.1.</span> <span class="nav-text">后端部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86-1"><span class="nav-number">5.2.</span> <span class="nav-text">前端部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E8%BD%AC%E5%8C%96"><span class="nav-number">5.2.1.</span> <span class="nav-text">手动转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%BD%AC%E5%8C%96"><span class="nav-number">5.2.2.</span> <span class="nav-text">自动转化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3IE%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">解决IE缓存问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">请求超时与网络异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E8%AE%BE%E7%BD%AE"><span class="nav-number">7.1.</span> <span class="nav-text">超时设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E5%9B%9E%E8%B0%83"><span class="nav-number">7.2.</span> <span class="nav-text">超时回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%BC%82%E5%B8%B8%E5%9B%9E%E8%B0%83"><span class="nav-number">7.3.</span> <span class="nav-text">网络异常回调</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%96%E6%B6%88%E8%AF%B7%E6%B1%82"><span class="nav-number">8.</span> <span class="nav-text">取消请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Axios"><span class="nav-number">9.</span> <span class="nav-text">Axios</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5"><span class="nav-number">9.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E9%80%81GET%E8%AF%B7%E6%B1%82-1"><span class="nav-number">9.2.</span> <span class="nav-text">发送GET请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-baseURL"><span class="nav-number">9.3.</span> <span class="nav-text">配置 baseURL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C"><span class="nav-number">9.4.</span> <span class="nav-text">获取返回结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E9%80%81POST%E8%AF%B7%E6%B1%82-1"><span class="nav-number">9.5.</span> <span class="nav-text">发送POST请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios%E5%87%BD%E6%95%B0%E5%8F%91%E9%80%81ajax%E8%AF%B7%E6%B1%82"><span class="nav-number">9.6.</span> <span class="nav-text">axios函数发送ajax请求</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F"><span class="nav-number">10.</span> <span class="nav-text">跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5"><span class="nav-number">10.1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F"><span class="nav-number">10.2.</span> <span class="nav-text">JSONP解决跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F"><span class="nav-number">10.3.</span> <span class="nav-text">CORS解决跨域</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ACorCC</p>
+  <div class="site-description" itemprop="description">这是ACorCC的个人网站，包含网络日志、心情记录等等</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2022/08/10/AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="AJAX | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AJAX
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-10 21:42:04 / 修改时间：21:42:28" itemprop="dateCreated datePublished" datetime="2022-08-10T21:42:04+08:00">2022-08-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init <span class="literal">-y</span></span><br><span class="line">npm i express</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建server-js"><a href="#创建server-js" class="headerlink" title="创建server.js"></a>创建server.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.引入express</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)</span><br><span class="line"><span class="comment">// 2.创建应用对象</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.创建路由规则</span></span><br><span class="line"><span class="comment">// request是对请求报文的封装</span></span><br><span class="line"><span class="comment">// response是对响应报文的封装</span></span><br><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 设置响应头</span></span><br><span class="line">  response.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">  <span class="comment">// 设置响应体</span></span><br><span class="line">  response.<span class="title function_">send</span>(<span class="string">&quot;Hello Express&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.监听端口启动服务</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">8000</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务已经启动，8000端口监听中...&quot;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br><span class="line">// nodemon server.js</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="HTML部分"><a href="#HTML部分" class="headerlink" title="HTML部分"></a>HTML部分</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#result</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: <span class="number">5px</span> solid pink;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>点击发送请求<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;result&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="发送GET请求"><a href="#发送GET请求" class="headerlink" title="发送GET请求"></a>发送GET请求</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> result = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#result&#x27;</span>)</span><br><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 1.创建对象</span></span><br><span class="line">  <span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line">  <span class="comment">// 2.初始化 设置请求方法和url</span></span><br><span class="line">  xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/&#x27;</span>)</span><br><span class="line">  <span class="comment">// 3.发送</span></span><br><span class="line">  xhr.<span class="title function_">send</span>();</span><br><span class="line">  <span class="comment">// 4.处理服务端返回的结果</span></span><br><span class="line">  <span class="comment">// readystate是xhr对象中的属性，表示状态0 1 2 3 4</span></span><br><span class="line">  xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.<span class="property">readyState</span> === <span class="number">4</span>) &#123;</span><br><span class="line">      <span class="comment">// 判断响应状态码</span></span><br><span class="line">      <span class="keyword">if</span>(xhr.<span class="property">status</span> &gt;= <span class="number">200</span> &amp;&amp; xhr.<span class="property">status</span> &lt; <span class="number">300</span>) &#123;</span><br><span class="line">        <span class="comment">// 响应体</span></span><br><span class="line">        result.<span class="property">innerHTML</span> = xhr.<span class="property">response</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error &#x27;</span> + xhr.<span class="property">status</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置请求参数"><a href="#设置请求参数" class="headerlink" title="设置请求参数"></a>设置请求参数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/server?a=100&amp;b=200&amp;c=300&#x27;</span>)</span><br><span class="line">xhr.<span class="title function_">send</span>()</span><br></pre></td></tr></table></figure>
+
+<h1 id="发送POST请求"><a href="#发送POST请求" class="headerlink" title="发送POST请求"></a>发送POST请求</h1><h2 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/server&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/server&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 设置响应头</span></span><br><span class="line">  response.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">  <span class="comment">// 设置响应体</span></span><br><span class="line">  response.<span class="title function_">send</span>(<span class="string">&quot;Hello Ajax Post&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置请求参数-1"><a href="#设置请求参数-1" class="headerlink" title="设置请求参数"></a>设置请求参数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/server&#x27;</span>)</span><br><span class="line">xhr.<span class="title function_">send</span>(<span class="string">&#x27;a=100&amp;b=200&amp;c=300&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置请求头"><a href="#设置请求头" class="headerlink" title="设置请求头"></a>设置请求头</h2><h3 id="预定义请求头"><a href="#预定义请求头" class="headerlink" title="预定义请求头"></a>预定义请求头</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/server&#x27;</span>)</span><br><span class="line"><span class="comment">// Content-Type设置请求体内容的类型</span></span><br><span class="line">shr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;application/x-www-form-urlencode&#x27;</span>)</span><br><span class="line">xhr.<span class="title function_">send</span>(<span class="string">&#x27;a=100&amp;b=200&amp;c=300&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义请求头"><a href="#自定义请求头" class="headerlink" title="自定义请求头"></a>自定义请求头</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/server&#x27;</span>)</span><br><span class="line"><span class="comment">// Content-Type设置请求体内容的类型</span></span><br><span class="line">shr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;application/x-www-form-urlencode&#x27;</span>)</span><br><span class="line">shr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;admin&#x27;</span>)</span><br><span class="line">xhr.<span class="title function_">send</span>(<span class="string">&#x27;a=100&amp;b=200&amp;c=300&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>此时前端发送的请求变为option</p>
+<p>后端部分监听改为all，同时增加对请求头的设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">all</span>(<span class="string">&#x27;/server&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 设置响应头</span></span><br><span class="line">  response.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">  response.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">  <span class="comment">// 设置响应体</span></span><br><span class="line">  response.<span class="title function_">send</span>(<span class="string">&quot;Hello Ajax Post&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="服务端响应json数据"><a href="#服务端响应json数据" class="headerlink" title="服务端响应json数据"></a>服务端响应json数据</h1><h2 id="后端部分-1"><a href="#后端部分-1" class="headerlink" title="后端部分"></a>后端部分</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&#x27;/json-server&#x27;</span>, <span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">  response.<span class="title function_">setHeader</span>(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">  <span class="keyword">const</span> data = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;admin&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 要把数据转化成字符串</span></span><br><span class="line">  <span class="keyword">let</span> str = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data)</span><br><span class="line">  response.<span class="title function_">send</span>(str)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="前端部分-1"><a href="#前端部分-1" class="headerlink" title="前端部分"></a>前端部分</h2><h3 id="手动转化"><a href="#手动转化" class="headerlink" title="手动转化"></a>手动转化</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(xhr.<span class="property">status</span> &gt;= <span class="number">200</span> &amp;&amp; xhr.<span class="property">status</span> &lt; <span class="number">300</span>) &#123;</span><br><span class="line">  <span class="comment">// 把字符串转化为数据对象</span></span><br><span class="line">  <span class="keyword">let</span> data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(xhr.<span class="property">response</span>)</span><br><span class="line">  result.<span class="property">innerHTML</span> = data.<span class="property">name</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动转化"><a href="#自动转化" class="headerlink" title="自动转化"></a>自动转化</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建对象</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line"><span class="comment">// 设置响应体数据的类型</span></span><br><span class="line">xhr.<span class="property">responseType</span> = <span class="string">&#x27;json&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="解决IE缓存问题"><a href="#解决IE缓存问题" class="headerlink" title="解决IE缓存问题"></a>解决IE缓存问题</h1><p>在IE老版本中，发起重复的请求会使用缓存，影响时效性较强的数据的获取。</p>
+<p>通过给请求增加时间戳，使缓存不被使用，从而重新发起请求。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/ie?t=&#x27;</span> + <span class="title class_">Date</span>.<span class="title function_">now</span>())</span><br></pre></td></tr></table></figure>
+
+<h1 id="请求超时与网络异常处理"><a href="#请求超时与网络异常处理" class="headerlink" title="请求超时与网络异常处理"></a>请求超时与网络异常处理</h1><h2 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建对象</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line"><span class="comment">// 设置超时2s后取消请求</span></span><br><span class="line">xhr.<span class="property">timeout</span> = <span class="number">2000</span></span><br><span class="line"><span class="comment">// 2.初始化 设置请求方法和url</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="超时回调"><a href="#超时回调" class="headerlink" title="超时回调"></a>超时回调</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建对象</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line"><span class="comment">// 设置超时2s后取消请求</span></span><br><span class="line">xhr.<span class="property">timeout</span> = <span class="number">2000</span></span><br><span class="line"><span class="comment">// 超时回调</span></span><br><span class="line">xhr.<span class="property">ontimeout</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;网络异常，请稍后重试！！&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.初始化 设置请求方法和url</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="网络异常回调"><a href="#网络异常回调" class="headerlink" title="网络异常回调"></a>网络异常回调</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建对象</span></span><br><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>()</span><br><span class="line"><span class="comment">// 设置超时2s后取消请求</span></span><br><span class="line">xhr.<span class="property">timeout</span> = <span class="number">2000</span></span><br><span class="line"><span class="comment">// 超时回调</span></span><br><span class="line">xhr.<span class="property">ontimeout</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;网络异常，请稍后重试！&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 网络异常回调</span></span><br><span class="line">xhr.<span class="property">onerror</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;你的网络似乎出现了一些问题！&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.初始化 设置请求方法和url</span></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;http://127.0.0.1:8000/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="取消请求"><a href="#取消请求" class="headerlink" title="取消请求"></a>取消请求</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="title function_">abort</span>()</span><br></pre></td></tr></table></figure>
+
+<h1 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">&#x27;axios&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="发送GET请求-1"><a href="#发送GET请求-1" class="headerlink" title="发送GET请求"></a>发送GET请求</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="title function_">get</span>(<span class="string">&#x27;http://127.0.0.1:8000/axios-server&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// url参数</span></span><br><span class="line">  <span class="attr">params</span>: &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="attr">vip</span>: <span class="number">7</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 请求头信息</span></span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">20</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-baseURL"><a href="#配置-baseURL" class="headerlink" title="配置 baseURL"></a>配置 baseURL</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">defaults</span>.<span class="property">baseURL</span> = <span class="string">&#x27;http://127.0.0.1:8000&#x27;</span></span><br><span class="line">axios.<span class="title function_">get</span>(<span class="string">&#x27;/axios-server&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取返回结果"><a href="#获取返回结果" class="headerlink" title="获取返回结果"></a>获取返回结果</h2><p>axios基于promise</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="title function_">get</span>(<span class="string">&#x27;/axios-server&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span><br><span class="line">  <span class="comment">// 响应体</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(response.<span class="property">data</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="发送POST请求-1"><a href="#发送POST请求-1" class="headerlink" title="发送POST请求"></a>发送POST请求</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="title function_">post</span>(<span class="string">&#x27;/axios-server&#x27;</span>, &#123;</span><br><span class="line">    <span class="comment">// 请求体</span></span><br><span class="line">    <span class="attr">username</span>: <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;admin&#x27;</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="comment">// url参数</span></span><br><span class="line">    <span class="attr">params</span>: &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="number">100</span>,</span><br><span class="line">      <span class="attr">vip</span>: <span class="number">7</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 请求头信息</span></span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">20</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="axios函数发送ajax请求"><a href="#axios函数发送ajax请求" class="headerlink" title="axios函数发送ajax请求"></a>axios函数发送ajax请求</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">axios</span>(&#123;</span><br><span class="line">  <span class="comment">// 请求方式</span></span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="comment">// url</span></span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;/axios-server&#x27;</span>,</span><br><span class="line">  <span class="comment">// url参数</span></span><br><span class="line">  <span class="attr">params</span>: &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="attr">vip</span>: <span class="number">7</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 请求头信息</span></span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">20</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="comment">// 请求体</span></span><br><span class="line">    <span class="attr">username</span>: <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;admin&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>协议、域名、端口号，必须完全相同</p>
+<h2 id="JSONP解决跨域"><a href="#JSONP解决跨域" class="headerlink" title="JSONP解决跨域"></a>JSONP解决跨域</h2><p>利用script标签的跨域能力来发送请求</p>
+<h2 id="CORS解决跨域"><a href="#CORS解决跨域" class="headerlink" title="CORS解决跨域"></a>CORS解决跨域</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/08/4399%E5%89%8D%E7%AB%AF%E4%B8%80%E9%9D%A2%E5%87%89%E7%BB%8F/" rel="prev" title="4399前端一面凉经">
+                  <i class="fa fa-chevron-left"></i> 4399前端一面凉经
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ACorCC</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
