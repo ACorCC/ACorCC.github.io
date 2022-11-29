@@ -1,8 +1,9 @@
 ---
-title: AJAX
-date: 2022-08-10 21:42:04
+title: node
+date: 2022-08-18 20:02:49
 tags:
 ---
+
 # Express
 
 ## 安装
@@ -374,4 +375,57 @@ axios({
 利用script标签的跨域能力来发送请求
 
 ## CORS解决跨域
+
+CORS（Cross-Origin Resource Sharing, 跨域资源共享）由一系列**HTTP响应头**组成，这些HTTP响应头决定浏览器是否阻止前端JS代码跨域获取资源。
+
+浏览器的**同源安全策略**默认会组织网页的“跨域”获取资源。
+
+cors是Express的一个第三方中间件
+
+使用步骤如下
+
+1. 安装中间件
+
+```powershell
+npm install cors
+```
+
+2. 导入中间件
+
+```powershell
+const cors = require('cors')
+```
+
+3. 在路由之前配置中间件
+
+```powershell
+app.use(cors())
+```
+
+# 在express中使用Session
+
+## 安装express-session中间件
+
+```powershell
+npm i express-session
+```
+
+## 配置
+
+# 在express中使用jwt
+
+## 安装
+
+```
+npm i jsonwebtoken express-jwt
+```
+
+## 配置
+
+```javascript
+// 用于生成JWT字符串的包
+const jwt = require('jsonwebtoken')
+// 用于将客户端发送过来的JWT字符串，解析还原成JSON对象的包
+const expreeJWT = require('express-jwt')
+```
 
