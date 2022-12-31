@@ -1,0 +1,44 @@
+diff --git a/node_modules/hexo-theme-next/layout/_layout.njk b/node_modules/hexo-theme-next/layout/_layout.njk
+index 8a9bd73..7e2c0b3 100644
+--- a/node_modules/hexo-theme-next/layout/_layout.njk
++++ b/node_modules/hexo-theme-next/layout/_layout.njk
+@@ -1,6 +1,8 @@
+ <!DOCTYPE html>
+ <html lang="{{ page.lang }}">
+ <head>
++  <!--pjax：防止跳转页面音乐暂停-->
++  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+   {{ partial('_partials/head/head.njk', {}, {cache: theme.cache.enable}) }}
+   {%- include '_partials/head/head-unique.njk' -%}
+   <title>{% block title %}{% endblock %}</title>
+diff --git a/node_modules/hexo-theme-next/layout/_macro/sidebar.njk b/node_modules/hexo-theme-next/layout/_macro/sidebar.njk
+index cb92c04..c35d965 100644
+--- a/node_modules/hexo-theme-next/layout/_macro/sidebar.njk
++++ b/node_modules/hexo-theme-next/layout/_macro/sidebar.njk
+@@ -6,6 +6,18 @@
+     {%- endif %}
+ 
+     <div class="sidebar-inner {% if display_toc %}sidebar-nav-active sidebar-toc-active{% else %}sidebar-overview-active{% endif %}">
++
++      <!-- require APlayer -->
++      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
++      <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
++      <!-- require MetingJS-->
++      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
++      <!--qq音乐-->
++      <meting-js
++        auto="https://y.qq.com/n/yqq/playlist/8756623989.html#stat=y_new.playlist.pic_click">
++      </meting-js>
++
++
+       <ul class="sidebar-nav">
+         <li class="sidebar-nav-toc">
+           {{ __('sidebar.toc') }}
+@@ -73,5 +85,6 @@
+         </div>
+       {%- endif %}
+     {%- endif %}
++
+   </aside>
+ {% endmacro %}
+\ No newline at end of file
