@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
-
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -15,10 +16,10 @@
 
 
 
-<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="爬虫的难点在于爬虫与反爬虫的博弈 urllib基本使用1234567891011# 导入模块import urllib.request# 目标网址url &#x3D; &amp;#x27;http:&#x2F;&#x2F;www.baidu.com&amp;#x27;# 发送请求response &#x3D; urllib.request.urlopen(url)# 获取源码content &#x3D; response.read()# 解码content &#x3D;">
 <meta property="og:type" content="article">
@@ -52,6 +53,11 @@
 
 
 
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -61,8 +67,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -81,7 +87,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -96,18 +102,24 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+      <!-- require APlayer -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+      <!-- require MetingJS-->
+      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+      <!--qq音乐-->
+      <meting-js
+        auto="https://y.qq.com/n/yqq/playlist/8756623989.html#stat=y_new.playlist.pic_click">
+      </meting-js>
+
+
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -125,42 +137,31 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ACorCC</p>
   <div class="site-description" itemprop="description">这是ACorCC的个人网站，包含网络日志、心情记录等等</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
 </div>
 
-
-
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  </aside>
 
+
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -255,25 +256,25 @@
 <p>xpath基本语法：</p>
 <ol>
 <li><p>路径查询</p>
-<p>//，查找所有子孙节点</p>
-<p>/，查找直接子节点</p>
+<p>&#x2F;&#x2F;，查找所有子孙节点</p>
+<p>&#x2F;，查找直接子节点</p>
 </li>
-<li><p>id/class查询</p>
-<p>//div[@id]，包含id的div</p>
-<p>//div[@id=’aa’]，id为aa的div</p>
-<p>//div[@class=’bb’]，class为bb的div</p>
+<li><p>id&#x2F;class查询</p>
+<p>&#x2F;&#x2F;div[@id]，包含id的div</p>
+<p>&#x2F;&#x2F;div[@id&#x3D;’aa’]，id为aa的div</p>
+<p>&#x2F;&#x2F;div[@class&#x3D;’bb’]，class为bb的div</p>
 </li>
 <li><p>内容查询</p>
-<p>//div/h1/text()，h1的内容</p>
-<p>//div//@class，或者div的class属性值</p>
+<p>&#x2F;&#x2F;div&#x2F;h1&#x2F;text()，h1的内容</p>
+<p>&#x2F;&#x2F;div&#x2F;&#x2F;@class，或者div的class属性值</p>
 </li>
 <li><p>模糊查询</p>
-<p>//div[contains(@id, “he”)]，id包含he字符串的div</p>
-<p>//div[starts-with(@id, “he”)]，id以he开头的div</p>
+<p>&#x2F;&#x2F;div[contains(@id, “he”)]，id包含he字符串的div</p>
+<p>&#x2F;&#x2F;div[starts-with(@id, “he”)]，id以he开头的div</p>
 </li>
 <li><p>逻辑运算</p>
-<p>//div[@id=”aa” and @class=”bb”]，同时满足id为aa和class为bb的div</p>
-<p>//div[@id=”aa”] | div[@class=”bb”]，id为aa的div或class为bb的div</p>
+<p>&#x2F;&#x2F;div[@id&#x3D;”aa” and @class&#x3D;”bb”]，同时满足id为aa和class为bb的div</p>
+<p>&#x2F;&#x2F;div[@id&#x3D;”aa”] | div[@class&#x3D;”bb”]，id为aa的div或class为bb的div</p>
 </li>
 </ol>
 </blockquote>
@@ -333,7 +334,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;https://www.com&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 四个参数：</span></span><br><span class="line"><span class="comment"># url：请求路径</span></span><br><span class="line"><span class="comment"># data：请求参数</span></span><br><span class="line"><span class="comment"># json数据</span></span><br><span class="line"><span class="comment"># kwargs：字典</span></span><br><span class="line">response = requests.post(url=url, data=data, headers=headers)</span><br><span class="line">content = response.text</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">obj = json.loads(content.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(obj)</span><br></pre></td></tr></table></figure>
 
 <h2 id="代理-1"><a href="#代理-1" class="headerlink" title="代理"></a>代理</h2><blockquote>
-<p>最后介绍一下requests使用代理ip的方式，它又简化了urllib库，回忆urllib库代理ip，我们需要创建handler处理器，还要定义opener对象，但requests库中，我们只需要把代理ip作为一个普通的参数，传入requests.get()/requests.post()函数即可(简直太方便了！)</p>
+<p>最后介绍一下requests使用代理ip的方式，它又简化了urllib库，回忆urllib库代理ip，我们需要创建handler处理器，还要定义opener对象，但requests库中，我们只需要把代理ip作为一个普通的参数，传入requests.get()&#x2F;requests.post()函数即可(简直太方便了！)</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/s&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;wd&#x27;</span>: <span class="string">&#x27;ip&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">proxy = &#123;</span><br><span class="line">    <span class="string">&#x27;http:&#x27;</span>: <span class="string">&#x27;218.14.108.53&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url = url, params = data,headers = headers,proxies = proxy)</span><br><span class="line">content = response.text</span><br></pre></td></tr></table></figure>
 
@@ -351,7 +352,7 @@
 <p>进入spiders文件夹，生成爬虫文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 项目名称/项目名称/spiders</span><br><span class="line">scrapy genspider 爬虫文件的文件名如baidu 目的网站url</span><br></pre></td></tr></table></figure>
 
-<p>打开settings文件，注释掉下面这句话：ROBOTSTXT_OBEY = True</p>
+<p>打开settings文件，注释掉下面这句话：ROBOTSTXT_OBEY &#x3D; True</p>
 <p>打开新建的爬虫文件，注释掉parse函数下的pass，加上一句print代码，例如这里print一句’hello,scrapy’</p>
 <p>在终端，spiders文件夹目录下，运行项目</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl 爬虫文件文件名</span><br></pre></td></tr></table></figure>
@@ -479,6 +480,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/12/31/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" rel="next" title="2022年度总结">
+                  2022年度总结 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -512,11 +516,22 @@
   </footer>
 
   
-  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://npm.elemecdn.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
+  
 
 
 

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
-
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -15,17 +16,17 @@
 
 
 
-<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="计算机原理计算机中的很多事情，底层其实都很简单。 让人难以理解的，是一层层精妙的抽象。 电子计算机继电器-真空管-晶体管，前两者通过电路开闭让马达和齿轮计数，后者通过半导体实现电路闭合 逻辑门晶体管的不同组合实现NOT、AND、OR、XOR 二进制1byte &#x3D; 8 bits 算术逻辑单元ALU逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数&#x2F;逻辑单元 内存Memory门锁存储一个">
+    <meta name="description" content="计算机原理计算机中的很多事情，底层其实都很简单。 让人难以理解的，是一层层精妙的抽象。 电子计算机继电器-真空管-晶体管，前两者通过电路开闭让马达和齿轮计数，后者通过半导体实现电路闭合 逻辑门晶体管的不同组合实现NOT、AND、OR、XOR 二进制1byte &#x3D; 8 bits 算术逻辑单元ALU逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数&#x2F;逻辑单元 内存Me">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cs">
 <meta property="og:url" content="https://acorcc.github.io/2022/11/23/cs/index.html">
 <meta property="og:site_name" content="ACorCC的个人网站">
-<meta property="og:description" content="计算机原理计算机中的很多事情，底层其实都很简单。 让人难以理解的，是一层层精妙的抽象。 电子计算机继电器-真空管-晶体管，前两者通过电路开闭让马达和齿轮计数，后者通过半导体实现电路闭合 逻辑门晶体管的不同组合实现NOT、AND、OR、XOR 二进制1byte &#x3D; 8 bits 算术逻辑单元ALU逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数&#x2F;逻辑单元 内存Memory门锁存储一个">
+<meta property="og:description" content="计算机原理计算机中的很多事情，底层其实都很简单。 让人难以理解的，是一层层精妙的抽象。 电子计算机继电器-真空管-晶体管，前两者通过电路开闭让马达和齿轮计数，后者通过半导体实现电路闭合 逻辑门晶体管的不同组合实现NOT、AND、OR、XOR 二进制1byte &#x3D; 8 bits 算术逻辑单元ALU逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数&#x2F;逻辑单元 内存Me">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-23T10:22:05.000Z">
 <meta property="article:modified_time" content="2022-12-04T04:49:30.809Z">
@@ -48,6 +49,11 @@
 
 
 
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -57,8 +63,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -77,7 +83,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -92,18 +98,24 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+      <!-- require APlayer -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+      <!-- require MetingJS-->
+      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+      <!--qq音乐-->
+      <meting-js
+        auto="https://y.qq.com/n/yqq/playlist/8756623989.html#stat=y_new.playlist.pic_click">
+      </meting-js>
+
+
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -121,42 +133,31 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ACorCC</p>
   <div class="site-description" itemprop="description">这是ACorCC的个人网站，包含网络日志、心情记录等等</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
 </div>
 
-
-
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  </aside>
 
+
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -222,12 +223,12 @@
 <p>让人难以理解的，是一层层精妙的抽象。</p>
 <h2 id="电子计算机"><a href="#电子计算机" class="headerlink" title="电子计算机"></a>电子计算机</h2><p>继电器-真空管-晶体管，前两者通过电路开闭让马达和齿轮计数，后者通过半导体实现电路闭合</p>
 <h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p>晶体管的不同组合实现NOT、AND、OR、XOR</p>
-<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>1byte = 8 bits</p>
-<h2 id="算术逻辑单元ALU"><a href="#算术逻辑单元ALU" class="headerlink" title="算术逻辑单元ALU"></a>算术逻辑单元ALU</h2><p>逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数/逻辑单元</p>
-<h2 id="内存Memory"><a href="#内存Memory" class="headerlink" title="内存Memory"></a>内存Memory</h2><p>门锁存储一个位 -&gt; 一组锁存器=寄存器，32位寄存器的32就是位宽 -&gt; 设计为矩阵（m*n=位宽）的寄存器 -&gt; 8个寄存器并排，可以存储32个数（32个内存地址），每个数是8位（8bit，即1byte） -&gt; 一个可寻址内存 -&gt; 随机存取存储器RAM（这里是SRAM，还有DRAM、闪存、NVRAM）</p>
+<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>1byte &#x3D; 8 bits</p>
+<h2 id="算术逻辑单元ALU"><a href="#算术逻辑单元ALU" class="headerlink" title="算术逻辑单元ALU"></a>算术逻辑单元ALU</h2><p>逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数&#x2F;逻辑单元</p>
+<h2 id="内存Memory"><a href="#内存Memory" class="headerlink" title="内存Memory"></a>内存Memory</h2><p>门锁存储一个位 -&gt; 一组锁存器&#x3D;寄存器，32位寄存器的32就是位宽 -&gt; 设计为矩阵（m*n&#x3D;位宽）的寄存器 -&gt; 8个寄存器并排，可以存储32个数（32个内存地址），每个数是8位（8bit，即1byte） -&gt; 一个可寻址内存 -&gt; 随机存取存储器RAM（这里是SRAM，还有DRAM、闪存、NVRAM）</p>
 <h2 id="中央处理单元CPU"><a href="#中央处理单元CPU" class="headerlink" title="中央处理单元CPU"></a>中央处理单元CPU</h2><p>控制单元：取指令、解码、执行，通过RAM存取数据，ALU来计算，可以运行一个程序（一个程序多个指令）。</p>
 <p>由一个时钟以精确的间隔，触发电信号，控制单元利用这个信号推进CPU的内部操作。时钟速度Clock Speed，单位是赫兹Hz。</p>
-<p>控制单元+ALU+时钟=CPU，通过地址线、数据线、允许读/写线与RAM进行通信。</p>
+<p>控制单元+ALU+时钟&#x3D;CPU，通过地址线、数据线、允许读&#x2F;写线与RAM进行通信。</p>
 <h2 id="高级CPU设计"><a href="#高级CPU设计" class="headerlink" title="高级CPU设计"></a>高级CPU设计</h2><p>给CPU里加一点RAM，称为Cache</p>
 <h2 id="早期编程方式"><a href="#早期编程方式" class="headerlink" title="早期编程方式"></a>早期编程方式</h2><p>穿线板、开关、穿控纸卡等方式写机器码。相当于直接输入1和0</p>
 <h2 id="编程发展"><a href="#编程发展" class="headerlink" title="编程发展"></a>编程发展</h2><p>编译器，编程语言，语句-&gt;函数，算法与数据结构</p>
@@ -241,7 +242,7 @@
 <h2 id="操作系统OS"><a href="#操作系统OS" class="headerlink" title="操作系统OS"></a>操作系统OS</h2><ol>
 <li><p>批处理程序</p>
 </li>
-<li><p>操作系统充当硬件和软件之间的媒介，操作系统提供API来抽象硬件，叫设备驱动程序，程序员使用标准化机制和输入输出硬件(I/O)交互</p>
+<li><p>操作系统充当硬件和软件之间的媒介，操作系统提供API来抽象硬件，叫设备驱动程序，程序员使用标准化机制和输入输出硬件(I&#x2F;O)交互</p>
 </li>
 <li><p>多任务处理</p>
 </li>
@@ -303,11 +304,22 @@
   </footer>
 
   
-  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://npm.elemecdn.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
+  
 
 
 

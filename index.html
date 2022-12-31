@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
-
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -15,10 +16,10 @@
 
 
 
-<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
 <meta property="og:type" content="website">
@@ -46,6 +47,11 @@
 
 
 
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -55,8 +61,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -75,7 +81,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -90,18 +96,24 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
+
+      <!-- require APlayer -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+      <!-- require MetingJS-->
+      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+      <!--qq音乐-->
+      <meting-js
+        auto="https://y.qq.com/n/yqq/playlist/8756623989.html#stat=y_new.playlist.pic_click">
+      </meting-js>
+
+
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -118,44 +130,103 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ACorCC</p>
   <div class="site-description" itemprop="description">这是ACorCC的个人网站，包含网络日志、心情记录等等</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
 </div>
 
-
-
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  </aside>
 
+
+    </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2022/12/31/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/12/31/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">2022年度总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-12-31 21:27:47 / 修改时间：21:59:17" itemprop="dateCreated datePublished" datetime="2022-12-31T21:27:47+08:00">2022-12-31</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>6666<br>123</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -247,25 +318,25 @@
 <p>xpath基本语法：</p>
 <ol>
 <li><p>路径查询</p>
-<p>//，查找所有子孙节点</p>
-<p>/，查找直接子节点</p>
+<p>&#x2F;&#x2F;，查找所有子孙节点</p>
+<p>&#x2F;，查找直接子节点</p>
 </li>
-<li><p>id/class查询</p>
-<p>//div[@id]，包含id的div</p>
-<p>//div[@id=’aa’]，id为aa的div</p>
-<p>//div[@class=’bb’]，class为bb的div</p>
+<li><p>id&#x2F;class查询</p>
+<p>&#x2F;&#x2F;div[@id]，包含id的div</p>
+<p>&#x2F;&#x2F;div[@id&#x3D;’aa’]，id为aa的div</p>
+<p>&#x2F;&#x2F;div[@class&#x3D;’bb’]，class为bb的div</p>
 </li>
 <li><p>内容查询</p>
-<p>//div/h1/text()，h1的内容</p>
-<p>//div//@class，或者div的class属性值</p>
+<p>&#x2F;&#x2F;div&#x2F;h1&#x2F;text()，h1的内容</p>
+<p>&#x2F;&#x2F;div&#x2F;&#x2F;@class，或者div的class属性值</p>
 </li>
 <li><p>模糊查询</p>
-<p>//div[contains(@id, “he”)]，id包含he字符串的div</p>
-<p>//div[starts-with(@id, “he”)]，id以he开头的div</p>
+<p>&#x2F;&#x2F;div[contains(@id, “he”)]，id包含he字符串的div</p>
+<p>&#x2F;&#x2F;div[starts-with(@id, “he”)]，id以he开头的div</p>
 </li>
 <li><p>逻辑运算</p>
-<p>//div[@id=”aa” and @class=”bb”]，同时满足id为aa和class为bb的div</p>
-<p>//div[@id=”aa”] | div[@class=”bb”]，id为aa的div或class为bb的div</p>
+<p>&#x2F;&#x2F;div[@id&#x3D;”aa” and @class&#x3D;”bb”]，同时满足id为aa和class为bb的div</p>
+<p>&#x2F;&#x2F;div[@id&#x3D;”aa”] | div[@class&#x3D;”bb”]，id为aa的div或class为bb的div</p>
 </li>
 </ol>
 </blockquote>
@@ -325,7 +396,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;https://www.com&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;xxx&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 四个参数：</span></span><br><span class="line"><span class="comment"># url：请求路径</span></span><br><span class="line"><span class="comment"># data：请求参数</span></span><br><span class="line"><span class="comment"># json数据</span></span><br><span class="line"><span class="comment"># kwargs：字典</span></span><br><span class="line">response = requests.post(url=url, data=data, headers=headers)</span><br><span class="line">content = response.text</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">obj = json.loads(content.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(obj)</span><br></pre></td></tr></table></figure>
 
 <h2 id="代理-1"><a href="#代理-1" class="headerlink" title="代理"></a>代理</h2><blockquote>
-<p>最后介绍一下requests使用代理ip的方式，它又简化了urllib库，回忆urllib库代理ip，我们需要创建handler处理器，还要定义opener对象，但requests库中，我们只需要把代理ip作为一个普通的参数，传入requests.get()/requests.post()函数即可(简直太方便了！)</p>
+<p>最后介绍一下requests使用代理ip的方式，它又简化了urllib库，回忆urllib库代理ip，我们需要创建handler处理器，还要定义opener对象，但requests库中，我们只需要把代理ip作为一个普通的参数，传入requests.get()&#x2F;requests.post()函数即可(简直太方便了！)</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;http://www.baidu.com/s&#x27;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;wd&#x27;</span>: <span class="string">&#x27;ip&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">proxy = &#123;</span><br><span class="line">    <span class="string">&#x27;http:&#x27;</span>: <span class="string">&#x27;218.14.108.53&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url = url, params = data,headers = headers,proxies = proxy)</span><br><span class="line">content = response.text</span><br></pre></td></tr></table></figure>
 
@@ -343,7 +414,7 @@
 <p>进入spiders文件夹，生成爬虫文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 项目名称/项目名称/spiders</span><br><span class="line">scrapy genspider 爬虫文件的文件名如baidu 目的网站url</span><br></pre></td></tr></table></figure>
 
-<p>打开settings文件，注释掉下面这句话：ROBOTSTXT_OBEY = True</p>
+<p>打开settings文件，注释掉下面这句话：ROBOTSTXT_OBEY &#x3D; True</p>
 <p>打开新建的爬虫文件，注释掉parse函数下的pass，加上一句print代码，例如这里print一句’hello,scrapy’</p>
 <p>在终端，spiders文件夹目录下，运行项目</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl 爬虫文件文件名</span><br></pre></td></tr></table></figure>
@@ -522,7 +593,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="秋招情况"><a href="#秋招情况" class="headerlink" title="秋招情况"></a>秋招情况</h1><h2 id="投递"><a href="#投递" class="headerlink" title="投递"></a>投递</h2><p>投递了不知道有没有100家公司，刚开始会记录投递的公司以及反馈情况。但因为是海投，所以到了后面不想记录了（懒）。越是大厂/国企，就需要通过公司官方提供的方式（官网投递）去投递，此时需要在公司提供的简历模板上去填写各个公司要求提供的资料（主要是个人基本信息、实习/工作/项目/校园/科研/获奖经历等。听其来倒没什么，但对于海投选手来说，每投递一家公司就要填写一次，短时间内投的公司多了，会累。根据华为HR的说法（学校提供的“模拟求职”大赛培训环节）。现在大厂基本会采用自己公司提供的简历模板的投递方式，便于他们内部筛选人才。而国企也基本是这种方式，大家可以想一想，采用公司的模板去投递，公司就可以很方便地把候选者存储在数据库里。当华为面对几十万份简历时，只需要在数据库里一键筛选出985211硕士就可以快速筛掉十几万人了……</p>
+          <h1 id="秋招情况"><a href="#秋招情况" class="headerlink" title="秋招情况"></a>秋招情况</h1><h2 id="投递"><a href="#投递" class="headerlink" title="投递"></a>投递</h2><p>投递了不知道有没有100家公司，刚开始会记录投递的公司以及反馈情况。但因为是海投，所以到了后面不想记录了（懒）。越是大厂&#x2F;国企，就需要通过公司官方提供的方式（官网投递）去投递，此时需要在公司提供的简历模板上去填写各个公司要求提供的资料（主要是个人基本信息、实习&#x2F;工作&#x2F;项目&#x2F;校园&#x2F;科研&#x2F;获奖经历等。听其来倒没什么，但对于海投选手来说，每投递一家公司就要填写一次，短时间内投的公司多了，会累。根据华为HR的说法（学校提供的“模拟求职”大赛培训环节）。现在大厂基本会采用自己公司提供的简历模板的投递方式，便于他们内部筛选人才。而国企也基本是这种方式，大家可以想一想，采用公司的模板去投递，公司就可以很方便地把候选者存储在数据库里。当华为面对几十万份简历时，只需要在数据库里一键筛选出985211硕士就可以快速筛掉十几万人了……</p>
 <p>素质测评+笔试+面试一共一百多场，前期每投递一家大厂就要做一次测评，一个测评快得也要半个多小时，慢的像腾讯好像要两个来小时，有时候一个下午投递了三四家公司，做完测评后下午就结束了。而每次做的题目基本都是一样的，做到后面属实是有点恶心想吐了。</p>
 <h2 id="岗位"><a href="#岗位" class="headerlink" title="岗位"></a>岗位</h2><p>只投了前端的，因为只会前端（菜鸡就是我）。</p>
 <p>地点广州深圳珠海。</p>
@@ -532,12 +603,12 @@
 <h2 id="投递-1"><a href="#投递-1" class="headerlink" title="投递"></a>投递</h2><h3 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h3><p>简历尽早准备，但不是一蹴而就的，我的简历在整个秋招中一直在打磨。推荐使用超级简历网站。</p>
 <h3 id="海投"><a href="#海投" class="headerlink" title="海投"></a>海投</h3><p>对于普通人，建议大中小厂都投。根据我十月中下旬在51前程无忧的投递情况（会提供简历编号），不知名小破厂都是几千份简历，电信是12万了。大部分公司（无论大中小厂）投完简历都是石沉大海（这也跟我是非科班本有关）。投完第一个公司可能会有点期待，但是别把自己当回事了，做个无情的投递机器就行了。</p>
 <h3 id="内推"><a href="#内推" class="headerlink" title="内推"></a>内推</h3><p>最好能找到内推人，方便后面催流程。字节的话找内推熊。没有的话直接小红薯搜一个内推码吧。</p>
-<h3 id="渠道"><a href="#渠道" class="headerlink" title="渠道"></a>渠道</h3><p>有些公司是只能官网，有些只能在51前程无忧。一般大中厂都是在官网投递（boss上的大厂基本是hr/内推），小厂可能是51，不知道小企业（一两百人那种在boss之类的），不嫌烦的话可以把每个途径的都投一遍，增加简历被HR看到的机会。</p>
+<h3 id="渠道"><a href="#渠道" class="headerlink" title="渠道"></a>渠道</h3><p>有些公司是只能官网，有些只能在51前程无忧。一般大中厂都是在官网投递（boss上的大厂基本是hr&#x2F;内推），小厂可能是51，不知道小企业（一两百人那种在boss之类的），不嫌烦的话可以把每个途径的都投一遍，增加简历被HR看到的机会。</p>
 <p>我的秋招情况的话，官网投递、51、牛客是主战场，占90%以上。智联招聘基本没啥用，还有其他平台投完基本等于没投。</p>
 <h3 id="心态"><a href="#心态" class="headerlink" title="心态"></a>心态</h3><p>有的厂七月提前批，有的厂九月发offer，有的厂十月才开始网申，要做好打持久战的准备，九月十月可能颗粒无收，十一月再收到offer，心态上别摆烂，也别太急了。当然，也要尽早准备秋招。</p>
 <h2 id="素质测评"><a href="#素质测评" class="headerlink" title="素质测评"></a>素质测评</h2><p>可能是性格、逻辑、素质之类的测评，跟行测类似吧。</p>
 <p>性格题不是真的按性格来，而是你觉得这个职位想要你是什么性格，一方面能说明你是这种人，另一方面就算你不是，但你能意识到需要有这种性格。</p>
-<p>逻辑题，文字/数学类的就是初中高中的基本功了，图形题就是有规律的旋转、增加、删减等变换了（我测评做多了就知道规律了。。）</p>
+<p>逻辑题，文字&#x2F;数学类的就是初中高中的基本功了，图形题就是有规律的旋转、增加、删减等变换了（我测评做多了就知道规律了。。）</p>
 <p>我也不知道这种测评有没有用，反正当时腾讯的两三小时测评我直接开摆了，觉得没希望拿offer的，然后全部乱选了，最后也进入下一个环节笔试环节了。</p>
 <h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><p>主要是互联网技术岗才有笔试</p>
 <h3 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h3><p>每次做完可以及时回忆记录一下，看看哪些不会的就学一下，等下一家公司笔试就会了。所以整个秋招就是打怪升级，到了秋招后期，做笔试快的飞起。。</p>
@@ -630,12 +701,12 @@
 <p>让人难以理解的，是一层层精妙的抽象。</p>
 <h2 id="电子计算机"><a href="#电子计算机" class="headerlink" title="电子计算机"></a>电子计算机</h2><p>继电器-真空管-晶体管，前两者通过电路开闭让马达和齿轮计数，后者通过半导体实现电路闭合</p>
 <h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p>晶体管的不同组合实现NOT、AND、OR、XOR</p>
-<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>1byte = 8 bits</p>
-<h2 id="算术逻辑单元ALU"><a href="#算术逻辑单元ALU" class="headerlink" title="算术逻辑单元ALU"></a>算术逻辑单元ALU</h2><p>逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数/逻辑单元</p>
-<h2 id="内存Memory"><a href="#内存Memory" class="headerlink" title="内存Memory"></a>内存Memory</h2><p>门锁存储一个位 -&gt; 一组锁存器=寄存器，32位寄存器的32就是位宽 -&gt; 设计为矩阵（m*n=位宽）的寄存器 -&gt; 8个寄存器并排，可以存储32个数（32个内存地址），每个数是8位（8bit，即1byte） -&gt; 一个可寻址内存 -&gt; 随机存取存储器RAM（这里是SRAM，还有DRAM、闪存、NVRAM）</p>
+<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>1byte &#x3D; 8 bits</p>
+<h2 id="算术逻辑单元ALU"><a href="#算术逻辑单元ALU" class="headerlink" title="算术逻辑单元ALU"></a>算术逻辑单元ALU</h2><p>逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数&#x2F;逻辑单元</p>
+<h2 id="内存Memory"><a href="#内存Memory" class="headerlink" title="内存Memory"></a>内存Memory</h2><p>门锁存储一个位 -&gt; 一组锁存器&#x3D;寄存器，32位寄存器的32就是位宽 -&gt; 设计为矩阵（m*n&#x3D;位宽）的寄存器 -&gt; 8个寄存器并排，可以存储32个数（32个内存地址），每个数是8位（8bit，即1byte） -&gt; 一个可寻址内存 -&gt; 随机存取存储器RAM（这里是SRAM，还有DRAM、闪存、NVRAM）</p>
 <h2 id="中央处理单元CPU"><a href="#中央处理单元CPU" class="headerlink" title="中央处理单元CPU"></a>中央处理单元CPU</h2><p>控制单元：取指令、解码、执行，通过RAM存取数据，ALU来计算，可以运行一个程序（一个程序多个指令）。</p>
 <p>由一个时钟以精确的间隔，触发电信号，控制单元利用这个信号推进CPU的内部操作。时钟速度Clock Speed，单位是赫兹Hz。</p>
-<p>控制单元+ALU+时钟=CPU，通过地址线、数据线、允许读/写线与RAM进行通信。</p>
+<p>控制单元+ALU+时钟&#x3D;CPU，通过地址线、数据线、允许读&#x2F;写线与RAM进行通信。</p>
 <h2 id="高级CPU设计"><a href="#高级CPU设计" class="headerlink" title="高级CPU设计"></a>高级CPU设计</h2><p>给CPU里加一点RAM，称为Cache</p>
 <h2 id="早期编程方式"><a href="#早期编程方式" class="headerlink" title="早期编程方式"></a>早期编程方式</h2><p>穿线板、开关、穿控纸卡等方式写机器码。相当于直接输入1和0</p>
 <h2 id="编程发展"><a href="#编程发展" class="headerlink" title="编程发展"></a>编程发展</h2><p>编译器，编程语言，语句-&gt;函数，算法与数据结构</p>
@@ -649,7 +720,7 @@
 <h2 id="操作系统OS"><a href="#操作系统OS" class="headerlink" title="操作系统OS"></a>操作系统OS</h2><ol>
 <li><p>批处理程序</p>
 </li>
-<li><p>操作系统充当硬件和软件之间的媒介，操作系统提供API来抽象硬件，叫设备驱动程序，程序员使用标准化机制和输入输出硬件(I/O)交互</p>
+<li><p>操作系统充当硬件和软件之间的媒介，操作系统提供API来抽象硬件，叫设备驱动程序，程序员使用标准化机制和输入输出硬件(I&#x2F;O)交互</p>
 </li>
 <li><p>多任务处理</p>
 </li>
@@ -1003,7 +1074,7 @@
 <li>相比于http，https的网站搜索排名更高</li>
 </ul>
 <h3 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h3><p>TCP：面向链接，可靠，时延大，对系统资源要求较多，点对点</p>
-<p>UDP：无连接，不可靠，较好的实时性，适用于实时网络游戏，对系统资源要求较少，n对n(n&gt;=1)</p>
+<p>UDP：无连接，不可靠，较好的实时性，适用于实时网络游戏，对系统资源要求较少，n对n(n&gt;&#x3D;1)</p>
 <h3 id="网页从输入url到页面加载完成发生了什么"><a href="#网页从输入url到页面加载完成发生了什么" class="headerlink" title="网页从输入url到页面加载完成发生了什么"></a>网页从输入url到页面加载完成发生了什么</h3><ol>
 <li>浏览器的地址栏输入url并按下回车</li>
 <li>浏览器查找当前url是否有缓存，并检查缓存是否过期</li>
@@ -1024,7 +1095,7 @@
 <p>查询信息用get，登录注册用post</p>
 <h3 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h3><ul>
 <li>200：请求成功</li>
-<li>301/302/303：网站跳转，重定向</li>
+<li>301&#x2F;302&#x2F;303：网站跳转，重定向</li>
 <li>304：使用了本地缓存</li>
 <li>400：语义错误</li>
 <li>401：需要用户验证</li>
@@ -1045,7 +1116,7 @@
 <li>web socket</li>
 </ol>
 <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="元素居中"><a href="#元素居中" class="headerlink" title="元素居中"></a>元素居中</h3><ol>
-<li>子绝父相，子元素position到中间，margin自身高度/宽度一半 或 transform: translate(-50%, -50%)</li>
+<li>子绝父相，子元素position到中间，margin自身高度&#x2F;宽度一半 或 transform: translate(-50%, -50%)</li>
 <li>子绝父相，子元素margin: auto</li>
 <li>父元素弹性盒子flex，justify-content: center; align-items: center;</li>
 <li>text-align: center; vertical-align: middle(行内元素)</li>
@@ -1058,7 +1129,7 @@
 <li>sticky: 粘性定位，元素在超过特定阈值前是相对定位，超过后是固定定位</li>
 <li>inherit: 继承父元素的position</li>
 </ol>
-<h3 id="CSS选择器优先级"><a href="#CSS选择器优先级" class="headerlink" title="CSS选择器优先级"></a>CSS选择器优先级</h3><p>!important &gt; 内联 &gt; id选择器 &gt; [伪]类/属性 &gt; [伪]元素/关系 &gt; 通配符</p>
+<h3 id="CSS选择器优先级"><a href="#CSS选择器优先级" class="headerlink" title="CSS选择器优先级"></a>CSS选择器优先级</h3><p>!important &gt; 内联 &gt; id选择器 &gt; [伪]类&#x2F;属性 &gt; [伪]元素&#x2F;关系 &gt; 通配符</p>
 <p>important，1000,0100,0010,0001，0</p>
 <h3 id="边距重叠"><a href="#边距重叠" class="headerlink" title="边距重叠"></a>边距重叠</h3><p>如果两个盒子设置了边距，那么在垂直方向上，这两个盒子的边距会发生重叠</p>
 <ul>
@@ -1078,7 +1149,7 @@
 <li>使用after伪元素（推荐）</li>
 <li>使用before和after双伪元素（推荐 ）</li>
 </ol>
-<h3 id="两栏布局，三栏-圣杯-双飞翼布局"><a href="#两栏布局，三栏-圣杯-双飞翼布局" class="headerlink" title="两栏布局，三栏/圣杯/双飞翼布局"></a>两栏布局，三栏/圣杯/双飞翼布局</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43638968/article/details/107919835">https://blog.csdn.net/weixin_43638968/article/details/107919835</a></p>
+<h3 id="两栏布局，三栏-x2F-圣杯-x2F-双飞翼布局"><a href="#两栏布局，三栏-x2F-圣杯-x2F-双飞翼布局" class="headerlink" title="两栏布局，三栏&#x2F;圣杯&#x2F;双飞翼布局"></a>两栏布局，三栏&#x2F;圣杯&#x2F;双飞翼布局</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43638968/article/details/107919835">https://blog.csdn.net/weixin_43638968/article/details/107919835</a></p>
 <h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><ol>
 <li>flex-direction</li>
 <li>flex-wrap</li>
@@ -1103,13 +1174,13 @@
 <p>background-size：规定背景图片的尺寸（cover：填充；100% 100%：拉伸）<br>background-origin：规定背景图片的定位区域 (可放置于content-box、padding-box 或 border-box 区域)</p>
 </blockquote>
 <blockquote>
-<p>border-radius：圆角<br>box-shadow / text-shadow：阴影<br>border-image：边框图片</p>
+<p>border-radius：圆角<br>box-shadow &#x2F; text-shadow：阴影<br>border-image：边框图片</p>
 </blockquote>
 <ol start="3">
 <li>@media 媒体查询</li>
 <li>@font-face 自定义字体</li>
 <li>@keyframes 创建动画 animation 设置动画</li>
-<li>2D/3D转换：rotate旋转、scale缩放、translate位移、skew倾斜</li>
+<li>2D&#x2F;3D转换：rotate旋转、scale缩放、translate位移、skew倾斜</li>
 <li>transition过渡动画</li>
 <li>渐变效果</li>
 <li>box-sizing</li>
@@ -1165,7 +1236,7 @@
 <ul>
 <li><p>property只是一个JS对象的属性的修改  </p>
 </li>
-<li><p>Attribute是对html标签属性的修改 </p>
+<li><p>Attribute是对html标签属性的修改</p>
 </li>
 </ul>
 <p>DOM性能优化</p>
@@ -1183,7 +1254,7 @@
 <h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h3 id="实例和组件定义data的区别"><a href="#实例和组件定义data的区别" class="headerlink" title="实例和组件定义data的区别"></a>实例和组件定义data的区别</h3><p>实例中的data可以是对象，也可以是函数</p>
 <p>组件中的data只能是函数，目的是防止多个组件实例共用一个data对象，产生数据污染</p>
 <h3 id="双向绑定原理"><a href="#双向绑定原理" class="headerlink" title="双向绑定原理"></a>双向绑定原理</h3><p>vue是通过数据劫持和发布者-订阅者模式的方式，通过Object.defineProperty来劫持各个属性的setter、getter，在数据变动时发布消息给订阅者，触发相应的监听回调来渲染视图</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>总共分为8个阶段，包括创建前/后，载入前/后，更新前/后，销毁前/后</p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>总共分为8个阶段，包括创建前&#x2F;后，载入前&#x2F;后，更新前&#x2F;后，销毁前&#x2F;后</p>
 <h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>Model-View-ViewModel</p>
 <p>当数据发生改变时，视图也会发生改变，反之亦然</p>
 <p>view 可以通过事件绑定(或v-model指令)的方式影响 model，model 可以通过数据绑定的形式影响到view，viewModel是把 model 和 view 连起来的连接器</p>
@@ -1306,7 +1377,7 @@
 <tr>
 <td align="center">价格</td>
 <td align="center">一般&lt;100</td>
-<td align="center">一般&gt;=100</td>
+<td align="center">一般&gt;&#x3D;100</td>
 </tr>
 </tbody></table>
 <img src="/2020/11/21/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98%E5%AF%BC%E8%AE%BA/board1.jpg" class="">
@@ -1323,7 +1394,7 @@
 <p>如果要用一个词形容青轴，那我觉得是“节奏感”，无论是玩游戏还是打字 青轴咔哒咔哒的声音和段落感都会给你一个“按键已经触发了”的反馈，能让你有一个非常舒服的节奏感。</p>
 <h4 id="茶轴："><a href="#茶轴：" class="headerlink" title="茶轴："></a><strong>茶轴：</strong></h4><p>茶轴是一种比较中庸的轴，也被称为“最没有特色的轴”，它有一点点的那种若有若无的段落感，但远不如青轴那么清脆，以至于有人说茶轴的手感就像高级一点的薄膜键盘。</p>
 <p>它比黑轴要轻，比青轴要安静，因此你可以说它啥也不是，也可以说它二者兼具。（手感这问题完全因人而异，要辩证地看待）</p>
-<h4 id="红轴："><a href="#红轴：" class="headerlink" title="红轴："></a><strong>红轴：</strong></h4><p>红轴也是一种非常受欢迎的轴，它其实就是换了小弹力弹簧的黑轴，力度比黑轴小了1/4。</p>
+<h4 id="红轴："><a href="#红轴：" class="headerlink" title="红轴："></a><strong>红轴：</strong></h4><p>红轴也是一种非常受欢迎的轴，它其实就是换了小弹力弹簧的黑轴，力度比黑轴小了1&#x2F;4。</p>
 <p>手感柔软、轻盈。</p>
 <p>打字时会有种指间飞舞的感觉，很适合长时间打字和高速录入，同时红轴触发快，也能很好的兼顾到游戏。</p>
 <p>所以红轴也很适合新手购买 。</p>
@@ -1346,10 +1417,10 @@
 <tbody><tr>
 <td>轴体类别</td>
 <td>\</td>
-<td>橙轴/粉轴</td>
+<td>橙轴&#x2F;粉轴</td>
 <td>\</td>
-<td>蓝轴/橙轴/粉轴</td>
-<td>金粉轴/金茶轴/月白轴/金红轴</td>
+<td>蓝轴&#x2F;橙轴&#x2F;粉轴</td>
+<td>金粉轴&#x2F;金茶轴&#x2F;月白轴&#x2F;金红轴</td>
 </tr>
 <tr>
 <td>风评分数</td>
@@ -1369,8 +1440,8 @@
 </tr>
 </tbody></table>
 <p>国产轴的厂家前期都是模仿樱桃设计生产轴体，所以樱桃轴也被称为“原厂轴”。国产轴经过几年的发展有些已经能自己设计生产轴体了。最近两年（2018-2020）樱桃轴开始停滞不前，国产轴不断进步，这江山可能八二分或七三分了吧。其中TTC轴单价达到2.5元一颗，高于CHERRY樱桃的2元。</p>
-<p><strong>小故事1：</strong>2020年双十一期间，akko牌子的TTC轴体键盘被哄抢而空，其中TTC金粉轴、金茶轴、月白轴极受欢迎（受欢迎程度：金粉轴&gt;金茶轴&gt;月白轴）。主要原因（跟风/黄牛）不是因为akko有多厉害，而是因为较低的价格可以买到ttc轴，几乎是买轴送键盘。一时间akko这个三线牌子势如破竹，当然不排除有水军炒作的成分，网友们收到货后，akko风评峰回路转，因其拉跨的质量/品控被称为cjb。把屏幕后的小编逗笑了。</p>
-<p><strong>小故事2：</strong>有部分网友称2019年开始，樱桃轴品控下滑，出现弹簧音，而国产轴已经长大，不逊色于樱桃轴。小编认为，对于新手，在对国产轴不充分了解/国产轴完全成熟之前，还是买经典樱桃轴更为保险。</p>
+<p><strong>小故事1：</strong>2020年双十一期间，akko牌子的TTC轴体键盘被哄抢而空，其中TTC金粉轴、金茶轴、月白轴极受欢迎（受欢迎程度：金粉轴&gt;金茶轴&gt;月白轴）。主要原因（跟风&#x2F;黄牛）不是因为akko有多厉害，而是因为较低的价格可以买到ttc轴，几乎是买轴送键盘。一时间akko这个三线牌子势如破竹，当然不排除有水军炒作的成分，网友们收到货后，akko风评峰回路转，因其拉跨的质量&#x2F;品控被称为cjb。把屏幕后的小编逗笑了。</p>
+<p><strong>小故事2：</strong>有部分网友称2019年开始，樱桃轴品控下滑，出现弹簧音，而国产轴已经长大，不逊色于樱桃轴。小编认为，对于新手，在对国产轴不充分了解&#x2F;国产轴完全成熟之前，还是买经典樱桃轴更为保险。</p>
 <p>目前高端的机械键盘基本都是使用的樱桃轴，一些厂家也把樱桃轴作为卖点，足可见樱桃轴，在机械键盘中的地位。</p>
 <p>使用国产轴的机械键盘由于竞争力不足，价格一般会较便宜，在300元以下；</p>
 <p>而使用樱桃轴的机械键盘价格会在300元以上，有的甚至能卖上千元。</p>
@@ -1421,7 +1492,7 @@
 <p>对于新手来说，这些都能用，不用纠结于此。（小编懒）</p>
 <h3 id="1-3-4-键帽高度"><a href="#1-3-4-键帽高度" class="headerlink" title="1.3.4 键帽高度"></a>1.3.4 键帽高度</h3><p>新手玩家无需考虑</p>
 <h2 id="1-4-配列"><a href="#1-4-配列" class="headerlink" title="1.4 配列"></a>1.4 配列</h2><p>即键盘有多少个按键。</p>
-<p>按键排布方式，常见的配列有100%全尺寸配列（104/108键），80%配列（87键），60%配列（61键），不常见的75%配列（84键），40%配列（47键）等等。</p>
+<p>按键排布方式，常见的配列有100%全尺寸配列（104&#x2F;108键），80%配列（87键），60%配列（61键），不常见的75%配列（84键），40%配列（47键）等等。</p>
 <p>看个人需求选择即可。</p>
 <h2 id="1-5-灯"><a href="#1-5-灯" class="headerlink" title="1.5 灯"></a>1.5 灯</h2><p>机械键盘有的没有灯光效果，有的有单色光，有的有RGB光，这些灯要加钱。雷蛇也因为其花里胡哨的灯被称为灯厂，买灯送键盘。非必需选项，看个人需求。</p>
 <h1 id="二、奇奇怪怪的术语"><a href="#二、奇奇怪怪的术语" class="headerlink" title="二、奇奇怪怪的术语"></a>二、奇奇怪怪的术语</h1><p><strong>键程</strong>：轴芯从开始按压到触底的总距离。</p>
@@ -1431,7 +1502,7 @@
 <p><strong>键位布局</strong>：按键排布方式，常用的是QWERTY布局，不常见的有Dvorak、Workman、Clomak等。</p>
 <p><strong>无钢</strong>：轴体不使用定位钢板直接焊接到PCB上，无钢键盘一般使用五脚轴来让轴体更稳定；</p>
 <p><strong>五脚轴：</strong>轴体接触PCB一面有五个脚，由两个针脚和三个固定柱组成，相应的有三脚轴，由两个针脚和一个固定柱组成。</p>
-<p><strong>上/下灯位</strong>：指键盘背光灯位是靠轴体上方还是下方，下灯位一般采用侧刻透光键帽；</p>
+<p><strong>上&#x2F;下灯位</strong>：指键盘背光灯位是靠轴体上方还是下方，下灯位一般采用侧刻透光键帽；</p>
 <p><strong>热插拔</strong>：指轴体通过轴座等其他方式固定到键盘上，可以随时插拔；</p>
 <p><strong>发烧</strong>：疯狂的迷恋某种东西，并买买买，比如键盘发烧友、耳机发烧友；</p>
 <p><strong>无冲</strong>：多个按键同时按下都可以触发，全键无冲为所有按键都可以同时触发；</p>
@@ -1449,7 +1520,7 @@
 <h2 id="3-2-牌子及型号"><a href="#3-2-牌子及型号" class="headerlink" title="3.2 牌子及型号"></a>3.2 牌子及型号</h2><p>不同价位对应不同牌子。直接从印象里推荐几个经典的吧（极其不严谨，仅供参考）</p>
 <p>100左右：雷柏V500PRO、达尔优机械师合金板，日常价109-119，活动会降到89-99，土豪随意</p>
 <p>100-200：无</p>
-<p>200-400：樱桃Cherry MX1.0、ikbc C87/104/108（C表示C系列，87表示87配列）、ikbc F87/F108、高斯 GS87C/104C、罗技K845</p>
+<p>200-400：樱桃Cherry MX1.0、ikbc C87&#x2F;104&#x2F;108（C表示C系列，87表示87配列）、ikbc F87&#x2F;F108、高斯 GS87C&#x2F;104C、罗技K845</p>
 <p>400-600：罗技G610、akko 3108（颜值不错，品控较差）</p>
 <p>还有阿米洛、静电容等偏高端的产品不再推荐，毕竟此文章暂时不适用于高玩。</p>
 <p>忘说了，买键盘还要考虑是质量优先还是颜值优先，这方面可以多做功课。由于小编较懒，就不展开论述了。懒的同学直接对着京东销量高的几款买就行了。</p>
@@ -1500,11 +1571,22 @@
   </footer>
 
   
-  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://npm.elemecdn.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
+  
 
 
 

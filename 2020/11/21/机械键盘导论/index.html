@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
-
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -15,10 +16,10 @@
 
 
 
-<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一、基础知识入门介绍1.1 薄膜键盘和机械键盘大部分我们接触到的键盘都是薄膜键盘，薄膜键盘内部有三层线路板，上下两层印有导电线路，中间的隔层则是绝缘层，键盘依靠按键下的硅胶碗按下到底，让键盘第一层与第三层接触，触发信号。由于键盘内部的核心线路均设计在薄膜材料上，所以被称为薄膜键盘。 薄膜是所有按键连成一片的整体，因此会发现若S键坏了，其四周的WAD键也会有点问题。 机械键盘的工作原理则是每按键下均">
 <meta property="og:type" content="article">
@@ -54,6 +55,11 @@
 
 
 
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -63,8 +69,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -83,7 +89,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -98,18 +104,24 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+      <!-- require APlayer -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+      <!-- require MetingJS-->
+      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+      <!--qq音乐-->
+      <meting-js
+        auto="https://y.qq.com/n/yqq/playlist/8756623989.html#stat=y_new.playlist.pic_click">
+      </meting-js>
+
+
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -127,42 +139,31 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">ACorCC</p>
   <div class="site-description" itemprop="description">这是ACorCC的个人网站，包含网络日志、心情记录等等</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
   </nav>
 </div>
 
-
-
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  </aside>
 
+
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -267,7 +268,7 @@
 <tr>
 <td align="center">价格</td>
 <td align="center">一般&lt;100</td>
-<td align="center">一般&gt;=100</td>
+<td align="center">一般&gt;&#x3D;100</td>
 </tr>
 </tbody></table>
 <img src="/2020/11/21/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98%E5%AF%BC%E8%AE%BA/board1.jpg" class="">
@@ -284,7 +285,7 @@
 <p>如果要用一个词形容青轴，那我觉得是“节奏感”，无论是玩游戏还是打字 青轴咔哒咔哒的声音和段落感都会给你一个“按键已经触发了”的反馈，能让你有一个非常舒服的节奏感。</p>
 <h4 id="茶轴："><a href="#茶轴：" class="headerlink" title="茶轴："></a><strong>茶轴：</strong></h4><p>茶轴是一种比较中庸的轴，也被称为“最没有特色的轴”，它有一点点的那种若有若无的段落感，但远不如青轴那么清脆，以至于有人说茶轴的手感就像高级一点的薄膜键盘。</p>
 <p>它比黑轴要轻，比青轴要安静，因此你可以说它啥也不是，也可以说它二者兼具。（手感这问题完全因人而异，要辩证地看待）</p>
-<h4 id="红轴："><a href="#红轴：" class="headerlink" title="红轴："></a><strong>红轴：</strong></h4><p>红轴也是一种非常受欢迎的轴，它其实就是换了小弹力弹簧的黑轴，力度比黑轴小了1/4。</p>
+<h4 id="红轴："><a href="#红轴：" class="headerlink" title="红轴："></a><strong>红轴：</strong></h4><p>红轴也是一种非常受欢迎的轴，它其实就是换了小弹力弹簧的黑轴，力度比黑轴小了1&#x2F;4。</p>
 <p>手感柔软、轻盈。</p>
 <p>打字时会有种指间飞舞的感觉，很适合长时间打字和高速录入，同时红轴触发快，也能很好的兼顾到游戏。</p>
 <p>所以红轴也很适合新手购买 。</p>
@@ -307,10 +308,10 @@
 <tbody><tr>
 <td>轴体类别</td>
 <td>\</td>
-<td>橙轴/粉轴</td>
+<td>橙轴&#x2F;粉轴</td>
 <td>\</td>
-<td>蓝轴/橙轴/粉轴</td>
-<td>金粉轴/金茶轴/月白轴/金红轴</td>
+<td>蓝轴&#x2F;橙轴&#x2F;粉轴</td>
+<td>金粉轴&#x2F;金茶轴&#x2F;月白轴&#x2F;金红轴</td>
 </tr>
 <tr>
 <td>风评分数</td>
@@ -330,8 +331,8 @@
 </tr>
 </tbody></table>
 <p>国产轴的厂家前期都是模仿樱桃设计生产轴体，所以樱桃轴也被称为“原厂轴”。国产轴经过几年的发展有些已经能自己设计生产轴体了。最近两年（2018-2020）樱桃轴开始停滞不前，国产轴不断进步，这江山可能八二分或七三分了吧。其中TTC轴单价达到2.5元一颗，高于CHERRY樱桃的2元。</p>
-<p><strong>小故事1：</strong>2020年双十一期间，akko牌子的TTC轴体键盘被哄抢而空，其中TTC金粉轴、金茶轴、月白轴极受欢迎（受欢迎程度：金粉轴&gt;金茶轴&gt;月白轴）。主要原因（跟风/黄牛）不是因为akko有多厉害，而是因为较低的价格可以买到ttc轴，几乎是买轴送键盘。一时间akko这个三线牌子势如破竹，当然不排除有水军炒作的成分，网友们收到货后，akko风评峰回路转，因其拉跨的质量/品控被称为cjb。把屏幕后的小编逗笑了。</p>
-<p><strong>小故事2：</strong>有部分网友称2019年开始，樱桃轴品控下滑，出现弹簧音，而国产轴已经长大，不逊色于樱桃轴。小编认为，对于新手，在对国产轴不充分了解/国产轴完全成熟之前，还是买经典樱桃轴更为保险。</p>
+<p><strong>小故事1：</strong>2020年双十一期间，akko牌子的TTC轴体键盘被哄抢而空，其中TTC金粉轴、金茶轴、月白轴极受欢迎（受欢迎程度：金粉轴&gt;金茶轴&gt;月白轴）。主要原因（跟风&#x2F;黄牛）不是因为akko有多厉害，而是因为较低的价格可以买到ttc轴，几乎是买轴送键盘。一时间akko这个三线牌子势如破竹，当然不排除有水军炒作的成分，网友们收到货后，akko风评峰回路转，因其拉跨的质量&#x2F;品控被称为cjb。把屏幕后的小编逗笑了。</p>
+<p><strong>小故事2：</strong>有部分网友称2019年开始，樱桃轴品控下滑，出现弹簧音，而国产轴已经长大，不逊色于樱桃轴。小编认为，对于新手，在对国产轴不充分了解&#x2F;国产轴完全成熟之前，还是买经典樱桃轴更为保险。</p>
 <p>目前高端的机械键盘基本都是使用的樱桃轴，一些厂家也把樱桃轴作为卖点，足可见樱桃轴，在机械键盘中的地位。</p>
 <p>使用国产轴的机械键盘由于竞争力不足，价格一般会较便宜，在300元以下；</p>
 <p>而使用樱桃轴的机械键盘价格会在300元以上，有的甚至能卖上千元。</p>
@@ -382,7 +383,7 @@
 <p>对于新手来说，这些都能用，不用纠结于此。（小编懒）</p>
 <h3 id="1-3-4-键帽高度"><a href="#1-3-4-键帽高度" class="headerlink" title="1.3.4 键帽高度"></a>1.3.4 键帽高度</h3><p>新手玩家无需考虑</p>
 <h2 id="1-4-配列"><a href="#1-4-配列" class="headerlink" title="1.4 配列"></a>1.4 配列</h2><p>即键盘有多少个按键。</p>
-<p>按键排布方式，常见的配列有100%全尺寸配列（104/108键），80%配列（87键），60%配列（61键），不常见的75%配列（84键），40%配列（47键）等等。</p>
+<p>按键排布方式，常见的配列有100%全尺寸配列（104&#x2F;108键），80%配列（87键），60%配列（61键），不常见的75%配列（84键），40%配列（47键）等等。</p>
 <p>看个人需求选择即可。</p>
 <h2 id="1-5-灯"><a href="#1-5-灯" class="headerlink" title="1.5 灯"></a>1.5 灯</h2><p>机械键盘有的没有灯光效果，有的有单色光，有的有RGB光，这些灯要加钱。雷蛇也因为其花里胡哨的灯被称为灯厂，买灯送键盘。非必需选项，看个人需求。</p>
 <h1 id="二、奇奇怪怪的术语"><a href="#二、奇奇怪怪的术语" class="headerlink" title="二、奇奇怪怪的术语"></a>二、奇奇怪怪的术语</h1><p><strong>键程</strong>：轴芯从开始按压到触底的总距离。</p>
@@ -392,7 +393,7 @@
 <p><strong>键位布局</strong>：按键排布方式，常用的是QWERTY布局，不常见的有Dvorak、Workman、Clomak等。</p>
 <p><strong>无钢</strong>：轴体不使用定位钢板直接焊接到PCB上，无钢键盘一般使用五脚轴来让轴体更稳定；</p>
 <p><strong>五脚轴：</strong>轴体接触PCB一面有五个脚，由两个针脚和三个固定柱组成，相应的有三脚轴，由两个针脚和一个固定柱组成。</p>
-<p><strong>上/下灯位</strong>：指键盘背光灯位是靠轴体上方还是下方，下灯位一般采用侧刻透光键帽；</p>
+<p><strong>上&#x2F;下灯位</strong>：指键盘背光灯位是靠轴体上方还是下方，下灯位一般采用侧刻透光键帽；</p>
 <p><strong>热插拔</strong>：指轴体通过轴座等其他方式固定到键盘上，可以随时插拔；</p>
 <p><strong>发烧</strong>：疯狂的迷恋某种东西，并买买买，比如键盘发烧友、耳机发烧友；</p>
 <p><strong>无冲</strong>：多个按键同时按下都可以触发，全键无冲为所有按键都可以同时触发；</p>
@@ -410,7 +411,7 @@
 <h2 id="3-2-牌子及型号"><a href="#3-2-牌子及型号" class="headerlink" title="3.2 牌子及型号"></a>3.2 牌子及型号</h2><p>不同价位对应不同牌子。直接从印象里推荐几个经典的吧（极其不严谨，仅供参考）</p>
 <p>100左右：雷柏V500PRO、达尔优机械师合金板，日常价109-119，活动会降到89-99，土豪随意</p>
 <p>100-200：无</p>
-<p>200-400：樱桃Cherry MX1.0、ikbc C87/104/108（C表示C系列，87表示87配列）、ikbc F87/F108、高斯 GS87C/104C、罗技K845</p>
+<p>200-400：樱桃Cherry MX1.0、ikbc C87&#x2F;104&#x2F;108（C表示C系列，87表示87配列）、ikbc F87&#x2F;F108、高斯 GS87C&#x2F;104C、罗技K845</p>
 <p>400-600：罗技G610、akko 3108（颜值不错，品控较差）</p>
 <p>还有阿米洛、静电容等偏高端的产品不再推荐，毕竟此文章暂时不适用于高玩。</p>
 <p>忘说了，买键盘还要考虑是质量优先还是颜值优先，这方面可以多做功课。由于小编较懒，就不展开论述了。懒的同学直接对着京东销量高的几款买就行了。</p>
@@ -471,11 +472,22 @@
   </footer>
 
   
-  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://npm.elemecdn.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
+  
 
 
 
