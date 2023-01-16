@@ -5,7 +5,7 @@ https://acorcc.github.io/
 - `hexo new 文章名称` 生成新文章
 - `hexo g` 将文章生成网页
 - `hexo d` 部署网页到服务器上
-- `hexo clean` 清楚已生成的网页
+- `hexo clean` 清除已生成的网页
 
 # git操作
 - `git add .`
@@ -13,4 +13,4 @@ https://acorcc.github.io/
 - `git push`
 
 # 分支
-master分支用于存放生成的网站，hexo分支用于存放网站源码
+main分支用于存放生成的网站，hexo分支用于存放网站源码
