@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前端简述前端解决什么问题利用Web技术栈（HTML、CSS、JS、HTTP）解决多端（PC&#x2F;移动浏览器、客户端&#x2F;小程序、VR&#x2F;AR等）图形界面下人机交互的问题 前端应该关注哪些方面 功能，解决什么问题，满足需求 美观，界面是否好看 无障碍，是否对于所有人都可以用（如色盲症） 安全，保证用户数据安全，是否存在漏洞可能被利用 性能，网站速度快，动画流畅，用户体验好 兼容，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端与HTML">
+<meta property="og:url" content="https://acorcc.github.io/2023/01/16/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML/index.html">
+<meta property="og:site_name" content="ACorCC的个人网站">
+<meta property="og:description" content="前端简述前端解决什么问题利用Web技术栈（HTML、CSS、JS、HTTP）解决多端（PC&#x2F;移动浏览器、客户端&#x2F;小程序、VR&#x2F;AR等）图形界面下人机交互的问题 前端应该关注哪些方面 功能，解决什么问题，满足需求 美观，界面是否好看 无障碍，是否对于所有人都可以用（如色盲症） 安全，保证用户数据安全，是否存在漏洞可能被利用 性能，网站速度快，动画流畅，用户体验好 兼容，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-16T07:47:02.000Z">
+<meta property="article:modified_time" content="2023-01-16T10:13:28.343Z">
+<meta property="article:author" content="ACorCC">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://acorcc.github.io/2023/01/16/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://acorcc.github.io/2023/01/16/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML/","path":"2023/01/16/前端与HTML/","title":"前端与HTML"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端与HTML | ACorCC的个人网站</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ACorCC的个人网站</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+      <!-- require APlayer -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+      <!-- require MetingJS-->
+      <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+      <!--qq音乐-->
+      <meting-js
+        auto="https://y.qq.com/n/yqq/playlist/8756623989.html#stat=y_new.playlist.pic_click">
+      </meting-js>
+
+
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%AE%80%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">前端简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">前端解决什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%BA%94%E8%AF%A5%E5%85%B3%E6%B3%A8%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2"><span class="nav-number">1.2.</span> <span class="nav-text">前端应该关注哪些方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="nav-number">1.3.</span> <span class="nav-text">前端的边界</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHTML"><span class="nav-number">2.1.</span> <span class="nav-text">什么是HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%A0%87%E7%AD%BE"><span class="nav-number">2.2.</span> <span class="nav-text">常见标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90HTML"><span class="nav-number">2.3.</span> <span class="nav-text">解析HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E8%AF%AD%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">HTML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E8%8C%83"><span class="nav-number">2.4.1.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number">2.4.2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">2.4.3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">2.4.4.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%AA%92%E4%BD%93"><span class="nav-number">2.4.5.</span> <span class="nav-text">多媒体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">2.4.6.</span> <span class="nav-text">输入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E5%8C%96"><span class="nav-number">2.5.</span> <span class="nav-text">语义化</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ACorCC</p>
+  <div class="site-description" itemprop="description">这是ACorCC的个人网站，包含网络日志、心情记录等等</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/16/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="前端与HTML | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端与HTML
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-01-16 15:47:02 / 修改时间：18:13:28" itemprop="dateCreated datePublished" datetime="2023-01-16T15:47:02+08:00">2023-01-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前端简述"><a href="#前端简述" class="headerlink" title="前端简述"></a>前端简述</h1><h2 id="前端解决什么问题"><a href="#前端解决什么问题" class="headerlink" title="前端解决什么问题"></a>前端解决什么问题</h2><p>利用<strong>Web技术栈</strong>（HTML、CSS、JS、HTTP）解决<strong>多端</strong>（PC&#x2F;移动浏览器、客户端&#x2F;小程序、VR&#x2F;AR等）<strong>图形界面下人机交互</strong>的问题</p>
+<h2 id="前端应该关注哪些方面"><a href="#前端应该关注哪些方面" class="headerlink" title="前端应该关注哪些方面"></a>前端应该关注哪些方面</h2><ul>
+<li><strong>功能</strong>，解决什么问题，满足需求</li>
+<li><strong>美观</strong>，界面是否好看</li>
+<li><strong>无障碍</strong>，是否对于所有人都可以用（如色盲症）</li>
+<li><strong>安全</strong>，保证用户数据安全，是否存在漏洞可能被利用</li>
+<li><strong>性能</strong>，网站速度快，动画流畅，用户体验好</li>
+<li><strong>兼容</strong>，网页是否能在各种各样的设备上使用，如电脑和手机</li>
+<li><strong>体验</strong>，用户对产品的直观感受取决于前端</li>
+</ul>
+<h2 id="前端的边界"><a href="#前端的边界" class="headerlink" title="前端的边界"></a>前端的边界</h2><p>前端能做的东西远远超出于页面的范畴</p>
+<ul>
+<li>Node.js能开发服务端的应用</li>
+<li>Electron、React Native能开发客户端的应用</li>
+<li>Web RTC进行P2P的在线传输，实现多人会议</li>
+<li>WebGL开发3D游戏</li>
+<li>WebASSEMBLY可以把C++或Rust编写的代码编译成可以运行在浏览器的代码</li>
+</ul>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="什么是HTML"><a href="#什么是HTML" class="headerlink" title="什么是HTML"></a>什么是HTML</h2><p>HTML，**超文本标记语言(HyperText Markup Language, HTML)**，超文本包括图片、标题、链接、表格等，标记语言即用标签来表示某个类型内容，例如用<code>&lt;h1&gt;一级标题&lt;/h1&gt;</code>来表示一级标题。</p>
+<h2 id="常见标签"><a href="#常见标签" class="headerlink" title="常见标签"></a>常见标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>页面标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>一级标题 <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>段落内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>&lt;!doctype html&gt;</code> 表示当前使用的html代码是哪一个版本，浏览器会据此决定使用哪一种浏览模式，如果不写，浏览器会以一种比较老旧的模式即怪异模式去渲染页面，造成页面展示效果和实际不太符合。</p>
+<p><code>&lt;html&gt;&lt;/html&gt;</code> 文档的根标签，所有其它标签都写在这里面。</p>
+<p><code>&lt;head&gt;&lt;/head&gt;</code> 里面放一些页面的原数据，即页面需要、但不需要直接呈现给用户的信息，如页面的标题 <code>&lt;title&gt;&lt;/title&gt;</code> 、编码格式 <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code> 。</p>
+<p><code>&lt;body&gt;&lt;/body&gt;</code> 里面放需要真正呈现给用户的信息。</p>
+<h2 id="解析HTML"><a href="#解析HTML" class="headerlink" title="解析HTML"></a>解析HTML</h2><p>浏览器获取HTML代码后，会将其解析为<strong>DOM树</strong>，document为根节点，html为其直接子节点，html有head和body的直接子节点，以此类推。每个节点称为<strong>DOM节点</strong>。</p>
+<h2 id="HTML语法"><a href="#HTML语法" class="headerlink" title="HTML语法"></a>HTML语法</h2><h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><ul>
+<li>标签和属性不区分大小写，推荐<strong>小写</strong></li>
+<li>空标签可以不闭合，比如input、meta</li>
+<li>属性值推荐用<strong>双引号</strong>包裹</li>
+<li>某些属性值可以省略，比如required、readonly</li>
+</ul>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><ul>
+<li>h1~h6，共六级标题</li>
+</ul>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
+<li><p>有序列表，ol -li</p>
+</li>
+<li><p>无序列表，ul-li</p>
+</li>
+<li><p>dl-dt-dd，dt为key，dd为value，一个dt可对应多个dd</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>水果：<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>西瓜<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>动物：<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>兔子<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>牛<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><ul>
+<li><code>&lt;a href=&quot;http://www.baidu.com&quot;&gt;&lt;/a&gt;</code></li>
+</ul>
+<h3 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h3><ul>
+<li>img 图片</li>
+<li>audio 视频</li>
+<li>video 音频</li>
+</ul>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><ul>
+<li>input 输入框、范围、日期选择框、复选框等</li>
+<li>textarea 多行输入框</li>
+</ul>
+<h2 id="语义化"><a href="#语义化" class="headerlink" title="语义化"></a>语义化</h2><ul>
+<li>HTML中的<strong>元素</strong>、<strong>属性</strong>及<strong>属性值</strong>都拥有某些含义</li>
+<li>开发者应该遵循<strong>语义</strong>来编写HTML</li>
+</ul>
+<p>语义化的好处：</p>
+<ul>
+<li>代码可读性</li>
+<li>可维护性</li>
+<li>搜索引擎优化</li>
+<li>提升无障碍性</li>
+</ul>
+<p>应注重传达内容而不是样式。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/07/Git/" rel="prev" title="Git">
+                  <i class="fa fa-chevron-left"></i> Git
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ACorCC</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://npm.elemecdn.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
