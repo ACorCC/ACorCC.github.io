@@ -21,28 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Proxy设置全局代理123456789&#x2F;&#x2F; Clashgit config --global http.proxy 127.0.0.1:7890git config --global https.proxy 127.0.0.1:7890git config --global http.proxy 127.0.0.1:10809git config --global https.proxy 127">
+    <meta name="description" content="在开发中，如果有必要修改node_modules里的代码，有哪几种方法呢？哪种方法最好呢？ 第一种：直接改这种很容易理解，就是直接进node_modules中，找到相关包的代码，并修改相应位置代码，然后重启项目即可。但是这样做存在如下弊端：  只能是你自己本地用你修改的代码，其他人用不了； 下次npm install 之后之前修改的代码都会恢复原状；  第二种：独立维护一个包假如我使用了包A，它限">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git">
-<meta property="og:url" content="https://acorcc.github.io/2023/01/07/Git/index.html">
+<meta property="og:title" content="修改node_modelus里的代码">
+<meta property="og:url" content="https://acorcc.github.io/2023/02/04/%E4%BF%AE%E6%94%B9node-modelus%E9%87%8C%E7%9A%84%E4%BB%A3%E7%A0%81/index.html">
 <meta property="og:site_name" content="ACorCC的个人网站">
-<meta property="og:description" content="Proxy设置全局代理123456789&#x2F;&#x2F; Clashgit config --global http.proxy 127.0.0.1:7890git config --global https.proxy 127.0.0.1:7890git config --global http.proxy 127.0.0.1:10809git config --global https.proxy 127">
+<meta property="og:description" content="在开发中，如果有必要修改node_modules里的代码，有哪几种方法呢？哪种方法最好呢？ 第一种：直接改这种很容易理解，就是直接进node_modules中，找到相关包的代码，并修改相应位置代码，然后重启项目即可。但是这样做存在如下弊端：  只能是你自己本地用你修改的代码，其他人用不了； 下次npm install 之后之前修改的代码都会恢复原状；  第二种：独立维护一个包假如我使用了包A，它限">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-07T05:43:05.000Z">
-<meta property="article:modified_time" content="2023-02-04T13:45:28.054Z">
+<meta property="article:published_time" content="2023-02-04T15:05:50.000Z">
+<meta property="article:modified_time" content="2023-02-04T15:11:53.080Z">
 <meta property="article:author" content="ACorCC">
-<meta property="article:tag" content="blog">
+<meta property="article:tag" content="工程化">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://acorcc.github.io/2023/01/07/Git/">
+<link rel="canonical" href="https://acorcc.github.io/2023/02/04/%E4%BF%AE%E6%94%B9node-modelus%E9%87%8C%E7%9A%84%E4%BB%A3%E7%A0%81/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://acorcc.github.io/2023/01/07/Git/","path":"2023/01/07/Git/","title":"Git"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://acorcc.github.io/2023/02/04/%E4%BF%AE%E6%94%B9node-modelus%E9%87%8C%E7%9A%84%E4%BB%A3%E7%A0%81/","path":"2023/02/04/修改node-modelus里的代码/","title":"修改node_modelus里的代码"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Git | ACorCC的个人网站</title>
+<title>修改node_modelus里的代码 | ACorCC的个人网站</title>
   
 
 
@@ -128,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Proxy"><span class="nav-number">1.</span> <span class="nav-text">Proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">设置全局代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E4%BB%A3%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">清除代理</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%EF%BC%9A%E7%9B%B4%E6%8E%A5%E6%94%B9"><span class="nav-number">1.</span> <span class="nav-text">第一种：直接改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%EF%BC%9A%E7%8B%AC%E7%AB%8B%E7%BB%B4%E6%8A%A4%E4%B8%80%E4%B8%AA%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">第二种：独立维护一个包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%A7%8D-patch-package"><span class="nav-number">3.</span> <span class="nav-text">第三种: patch-package</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -174,7 +174,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/07/Git/">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/02/04/%E4%BF%AE%E6%94%B9node-modelus%E9%87%8C%E7%9A%84%E4%BB%A3%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,12 +187,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Git | ACorCC的个人网站">
+      <meta itemprop="name" content="修改node_modelus里的代码 | ACorCC的个人网站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Git
+          修改node_modelus里的代码
         </h1>
 
         <div class="post-meta-container">
@@ -202,15 +202,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-01-07 13:43:05" itemprop="dateCreated datePublished" datetime="2023-01-07T13:43:05+08:00">2023-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-02-04 21:45:28" itemprop="dateModified" datetime="2023-02-04T21:45:28+08:00">2023-02-04</time>
+      <time title="创建时间：2023-02-04 23:05:50 / 修改时间：23:11:53" itemprop="dateCreated datePublished" datetime="2023-02-04T23:05:50+08:00">2023-02-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -232,10 +226,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><h2 id="设置全局代理"><a href="#设置全局代理" class="headerlink" title="设置全局代理"></a>设置全局代理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// Clash</span><br><span class="line">git config --global http.proxy 127.0.0.1:7890</span><br><span class="line">git config --global https.proxy 127.0.0.1:7890</span><br><span class="line"></span><br><span class="line">git config --global http.proxy 127.0.0.1:10809</span><br><span class="line">git config --global https.proxy 127.0.0.1:10809</span><br><span class="line"></span><br><span class="line">git config --global http.proxy 127.0.0.1:4919</span><br><span class="line">git config --global https.proxy 127.0.0.1:4919</span><br></pre></td></tr></table></figure>
+        <p>在开发中，如果有必要修改node_modules里的代码，有哪几种方法呢？哪种方法最好呢？</p>
+<h1 id="第一种：直接改"><a href="#第一种：直接改" class="headerlink" title="第一种：直接改"></a>第一种：直接改</h1><p>这种很容易理解，就是直接进node_modules中，找到相关包的代码，并修改相应位置代码，然后重启项目即可。<br>但是这样做存在如下弊端：</p>
+<ol>
+<li>只能是你自己本地用你修改的代码，其他人用不了；</li>
+<li>下次npm install 之后之前修改的代码都会恢复原状；</li>
+</ol>
+<h1 id="第二种：独立维护一个包"><a href="#第二种：独立维护一个包" class="headerlink" title="第二种：独立维护一个包"></a>第二种：独立维护一个包</h1><p>假如我使用了包A，它限制了上传文件的格式，但是我的业务要求是放开所有限制，此时我可以这样：在原有包的基础上copy一个包B，，修改相关代码后把包B推送到npm上，此时我的项目中不需要原来的包了，用我刚维护的包B就可以了，这样就可以达到效果。以前我也是这么做的。这样做的缺点就是会增加维护的成本，当然个人认为这种成本可以忽略不计，因为我改完后很长时间从来没有再次改动过。</p>
+<h1 id="第三种-patch-package"><a href="#第三种-patch-package" class="headerlink" title="第三种: patch-package"></a>第三种: patch-package</h1><p>这是一个专门用来修改node_modules中包的代码的工具，使用方式也很简单：</p>
+<ol>
+<li>安装patch-package</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i patch-package</span><br></pre></td></tr></table></figure>
 
-<h2 id="清除代理"><a href="#清除代理" class="headerlink" title="清除代理"></a>清除代理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>修改node_modules</li>
+</ol>
+<p>比如我想修改包A，那么我直接在node_modules中修改，然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx patch-package A</span><br></pre></td></tr></table></figure>
 
+<p>这时候你的根目录下就会出现patches这个目录，里面会出现一个包A的补丁文件，这个文件大有用处！</p>
+<p>注意：记得要把 patches 这个目录提交到git或者svn</p>
+<p>这个时候你本地已经使用到了你修改后的代码了。那现在的问题是怎么让其他人也同步到你修改后的代码。</p>
+<ol start="3">
+<li>“postinstall”:“patch-package”</li>
+</ol>
+<p>在package.json的script中增加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;postinstall&quot;: &quot;patch-package&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这个命令的作用就是：当执行npm install的时候，会自动执行npm run postinstall这个命令，也就是执行patch-package，这时候就会去读取上面说的 patches目录，并将那些补丁打到对应的包里，达到同步修改代码的效果！！</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/leal_ch/article/details/126855790">https://blog.csdn.net/leal_ch/article/details/126855790</a></p>
 
     </div>
 
@@ -244,19 +264,19 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag"># 工程化</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/12/31/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" rel="prev" title="2022年度总结">
-                  <i class="fa fa-chevron-left"></i> 2022年度总结
+                <a href="/2023/02/04/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript/" rel="prev" title="如何写好JavaScript">
+                  <i class="fa fa-chevron-left"></i> 如何写好JavaScript
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/16/%E6%B7%B1%E5%85%A5CSS/" rel="next" title="深入CSS">
-                  深入CSS <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
