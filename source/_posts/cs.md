@@ -2,6 +2,8 @@
 title: cs
 date: 2022-11-23 18:22:05
 tags:
+categories:
+- [前端]
 ---
 
 # 计算机原理

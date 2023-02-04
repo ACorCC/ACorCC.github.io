@@ -2,6 +2,8 @@
 title: mysql
 date: 2022-08-18 20:02:49
 tags:
+categories:
+- [前端]
 ---
 
 # 在项目中使用mysql
