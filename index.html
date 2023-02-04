@@ -138,7 +138,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -157,6 +157,146 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/02/04/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/04/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript/" class="post-title-link" itemprop="url">如何写好JavaScript</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-02-04 15:00:16 / 修改时间：12:11:56" itemprop="dateCreated datePublished" datetime="2023-02-04T15:00:16+08:00">2023-02-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="HTML-x2F-CSS-x2F-JS-各司其责"><a href="#HTML-x2F-CSS-x2F-JS-各司其责" class="headerlink" title="HTML&#x2F;CSS&#x2F;JS 各司其责"></a>HTML&#x2F;CSS&#x2F;JS 各司其责</h1><ul>
+<li>避免不必要的由JS直接操作样式</li>
+<li>可以用class来表示状态</li>
+<li>纯展示类交互寻求零JS方案</li>
+</ul>
+<h1 id="组件封装"><a href="#组件封装" class="headerlink" title="组件封装"></a>组件封装</h1><p>组件设计的原则：封装线、正确性、扩展性、复用性</p>
+<p>实现组件的步骤：结构设计、展现效果、行为设计</p>
+<ul>
+<li><p>解耦&#x2F;插件化</p>
+<ul>
+<li><p>将控制元素抽取成插件</p>
+</li>
+<li><p>插件与组件之间通过<strong>依赖注入</strong>方式建立联系</p>
+</li>
+</ul>
+</li>
+<li><p>模板化</p>
+<ul>
+<li>将HTML模板化，更易于扩展</li>
+</ul>
+</li>
+<li><p>抽象化</p>
+<ul>
+<li>将组件通用模型抽象出来</li>
+</ul>
+</li>
+</ul>
+<h1 id="过程抽象"><a href="#过程抽象" class="headerlink" title="过程抽象"></a>过程抽象</h1><p>高阶函数HOF</p>
+<ul>
+<li>以函数作为参数</li>
+<li>以函数作为返回值</li>
+<li>常用于作为函数装饰器</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">HOF</span>(<span class="params">fn</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常用高阶函数</p>
+<ul>
+<li>once</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">once</span>(<span class="params">fn</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(fn) &#123;</span><br><span class="line">            <span class="keyword">const</span> ret = fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">            fn = <span class="literal">null</span></span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Throttle 节流</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn, time = <span class="number">500</span></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(timer == <span class="literal">null</span>) &#123;</span><br><span class="line">            fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">            timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;, time)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Debounce 防抖</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, dur</span>) &#123;</span><br><span class="line">    dur = dur || <span class="number">100</span></span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>)</span><br><span class="line">        &#125;, dur)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Consumer&#x2F;2 使多个相同的同步过程变成异步</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">consumer</span>(<span class="params">fn, time</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> tasks = [], timer</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        tasks.<span class="title function_">push</span>(fn.<span class="title function_">bind</span>(<span class="variable language_">this</span>, ...args))</span><br><span class="line">        <span class="keyword">if</span>(timer == <span class="literal">null</span>) &#123;</span><br><span class="line">            timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                tasks.<span class="title function_">shift</span>().<span class="title function_">call</span>(<span class="variable language_">this</span>)</span><br><span class="line">                <span class="keyword">if</span>(tasks.<span class="property">length</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="built_in">clearInterval</span>(timer)</span><br><span class="line">                    timer = <span class="literal">null</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, time)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>Iterative 迭代调用fn函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">iterative</span>(<span class="params">fn</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">subject, ...rest</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="title function_">isIterable</span>(subject)) &#123;</span><br><span class="line">            <span class="keyword">const</span> ret = []</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> obj <span class="keyword">of</span> subject) &#123;</span><br><span class="line">                ret.<span class="title function_">push</span>(fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, [obj, ...rest]))</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ret</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, [subject, ...rest])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -304,7 +444,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/07/Git/">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/16/%E6%B7%B1%E5%85%A5CSS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -322,7 +462,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/01/07/Git/" class="post-title-link" itemprop="url">Git</a>
+          <a href="/2023/01/16/%E6%B7%B1%E5%85%A5CSS/" class="post-title-link" itemprop="url">深入CSS</a>
         </h2>
 
         <div class="post-meta-container">
@@ -333,93 +473,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-01-07 13:43:05" itemprop="dateCreated datePublished" datetime="2023-01-07T13:43:05+08:00">2023-01-07</time>
+      <time title="创建时间：2023-01-16 15:47:02" itemprop="dateCreated datePublished" datetime="2023-01-16T15:47:02+08:00">2023-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-16 20:47:54" itemprop="dateModified" datetime="2023-01-16T20:47:54+08:00">2023-01-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><h2 id="设置全局代理"><a href="#设置全局代理" class="headerlink" title="设置全局代理"></a>设置全局代理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// Clash</span><br><span class="line">git config --global http.proxy 127.0.0.1:7890</span><br><span class="line">git config --global https.proxy 127.0.0.1:7890</span><br><span class="line"></span><br><span class="line">git config --global http.proxy 127.0.0.1:10809</span><br><span class="line">git config --global https.proxy 127.0.0.1:10809</span><br><span class="line"></span><br><span class="line">git config --global http.proxy 127.0.0.1:4919</span><br><span class="line">git config --global https.proxy 127.0.0.1:4919</span><br></pre></td></tr></table></figure>
-
-<h2 id="清除代理"><a href="#清除代理" class="headerlink" title="清除代理"></a>清除代理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/06/%E6%B7%B1%E5%85%A5CSS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ACorCC">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ACorCC的个人网站">
-      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ACorCC的个人网站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/01/06/%E6%B7%B1%E5%85%A5CSS/" class="post-title-link" itemprop="url">深入CSS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-01-06 15:47:02" itemprop="dateCreated datePublished" datetime="2023-01-06T15:47:02+08:00">2023-01-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-16 20:41:25" itemprop="dateModified" datetime="2023-01-16T20:41:25+08:00">2023-01-16</time>
+      <time title="修改时间：2023-01-18 22:44:09" itemprop="dateModified" datetime="2023-01-18T22:44:09+08:00">2023-01-18</time>
     </span>
 
   
@@ -443,7 +504,7 @@
 <li><p><strong>内联</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;margin: 1em 0&quot;</span>&gt;</span>Example Content<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="CSS工作机制"><a href="#CSS工作机制" class="headerlink" title="CSS工作机制"></a>CSS工作机制</h2><h2 id="选择器Selector"><a href="#选择器Selector" class="headerlink" title="选择器Selector"></a>选择器Selector</h2><h3 id="单个选择器"><a href="#单个选择器" class="headerlink" title="单个选择器"></a>单个选择器</h3><ul>
+<h2 id="选择器Selector"><a href="#选择器Selector" class="headerlink" title="选择器Selector"></a>选择器Selector</h2><h3 id="单个选择器"><a href="#单个选择器" class="headerlink" title="单个选择器"></a>单个选择器</h3><ul>
 <li>通配选择器 *</li>
 <li>标签选择器 h1</li>
 <li>id选择器 #logo</li>
@@ -536,6 +597,255 @@
 </ul>
 </li>
 </ul>
+<h1 id="深入CSS"><a href="#深入CSS" class="headerlink" title="深入CSS"></a>深入CSS</h1><h2 id="选择器优先级-x2F-特异性"><a href="#选择器优先级-x2F-特异性" class="headerlink" title="选择器优先级&#x2F;特异性"></a>选择器优先级&#x2F;特异性</h2><p>important &gt; 内联 &gt; id &gt; (伪)类 &gt; 标签 &gt; 通配符</p>
+<h2 id="继承与初始值"><a href="#继承与初始值" class="headerlink" title="继承与初始值"></a>继承与初始值</h2><p>某些属性会自动继承其父元素的计算值，除非显式指定一个值。</p>
+<p>一般与文字相关的属性可继承，如color，而与盒模型相关的属性不被继承，如width</p>
+<p>可通过设置inherit属性值来显式继承</p>
+<h2 id="初始值"><a href="#初始值" class="headerlink" title="初始值"></a>初始值</h2><p>CSS中，每个属性都有一个初始值</p>
+<ul>
+<li>background-color 的初始值为 transparent</li>
+</ul>
+<p>可以使用initial关键字显式重置为初始值</p>
+<ul>
+<li>background-color: initial;</li>
+</ul>
+<h2 id="求值过程"><a href="#求值过程" class="headerlink" title="求值过程"></a>求值过程</h2><ol>
+<li><p>获取DOM树与样式规则</p>
+</li>
+<li><p>filtering</p>
+<p>对应用到该页面的规则用以下条件进行筛选：选择器匹配、属性有效、符合当前media等</p>
+<p>得到<strong>声明值</strong>，Declared Values，一个元素的某属性可能有0到多个声明值。比如<code>p &#123;font-size:16px&#125;</code>和<code>p.text &#123;font-size:1.2em&#125;</code></p>
+</li>
+<li><p>cascading</p>
+<p>按照来源、!important、选择器特异性、书写顺序等选出优先级最高的一个属性值</p>
+<p>得到<strong>层叠值</strong>，Cascaded Value，在层叠过程中，优先级最高的值，比如1.2em</p>
+</li>
+<li><p>defaulting</p>
+<p>当层叠值为空的时候，使用继承或初始值</p>
+<p>得到<strong>指定值</strong>，Specified Value，经过cascading和defaulting之后，保证指定值一定不为空</p>
+</li>
+<li><p>resolving</p>
+<p>将一些相对值或者关键字转化成绝对值，比如em转为px，相对路径转为绝对路径</p>
+<p>得到<strong>计算值</strong>，Computed Value，一般来说是，浏览器在不进行实际布局的情况下，所能得到的最具体的值。比如60%</p>
+</li>
+<li><p>formatting</p>
+<p>将计算值进一步转化，比如关键字、百分比等都转为绝对值</p>
+<p>得到<strong>使用值</strong>，Used Value，进行实际布局时使用的值，不会再有相对值或关键字。比如400.2px</p>
+</li>
+<li><p>constraining</p>
+<p>将小数像素值转为整数</p>
+<p>得到<strong>实际值</strong>，渲染时实际生效的值，比如400px</p>
+</li>
+</ol>
+<h1 id="布局Layout"><a href="#布局Layout" class="headerlink" title="布局Layout"></a>布局Layout</h1><h2 id="布局简介"><a href="#布局简介" class="headerlink" title="布局简介"></a>布局简介</h2><p>确定内容的大小和位置的算法</p>
+<p>依据元素、容器、兄弟节点和内容等信息来计算</p>
+<h2 id="布局相关技术"><a href="#布局相关技术" class="headerlink" title="布局相关技术"></a>布局相关技术</h2><ul>
+<li><p>常规流（行级、块级、表格布局、FlexBox、Grid布局）</p>
+</li>
+<li><p>浮动</p>
+</li>
+<li><p>绝对定位</p>
+</li>
+</ul>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>一个盒子尺寸包括margin、border、padding、content</p>
+<h4 id="box-sizing-content-box"><a href="#box-sizing-content-box" class="headerlink" title="box-sizing: content box"></a>box-sizing: content box</h4><p>width</p>
+<ul>
+<li><p>指定content box宽度</p>
+</li>
+<li><p>百分数相对于容器的content box宽度</p>
+</li>
+</ul>
+<p>height</p>
+<ul>
+<li><p>指定content box高度</p>
+</li>
+<li><p>百分数相对于容器的content box高度，<strong>容器有指定的高度时，百分数才生效</strong></p>
+</li>
+</ul>
+<p>padding</p>
+<ul>
+<li>内边距，百分数相对于容器的<strong>宽度</strong></li>
+</ul>
+<p>border</p>
+<ul>
+<li>边框，可利用边框制作三角形等图形</li>
+</ul>
+<p>margin</p>
+<ul>
+<li>外边距，百分数相对于容器的<strong>宽度</strong></li>
+<li>margin在垂直方向上存在<strong>margin collapse</strong>，<strong>边距重叠</strong>，会取两个外边距的最大值</li>
+</ul>
+<h4 id="box-sizing-border-box"><a href="#box-sizing-border-box" class="headerlink" title="box-sizing: border-box"></a>box-sizing: border-box</h4><ul>
+<li>width、height包含border、padding、content</li>
+</ul>
+<h3 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h3><p>对于超出盒子大小的内容，可通过overflow的属性值来指定其显示情况</p>
+<ul>
+<li>vidible 可见</li>
+<li>hidden 隐藏</li>
+<li>scroll 滚动条</li>
+</ul>
+<h2 id="常规流布局-Normal-Flow"><a href="#常规流布局-Normal-Flow" class="headerlink" title="常规流布局 Normal Flow"></a>常规流布局 Normal Flow</h2><ul>
+<li>根元素、浮动和绝对定位的元素会脱离常规流</li>
+<li>其他元素都在常规流之内（in-flow）</li>
+<li>常规流中的盒子，在某种<strong>排版上下文</strong>中参与布局</li>
+</ul>
+<h3 id="行级元素"><a href="#行级元素" class="headerlink" title="行级元素"></a>行级元素</h3><p>span、em、strong、cite、code等</p>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><p>body、article、div、main、section、h1-6、p、ul、li等</p>
+<h3 id="行级排版上下文"><a href="#行级排版上下文" class="headerlink" title="行级排版上下文"></a>行级排版上下文</h3><ul>
+<li>Inline Formatting Context (IFC)</li>
+<li><strong>只包含行级盒子</strong>的容器会创建一个IFC</li>
+<li>IFC内的排版规则<ul>
+<li>盒子在一行内水平摆放</li>
+<li>一行放不下时，换行显示</li>
+<li>text-align决定一行内盒子的水平对齐</li>
+<li>vertical-align决定一个盒子在行内的垂直对齐</li>
+<li>避开浮动(float)元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="块级排版上下文"><a href="#块级排版上下文" class="headerlink" title="块级排版上下文"></a>块级排版上下文</h3><ul>
+<li>Block Formatting Context (BFC)</li>
+<li>某些容器会创建一个BFC<ul>
+<li>根元素</li>
+<li>浮动、绝对定位、inline-block</li>
+<li>Flex子项和Grid子项</li>
+<li>overflow值不是visible的块盒</li>
+<li>display: flow-root;</li>
+</ul>
+</li>
+<li>BFC内的排版规则<ul>
+<li>盒子从上到下摆放</li>
+<li>垂直margin合并</li>
+<li>BFC内盒子的margin不会与外面的合并</li>
+<li>BFC不会和浮动元素重叠</li>
+</ul>
+</li>
+</ul>
+<h3 id="Flex-Box-排版上下文"><a href="#Flex-Box-排版上下文" class="headerlink" title="Flex Box 排版上下文"></a>Flex Box 排版上下文</h3><ul>
+<li>它可以控制子级盒子的<ul>
+<li>摆放的流向</li>
+<li>摆放顺序</li>
+<li>盒子宽度和高度</li>
+<li>水平和垂直方向的对齐</li>
+<li>是否允许折行</li>
+</ul>
+</li>
+</ul>
+<p>参考文档：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+<p>Webkit 内核的浏览器，必须加上-webkit前缀。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-flex; <span class="comment">/* Safari */</span></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>容器的属性</strong></p>
+<ul>
+<li>flex-direction<ul>
+<li>决定主轴的方向（即项目的排列方向）</li>
+<li><code>row</code>（默认值）：主轴为水平方向，起点在左端</li>
+<li><code>row-reverse</code>：主轴为水平方向，起点在右端</li>
+<li><code>column</code>：主轴为垂直方向，起点在上沿</li>
+<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿</li>
+</ul>
+</li>
+<li>flex-wrap<ul>
+<li>属性定义，如果一条轴线排不下，如何换行</li>
+<li><code>nowrap</code>（默认）：不换行</li>
+<li><code>wrap</code>：换行，第一行在上方</li>
+<li><code>wrap-reverse</code>：换行，第一行在下方</li>
+</ul>
+</li>
+<li>flex-flow<ul>
+<li>flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</li>
+</ul>
+</li>
+<li>justify-content<ul>
+<li>项目在主轴上的对齐方式</li>
+<li><code>flex-start</code>（默认值）：左对齐</li>
+<li><code>flex-end</code>：右对齐</li>
+<li><code>center</code>： 居中</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li>
+</ul>
+</li>
+<li>align-items<ul>
+<li>项目在交叉轴上如何对齐</li>
+<li><code>flex-start</code>：交叉轴的起点对齐</li>
+<li><code>flex-end</code>：交叉轴的终点对齐</li>
+<li><code>center</code>：交叉轴的中点对齐</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐</li>
+<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度</li>
+</ul>
+</li>
+<li>align-content<ul>
+<li>定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用</li>
+<li><code>flex-start</code>：与交叉轴的起点对齐</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐</li>
+<li><code>center</code>：与交叉轴的中点对齐</li>
+<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴</li>
+</ul>
+</li>
+</ul>
+<p><strong>子项目的属性</strong></p>
+<ul>
+<li><code>order</code><ul>
+<li>项目的排列顺序。数值越小，排列越靠前，默认为0</li>
+</ul>
+</li>
+<li><code>flex-grow</code><ul>
+<li>项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大</li>
+</ul>
+</li>
+<li><code>flex-shrink</code><ul>
+<li>项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</li>
+<li>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小</li>
+</ul>
+</li>
+<li><code>flex-basis</code><ul>
+<li>定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小</li>
+<li>可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间</li>
+</ul>
+</li>
+<li><code>flex</code><ul>
+<li><code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选</li>
+</ul>
+</li>
+<li><code>align-self</code><ul>
+<li>允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="Grid-布局"><a href="#Grid-布局" class="headerlink" title="Grid 布局"></a>Grid 布局</h3><p>二维布局</p>
+<h2 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动 float"></a>浮动 float</h2><p>通过浮动图片，可以实现文字环绕图片的效果</p>
+<p>对于左右布局之类可以用flex布局等来实现，避免清除浮动等问题</p>
+<h2 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h2><p>position属性</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static</td>
+<td>默认值，非定位元素</td>
+</tr>
+<tr>
+<td>relative</td>
+<td>相对自身原本位置偏移，不脱离文档流</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>绝对定位，相对于最近的非static祖先元素定位，脱离常规流</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>相对于视口绝对定位</td>
+</tr>
+<tr>
+<td>sticky</td>
+<td>粘性定位</td>
+</tr>
+</tbody></table>
 <h1 id="常见样式"><a href="#常见样式" class="headerlink" title="常见样式"></a>常见样式</h1><h2 id="水平和垂直居中"><a href="#水平和垂直居中" class="headerlink" title="水平和垂直居中"></a>水平和垂直居中</h2><p>HTML代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -584,6 +894,85 @@
 <li><p>根据CSS选择器的权重值计算规则，ID选择器的优先级高于CLASS选择器（ID选择器权重值为100，CLASS选择器为10），这会导致一种情况：无法直接用CLASS选择器对前面ID选择器中的样式进行覆盖。为了覆盖ID选择器中的样式，需要给CLASS选择器增加类似<code>!important</code>等字段以提高优先级，这不利于维护。</p>
 </li>
 </ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/07/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/07/Git/" class="post-title-link" itemprop="url">Git</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-07 13:43:05" itemprop="dateCreated datePublished" datetime="2023-01-07T13:43:05+08:00">2023-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-16 20:47:54" itemprop="dateModified" datetime="2023-01-16T20:47:54+08:00">2023-01-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><h2 id="设置全局代理"><a href="#设置全局代理" class="headerlink" title="设置全局代理"></a>设置全局代理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// Clash</span><br><span class="line">git config --global http.proxy 127.0.0.1:7890</span><br><span class="line">git config --global https.proxy 127.0.0.1:7890</span><br><span class="line"></span><br><span class="line">git config --global http.proxy 127.0.0.1:10809</span><br><span class="line">git config --global https.proxy 127.0.0.1:10809</span><br><span class="line"></span><br><span class="line">git config --global http.proxy 127.0.0.1:4919</span><br><span class="line">git config --global https.proxy 127.0.0.1:4919</span><br></pre></td></tr></table></figure>
+
+<h2 id="清除代理"><a href="#清除代理" class="headerlink" title="清除代理"></a>清除代理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -1478,276 +1867,6 @@
 
 <h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用于生成JWT字符串的包</span></span><br><span class="line"><span class="keyword">const</span> jwt = <span class="built_in">require</span>(<span class="string">&#x27;jsonwebtoken&#x27;</span>)</span><br><span class="line"><span class="comment">// 用于将客户端发送过来的JWT字符串，解析还原成JSON对象的包</span></span><br><span class="line"><span class="keyword">const</span> expreeJWT = <span class="built_in">require</span>(<span class="string">&#x27;express-jwt&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ACorCC">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ACorCC的个人网站">
-      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ACorCC的个人网站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">前端知识</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-06-05 20:02:49" itemprop="dateCreated datePublished" datetime="2022-06-05T20:02:49+08:00">2022-06-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-11-29 20:27:42" itemprop="dateModified" datetime="2022-11-29T20:27:42+08:00">2022-11-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><p>进程：应用程序，独立空间，一个进程可以有多个线程，一个进程崩溃不会影响其它进程</p>
-<p>线程：执行任务，共享进程的空间，一个线程崩溃整个进程都死掉</p>
-<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h3><ul>
-<li>http是超文本传输协议，信息是明文传输，https是具有安全性的SSL加密传输协议</li>
-<li>https协议需要ca申请证书，一般免费证书少，因此需要一定费用</li>
-<li>http和https使用不同的链接方式，前者使用80端口，后者使用443端口</li>
-<li>https协议握手阶段比较花费时间，因此使用https的页面加载速度更慢</li>
-<li>相比于http，https的网站搜索排名更高</li>
-</ul>
-<h3 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h3><p>TCP：面向链接，可靠，时延大，对系统资源要求较多，点对点</p>
-<p>UDP：无连接，不可靠，较好的实时性，适用于实时网络游戏，对系统资源要求较少，n对n(n&gt;&#x3D;1)</p>
-<h3 id="网页从输入url到页面加载完成发生了什么"><a href="#网页从输入url到页面加载完成发生了什么" class="headerlink" title="网页从输入url到页面加载完成发生了什么"></a>网页从输入url到页面加载完成发生了什么</h3><ol>
-<li>浏览器的地址栏输入url并按下回车</li>
-<li>浏览器查找当前url是否有缓存，并检查缓存是否过期</li>
-<li>DNS解析url对应的ip地址</li>
-<li>根据ip建立TCP连接（三次握手）</li>
-<li>HTTP发起请求报文</li>
-<li>服务器处理请求，浏览器接收响应报文</li>
-<li>根据响应报文渲染页面，构建DOM树</li>
-<li>关闭TCP连接（四次挥手）</li>
-</ol>
-<h3 id="TCP连接（三次握手、四次挥手）"><a href="#TCP连接（三次握手、四次挥手）" class="headerlink" title="TCP连接（三次握手、四次挥手）"></a>TCP连接（三次握手、四次挥手）</h3><img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/tcp1.png" class="">
-
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/tcp2.png" class="">
-
-<h3 id="get和post的区别"><a href="#get和post的区别" class="headerlink" title="get和post的区别"></a>get和post的区别</h3><p>get通过url传递参数，post通过请求包传递参数</p>
-<p>因此get是不安全的，而post相对安全，数据对用户不可见</p>
-<p>get传递的数据量受到url长度的限制，而post不受限制</p>
-<p>查询信息用get，登录注册用post</p>
-<h3 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h3><ul>
-<li>200：请求成功</li>
-<li>301&#x2F;302&#x2F;303：网站跳转，重定向</li>
-<li>304：使用了本地缓存</li>
-<li>400：语义错误</li>
-<li>401：需要用户验证</li>
-<li>403：服务器拒绝执行</li>
-<li>404：找不到资源</li>
-<li>500：服务器内部发生错误</li>
-</ul>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="HTML5新特性"><a href="#HTML5新特性" class="headerlink" title="HTML5新特性"></a>HTML5新特性</h3><ol>
-<li>语义化标签</li>
-<li>增强型表单</li>
-<li>视频和音频</li>
-<li>canvas绘图</li>
-<li>svg绘图</li>
-<li>地理位置</li>
-<li>拖放api</li>
-<li>web worker</li>
-<li>web storage</li>
-<li>web socket</li>
-</ol>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="元素居中"><a href="#元素居中" class="headerlink" title="元素居中"></a>元素居中</h3><ol>
-<li>子绝父相，子元素position到中间，margin自身高度&#x2F;宽度一半 或 transform: translate(-50%, -50%)</li>
-<li>子绝父相，子元素margin: auto</li>
-<li>父元素弹性盒子flex，justify-content: center; align-items: center;</li>
-<li>text-align: center; vertical-align: middle(行内元素)</li>
-</ol>
-<h3 id="position的值"><a href="#position的值" class="headerlink" title="position的值"></a>position的值</h3><ol>
-<li>static: 默认值，没有定位</li>
-<li>relative: 相对定位，相对于元素原来的位置，不脱离文档流，元素原本的位置会被保留</li>
-<li>absolute: 绝对定位，相对于position为relative或absolute的祖先元素（若无则为body），脱离文档流，原本的位置不被保留</li>
-<li>fixed: 固定定位，相对于浏览器窗口</li>
-<li>sticky: 粘性定位，元素在超过特定阈值前是相对定位，超过后是固定定位</li>
-<li>inherit: 继承父元素的position</li>
-</ol>
-<h3 id="CSS选择器优先级"><a href="#CSS选择器优先级" class="headerlink" title="CSS选择器优先级"></a>CSS选择器优先级</h3><p>!important &gt; 内联 &gt; id选择器 &gt; [伪]类&#x2F;属性 &gt; [伪]元素&#x2F;关系 &gt; 通配符</p>
-<p>important，1000,0100,0010,0001，0</p>
-<h3 id="边距重叠"><a href="#边距重叠" class="headerlink" title="边距重叠"></a>边距重叠</h3><p>如果两个盒子设置了边距，那么在垂直方向上，这两个盒子的边距会发生重叠</p>
-<ul>
-<li>父子关系的边距重叠：如果子元素设置了外边距，而父元素没有设置外边距，那么父元素也会产生外边距</li>
-<li>兄弟关系的边距重叠：外边距的大小会取两者绝对值大的那个</li>
-</ul>
-<h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><p>Block formatting context，块级格式化上下文，它是一个独立的渲染区域，其中的元素布局不受外界影响</p>
-<ul>
-<li>属于同一个BFC的两个盒子会发生边距重叠，因此可以设置BFC来<strong>防止边距重叠</strong></li>
-<li>通过给需要自适应的盒子设置为BFC，使其和浮动盒子不重叠，实现<strong>两栏布局</strong></li>
-<li>计算BFC的高度时，浮动元素也参与计算，因此给父元素设置为BFC，可以<strong>清除浮动</strong></li>
-</ul>
-<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><ol>
-<li>父级盒子添加height</li>
-<li>额外标签法：clear: both;（不推荐）</li>
-<li>触发BFC方式：overflow: hidden；（不推荐）</li>
-<li>使用after伪元素（推荐）</li>
-<li>使用before和after双伪元素（推荐 ）</li>
-</ol>
-<h3 id="两栏布局，三栏-x2F-圣杯-x2F-双飞翼布局"><a href="#两栏布局，三栏-x2F-圣杯-x2F-双飞翼布局" class="headerlink" title="两栏布局，三栏&#x2F;圣杯&#x2F;双飞翼布局"></a>两栏布局，三栏&#x2F;圣杯&#x2F;双飞翼布局</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43638968/article/details/107919835">https://blog.csdn.net/weixin_43638968/article/details/107919835</a></p>
-<h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><ol>
-<li>flex-direction</li>
-<li>flex-wrap</li>
-<li>flex-flow</li>
-<li>justify-content</li>
-<li>align-items</li>
-<li>align-content</li>
-</ol>
-<p>子元素的属性</p>
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/flex.png" class="">
-
-<h3 id="CSS3新特性"><a href="#CSS3新特性" class="headerlink" title="CSS3新特性"></a>CSS3新特性</h3><ol>
-<li>选择器</li>
-</ol>
-<p>常规选择器、伪类选择器、伪元素选择器</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">:last-child <span class="comment">/* 选择元素最后一个孩子 */</span></span><br><span class="line">:first-child <span class="comment">/* 选择元素第一个孩子 */</span></span><br><span class="line">:nth-<span class="title function_">child</span>(<span class="number">1</span>) <span class="comment">/* 按照第几个孩子给它设置样式 */</span></span><br><span class="line">:nth-<span class="title function_">child</span>(even) <span class="comment">/* 按照偶数 */</span></span><br><span class="line">:nth-<span class="title function_">child</span>(odd)  <span class="comment">/* 按照奇数 */</span></span><br><span class="line">:disabled <span class="comment">/* 选择每个禁用的dom元素 */</span></span><br><span class="line">:checked <span class="comment">/* 选择每个被选中的dom元素 */</span></span><br><span class="line">:<span class="title function_">not</span>(selector) <span class="comment">/* 选择非 selector 元素的每个元素 */</span></span><br><span class="line">::selection <span class="comment">/* 选择被用户选取的元素部分 */</span></span><br><span class="line"></span><br><span class="line"><span class="attr">a</span>:link &#123;&#125; <span class="comment">/* 未访问的链接 */</span></span><br><span class="line"><span class="attr">a</span>:visited &#123;&#125; <span class="comment">/* 已访问的链接 */</span></span><br><span class="line"><span class="attr">a</span>:hover &#123;&#125; <span class="comment">/* 鼠标移动到链接上 */</span></span><br><span class="line"><span class="attr">a</span>:active &#123;&#125; <span class="comment">/* 选定的链接 */</span></span><br><span class="line"></span><br><span class="line">::before &#123;&#125; <span class="comment">/* 选择器在被选元素的前面插入内容和定义css，使用 content 属性来指定要插入的内容。 */</span></span><br><span class="line">::after &#123;&#125; <span class="comment">/* 选择器在被选元素的后面插入内容和定义css，使用 content 属性来指定要插入的内容。 */</span></span><br><span class="line">:first-letter <span class="comment">/* 选择该元素内容的首字母 */</span></span><br><span class="line">:first-line <span class="comment">/* 选择该元素内容的首行 */</span></span><br><span class="line">::selection <span class="comment">/* 选择被用户选取的元素部分 */</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>背景和边框</li>
-</ol>
-<blockquote>
-<p>background-size：规定背景图片的尺寸（cover：填充；100% 100%：拉伸）<br>background-origin：规定背景图片的定位区域 (可放置于content-box、padding-box 或 border-box 区域)</p>
-</blockquote>
-<blockquote>
-<p>border-radius：圆角<br>box-shadow &#x2F; text-shadow：阴影<br>border-image：边框图片</p>
-</blockquote>
-<ol start="3">
-<li>@media 媒体查询</li>
-<li>@font-face 自定义字体</li>
-<li>@keyframes 创建动画 animation 设置动画</li>
-<li>2D&#x2F;3D转换：rotate旋转、scale缩放、translate位移、skew倾斜</li>
-<li>transition过渡动画</li>
-<li>渐变效果</li>
-<li>box-sizing</li>
-</ol>
-<blockquote>
-<p>box-sizing: content-box; 将采用标准模式的盒子模型标准<br>box-sizing: border-box; 将采用怪异模式的盒子模型标准<br>box-sizing: inherit; 规定应从父元素继承 box-sizing 属性的值。</p>
-</blockquote>
-<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="var、let和const"><a href="#var、let和const" class="headerlink" title="var、let和const"></a>var、let和const</h3><ol>
-<li>变量提升：var存在变量提升</li>
-<li>暂时性死区：let和const存在暂时性死区。即只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  tmp = <span class="string">&#x27;abc&#x27;</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="keyword">let</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以上代码if后面&#123;&#125;形成了块级作用域，由于使用let声明了tmp，则这个变量就绑定了块区域，在声明之前使用，会报错。</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>重复声明变量：var允许重复声明变量，let和const在同级作用域不允许重复声明变量</li>
-<li>块级作用域：var不存在块级作用域</li>
-</ol>
-<h3 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h3><p>在js中，每一个函数类型的数据，都有一个叫做prototype的属性，这个属性指向的是一个对象，就是所谓的原型对象。</p>
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/proto1.png" class="">
-
-<p>对于原型对象来说，它有个constructor属性，指向它的构造函数。</p>
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/proto2.png" class="">
-
-<p>那么这个原型对象有什么用呢？最主要的作用就是用来存放实例对象的公有属性和公有方法。</p>
-<ol>
-<li>显示原型</li>
-</ol>
-<p>显示原型就是利用<strong>prototype</strong>属性查找原型，只是这个是函数类型数据的属性。</p>
-<ol start="2">
-<li>隐式原型</li>
-</ol>
-<p>隐式原型是利用__<strong>proto</strong>__属性查找原型，这个属性指向当前对象的构造函数的原型对象，这个属性是对象类型数据的属性</p>
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/proto3.png" class="">
-
-<ol start="3">
-<li>原型链</li>
-</ol>
-<p>既然原型对象也是对象，那我们只要找到对象的构造函数就能知道__proto__的指向了。而js中，对象的构造函数就是Object()，所以对象的原型对象，就是Object.prototype。既然原型对象也是对象，那原型对象的原型对象，就也是Object.prototype。不过Object.prototype这个比较特殊，它没有上一层的原型对象，或者说是它的__proto__指向的是null。</p>
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/proto4.png" class="">
-
-<ol start="4">
-<li>函数也是对象</li>
-</ol>
-<p>在js中，所有函数都可以看做是Function()的实例，而Person()和Object()都是函数，所以它们的构造函数就是Function()。Function()本身也是函数，所以Function()也是自己的实例</p>
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/proto5.png" class="">
-
-<h3 id="数据类型及其检测"><a href="#数据类型及其检测" class="headerlink" title="数据类型及其检测"></a>数据类型及其检测</h3><p>类型：number、string、boolean、null、undefined、symbol（es6）、bigInt（es10）、object</p>
-<p>检测：typeof检查类型、instanceof检查构造函数</p>
-<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>document object model，文档对象模型，dom是树结构</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 创建新节点  （<span class="variable language_">document</span>调用）</span><br><span class="line"></span><br><span class="line"><span class="title function_">createDocumentFragment</span>() <span class="comment">//创建一个DOM片段</span></span><br><span class="line"><span class="title function_">createElement</span>() <span class="comment">//创建一个具体的元素</span></span><br><span class="line"><span class="title function_">createTextNode</span>() <span class="comment">//创建一个文本节点</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 添加、移除、替换、插入  （父元素调用）</span><br><span class="line"><span class="title function_">appendChild</span>() <span class="comment">//添加</span></span><br><span class="line"><span class="title function_">removeChild</span>() <span class="comment">//移除</span></span><br><span class="line"><span class="title function_">replaceChild</span>() <span class="comment">//替换</span></span><br><span class="line"><span class="title function_">insertBefore</span>() <span class="comment">//插入</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 查找 （<span class="variable language_">document</span>调用）</span><br><span class="line"><span class="title function_">getElementsByTagName</span>() <span class="comment">//通过标签名称 一组元素</span></span><br><span class="line"><span class="title function_">getElementsByName</span>() <span class="comment">//通过元素的Name属性的值 一组元素</span></span><br><span class="line"><span class="title function_">getElementById</span>() <span class="comment">//通过元素Id，唯一性单个元素</span></span><br><span class="line"><span class="title function_">getElementByClassName</span>()<span class="comment">//通过c元素lass获取  一组元素</span></span><br><span class="line"><span class="title function_">qurySelectorAll</span>(<span class="string">&#x27;选择器&#x27;</span>) <span class="comment">// 通过选择器获取一组元素</span></span><br><span class="line"><span class="title function_">querySelector</span>(<span class="string">&quot;选择器&quot;</span>) <span class="comment">// 通过选择器获取单个元素</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 关系  （元素调用前三个父元素调用 ）</span><br><span class="line"> </span><br><span class="line">childNodes <span class="comment">// 获取所有的子节点</span></span><br><span class="line">children  <span class="comment">// 获取所有的子元素节点 (常用)</span></span><br><span class="line">firstElementChild   获取第一个元素</span><br><span class="line">lastElementChild  获取最后一个元素</span><br><span class="line">parentNode	获取当前节点的父节点</span><br><span class="line">previousElementSibling	获取当前节点的前一个兄弟元素</span><br><span class="line">nextElementSibling 获取当前节点的后一个兄弟元素       </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Dom节点的Attribute和Property有和区别？</p>
-<ul>
-<li><p>property只是一个JS对象的属性的修改  </p>
-</li>
-<li><p>Attribute是对html标签属性的修改</p>
-</li>
-</ul>
-<p>DOM性能优化</p>
-<ul>
-<li>将频繁的操作改为一次性操作，通过创建文档碎片，最后一次性加入文档碎片</li>
-</ul>
-<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><blockquote>
-<p>普通函数中调用，this指向window<br>对象方法中调用，this指向当前对象<br>call apply bind中调用， this指向被传入的对象<br>class中的方法中调用， this指向实例对象<br>箭头函数，this就是父级上下文中的this</p>
-</blockquote>
-<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
-<li>单例模式</li>
-<li>工厂模式</li>
-<li>发布者-订阅者模式</li>
-</ul>
-<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><h3 id="实例和组件定义data的区别"><a href="#实例和组件定义data的区别" class="headerlink" title="实例和组件定义data的区别"></a>实例和组件定义data的区别</h3><p>实例中的data可以是对象，也可以是函数</p>
-<p>组件中的data只能是函数，目的是防止多个组件实例共用一个data对象，产生数据污染</p>
-<h3 id="双向绑定原理"><a href="#双向绑定原理" class="headerlink" title="双向绑定原理"></a>双向绑定原理</h3><p>vue是通过数据劫持和发布者-订阅者模式的方式，通过Object.defineProperty来劫持各个属性的setter、getter，在数据变动时发布消息给订阅者，触发相应的监听回调来渲染视图</p>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>总共分为8个阶段，包括创建前&#x2F;后，载入前&#x2F;后，更新前&#x2F;后，销毁前&#x2F;后</p>
-<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>Model-View-ViewModel</p>
-<p>当数据发生改变时，视图也会发生改变，反之亦然</p>
-<p>view 可以通过事件绑定(或v-model指令)的方式影响 model，model 可以通过数据绑定的形式影响到view，viewModel是把 model 和 view 连起来的连接器</p>
-<img src="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/mvvm.png" class="">
 
       
     </div>

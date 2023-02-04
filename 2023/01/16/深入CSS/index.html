@@ -24,22 +24,22 @@
     <meta name="description" content="CSS简介CSS是什么层叠样式表（Cascading Style Sheets, CSS） 用来定义页面元素的样式。 在页面中使用CSS的三种方式 外链 1&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;assets&#x2F;style.css&quot;&gt;  嵌入 123&lt;style&gt;    li &amp;#123; margin: 0; &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入CSS">
-<meta property="og:url" content="https://acorcc.github.io/2023/01/06/%E6%B7%B1%E5%85%A5CSS/index.html">
+<meta property="og:url" content="https://acorcc.github.io/2023/01/16/%E6%B7%B1%E5%85%A5CSS/index.html">
 <meta property="og:site_name" content="ACorCC的个人网站">
 <meta property="og:description" content="CSS简介CSS是什么层叠样式表（Cascading Style Sheets, CSS） 用来定义页面元素的样式。 在页面中使用CSS的三种方式 外链 1&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;assets&#x2F;style.css&quot;&gt;  嵌入 123&lt;style&gt;    li &amp;#123; margin: 0; &amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-06T07:47:02.000Z">
-<meta property="article:modified_time" content="2023-01-16T12:41:25.253Z">
+<meta property="article:published_time" content="2023-01-16T07:47:02.000Z">
+<meta property="article:modified_time" content="2023-01-18T14:44:09.047Z">
 <meta property="article:author" content="ACorCC">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://acorcc.github.io/2023/01/06/%E6%B7%B1%E5%85%A5CSS/">
+<link rel="canonical" href="https://acorcc.github.io/2023/01/16/%E6%B7%B1%E5%85%A5CSS/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://acorcc.github.io/2023/01/06/%E6%B7%B1%E5%85%A5CSS/","path":"2023/01/06/深入CSS/","title":"深入CSS"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://acorcc.github.io/2023/01/16/%E6%B7%B1%E5%85%A5CSS/","path":"2023/01/16/深入CSS/","title":"深入CSS"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>深入CSS | ACorCC的个人网站</title>
@@ -128,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">CSS简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">CSS是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8CSS%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">在页面中使用CSS的三种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">1.3.</span> <span class="nav-text">CSS工作机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8Selector"><span class="nav-number">1.4.</span> <span class="nav-text">选择器Selector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%B8%AA%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.4.1.</span> <span class="nav-text">单个选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.4.2.</span> <span class="nav-text">组合选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81CSS%E5%B1%9E%E6%80%A7"><span class="nav-number">1.5.</span> <span class="nav-text">常见CSS属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#color-%E9%A2%9C%E8%89%B2"><span class="nav-number">1.5.1.</span> <span class="nav-text">color 颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-family-%E5%AD%97%E4%BD%93"><span class="nav-number">1.5.2.</span> <span class="nav-text">font-family 字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-size-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.5.3.</span> <span class="nav-text">font-size 字体大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-style-%E5%AD%97%E4%BD%93%E6%95%88%E6%9E%9C"><span class="nav-number">1.5.4.</span> <span class="nav-text">font-style 字体效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-weight-%E5%AD%97%E9%87%8D-x2F-%E7%B2%97%E7%BB%86"><span class="nav-number">1.5.5.</span> <span class="nav-text">font-weight 字重&#x2F;粗细</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line-height-%E8%A1%8C%E9%AB%98"><span class="nav-number">1.5.6.</span> <span class="nav-text">line-height 行高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#white-space-%E7%A9%BA%E7%99%BD%E7%AC%A6%E5%A4%84%E7%90%86"><span class="nav-number">1.5.7.</span> <span class="nav-text">white-space 空白符处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95CSS"><span class="nav-number">1.6.</span> <span class="nav-text">调试CSS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">常见样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%B4%E5%B9%B3%E5%92%8C%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="nav-number">2.1.</span> <span class="nav-text">水平和垂直居中</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">CSS优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="nav-number">3.1.</span> <span class="nav-text">CSS选择器匹配规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="nav-number">3.2.</span> <span class="nav-text">ID选择器的弊端</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">CSS简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">CSS是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8CSS%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">在页面中使用CSS的三种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8Selector"><span class="nav-number">1.3.</span> <span class="nav-text">选择器Selector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%B8%AA%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.1.</span> <span class="nav-text">单个选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">组合选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81CSS%E5%B1%9E%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">常见CSS属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#color-%E9%A2%9C%E8%89%B2"><span class="nav-number">1.4.1.</span> <span class="nav-text">color 颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-family-%E5%AD%97%E4%BD%93"><span class="nav-number">1.4.2.</span> <span class="nav-text">font-family 字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-size-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.4.3.</span> <span class="nav-text">font-size 字体大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-style-%E5%AD%97%E4%BD%93%E6%95%88%E6%9E%9C"><span class="nav-number">1.4.4.</span> <span class="nav-text">font-style 字体效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-weight-%E5%AD%97%E9%87%8D-x2F-%E7%B2%97%E7%BB%86"><span class="nav-number">1.4.5.</span> <span class="nav-text">font-weight 字重&#x2F;粗细</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line-height-%E8%A1%8C%E9%AB%98"><span class="nav-number">1.4.6.</span> <span class="nav-text">line-height 行高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#white-space-%E7%A9%BA%E7%99%BD%E7%AC%A6%E5%A4%84%E7%90%86"><span class="nav-number">1.4.7.</span> <span class="nav-text">white-space 空白符处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95CSS"><span class="nav-number">1.5.</span> <span class="nav-text">调试CSS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5CSS"><span class="nav-number">2.</span> <span class="nav-text">深入CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7-x2F-%E7%89%B9%E5%BC%82%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">选择器优先级&#x2F;特异性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">继承与初始值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text">初始值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E5%80%BC%E8%BF%87%E7%A8%8B"><span class="nav-number">2.4.</span> <span class="nav-text">求值过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%83%E5%B1%80Layout"><span class="nav-number">3.</span> <span class="nav-text">布局Layout</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B1%80%E7%AE%80%E4%BB%8B"><span class="nav-number">3.1.</span> <span class="nav-text">布局简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B1%80%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF"><span class="nav-number">3.2.</span> <span class="nav-text">布局相关技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.1.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#box-sizing-content-box"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">box-sizing: content box</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#box-sizing-border-box"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">box-sizing: border-box</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overflow"><span class="nav-number">3.2.2.</span> <span class="nav-text">overflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%B5%81%E5%B8%83%E5%B1%80-Normal-Flow"><span class="nav-number">3.3.</span> <span class="nav-text">常规流布局 Normal Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="nav-number">3.3.1.</span> <span class="nav-text">行级元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="nav-number">3.3.2.</span> <span class="nav-text">块级元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E7%BA%A7%E6%8E%92%E7%89%88%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">3.3.3.</span> <span class="nav-text">行级排版上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E6%8E%92%E7%89%88%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">3.3.4.</span> <span class="nav-text">块级排版上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex-Box-%E6%8E%92%E7%89%88%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">3.3.5.</span> <span class="nav-text">Flex Box 排版上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-%E5%B8%83%E5%B1%80"><span class="nav-number">3.3.6.</span> <span class="nav-text">Grid 布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8-float"><span class="nav-number">3.4.</span> <span class="nav-text">浮动 float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="nav-number">3.5.</span> <span class="nav-text">绝对定位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">常见样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%B4%E5%B9%B3%E5%92%8C%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="nav-number">4.1.</span> <span class="nav-text">水平和垂直居中</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS%E4%BC%98%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">CSS优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="nav-number">5.1.</span> <span class="nav-text">CSS选择器匹配规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="nav-number">5.2.</span> <span class="nav-text">ID选择器的弊端</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -141,7 +141,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -170,7 +170,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/06/%E6%B7%B1%E5%85%A5CSS/">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/01/16/%E6%B7%B1%E5%85%A5CSS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,14 +199,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-01-06 15:47:02" itemprop="dateCreated datePublished" datetime="2023-01-06T15:47:02+08:00">2023-01-06</time>
+      <time title="创建时间：2023-01-16 15:47:02" itemprop="dateCreated datePublished" datetime="2023-01-16T15:47:02+08:00">2023-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-01-16 20:41:25" itemprop="dateModified" datetime="2023-01-16T20:41:25+08:00">2023-01-16</time>
+      <time title="修改时间：2023-01-18 22:44:09" itemprop="dateModified" datetime="2023-01-18T22:44:09+08:00">2023-01-18</time>
     </span>
 
   
@@ -230,7 +230,7 @@
 <li><p><strong>内联</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;margin: 1em 0&quot;</span>&gt;</span>Example Content<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="CSS工作机制"><a href="#CSS工作机制" class="headerlink" title="CSS工作机制"></a>CSS工作机制</h2><h2 id="选择器Selector"><a href="#选择器Selector" class="headerlink" title="选择器Selector"></a>选择器Selector</h2><h3 id="单个选择器"><a href="#单个选择器" class="headerlink" title="单个选择器"></a>单个选择器</h3><ul>
+<h2 id="选择器Selector"><a href="#选择器Selector" class="headerlink" title="选择器Selector"></a>选择器Selector</h2><h3 id="单个选择器"><a href="#单个选择器" class="headerlink" title="单个选择器"></a>单个选择器</h3><ul>
 <li>通配选择器 *</li>
 <li>标签选择器 h1</li>
 <li>id选择器 #logo</li>
@@ -323,6 +323,255 @@
 </ul>
 </li>
 </ul>
+<h1 id="深入CSS"><a href="#深入CSS" class="headerlink" title="深入CSS"></a>深入CSS</h1><h2 id="选择器优先级-x2F-特异性"><a href="#选择器优先级-x2F-特异性" class="headerlink" title="选择器优先级&#x2F;特异性"></a>选择器优先级&#x2F;特异性</h2><p>important &gt; 内联 &gt; id &gt; (伪)类 &gt; 标签 &gt; 通配符</p>
+<h2 id="继承与初始值"><a href="#继承与初始值" class="headerlink" title="继承与初始值"></a>继承与初始值</h2><p>某些属性会自动继承其父元素的计算值，除非显式指定一个值。</p>
+<p>一般与文字相关的属性可继承，如color，而与盒模型相关的属性不被继承，如width</p>
+<p>可通过设置inherit属性值来显式继承</p>
+<h2 id="初始值"><a href="#初始值" class="headerlink" title="初始值"></a>初始值</h2><p>CSS中，每个属性都有一个初始值</p>
+<ul>
+<li>background-color 的初始值为 transparent</li>
+</ul>
+<p>可以使用initial关键字显式重置为初始值</p>
+<ul>
+<li>background-color: initial;</li>
+</ul>
+<h2 id="求值过程"><a href="#求值过程" class="headerlink" title="求值过程"></a>求值过程</h2><ol>
+<li><p>获取DOM树与样式规则</p>
+</li>
+<li><p>filtering</p>
+<p>对应用到该页面的规则用以下条件进行筛选：选择器匹配、属性有效、符合当前media等</p>
+<p>得到<strong>声明值</strong>，Declared Values，一个元素的某属性可能有0到多个声明值。比如<code>p &#123;font-size:16px&#125;</code>和<code>p.text &#123;font-size:1.2em&#125;</code></p>
+</li>
+<li><p>cascading</p>
+<p>按照来源、!important、选择器特异性、书写顺序等选出优先级最高的一个属性值</p>
+<p>得到<strong>层叠值</strong>，Cascaded Value，在层叠过程中，优先级最高的值，比如1.2em</p>
+</li>
+<li><p>defaulting</p>
+<p>当层叠值为空的时候，使用继承或初始值</p>
+<p>得到<strong>指定值</strong>，Specified Value，经过cascading和defaulting之后，保证指定值一定不为空</p>
+</li>
+<li><p>resolving</p>
+<p>将一些相对值或者关键字转化成绝对值，比如em转为px，相对路径转为绝对路径</p>
+<p>得到<strong>计算值</strong>，Computed Value，一般来说是，浏览器在不进行实际布局的情况下，所能得到的最具体的值。比如60%</p>
+</li>
+<li><p>formatting</p>
+<p>将计算值进一步转化，比如关键字、百分比等都转为绝对值</p>
+<p>得到<strong>使用值</strong>，Used Value，进行实际布局时使用的值，不会再有相对值或关键字。比如400.2px</p>
+</li>
+<li><p>constraining</p>
+<p>将小数像素值转为整数</p>
+<p>得到<strong>实际值</strong>，渲染时实际生效的值，比如400px</p>
+</li>
+</ol>
+<h1 id="布局Layout"><a href="#布局Layout" class="headerlink" title="布局Layout"></a>布局Layout</h1><h2 id="布局简介"><a href="#布局简介" class="headerlink" title="布局简介"></a>布局简介</h2><p>确定内容的大小和位置的算法</p>
+<p>依据元素、容器、兄弟节点和内容等信息来计算</p>
+<h2 id="布局相关技术"><a href="#布局相关技术" class="headerlink" title="布局相关技术"></a>布局相关技术</h2><ul>
+<li><p>常规流（行级、块级、表格布局、FlexBox、Grid布局）</p>
+</li>
+<li><p>浮动</p>
+</li>
+<li><p>绝对定位</p>
+</li>
+</ul>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>一个盒子尺寸包括margin、border、padding、content</p>
+<h4 id="box-sizing-content-box"><a href="#box-sizing-content-box" class="headerlink" title="box-sizing: content box"></a>box-sizing: content box</h4><p>width</p>
+<ul>
+<li><p>指定content box宽度</p>
+</li>
+<li><p>百分数相对于容器的content box宽度</p>
+</li>
+</ul>
+<p>height</p>
+<ul>
+<li><p>指定content box高度</p>
+</li>
+<li><p>百分数相对于容器的content box高度，<strong>容器有指定的高度时，百分数才生效</strong></p>
+</li>
+</ul>
+<p>padding</p>
+<ul>
+<li>内边距，百分数相对于容器的<strong>宽度</strong></li>
+</ul>
+<p>border</p>
+<ul>
+<li>边框，可利用边框制作三角形等图形</li>
+</ul>
+<p>margin</p>
+<ul>
+<li>外边距，百分数相对于容器的<strong>宽度</strong></li>
+<li>margin在垂直方向上存在<strong>margin collapse</strong>，<strong>边距重叠</strong>，会取两个外边距的最大值</li>
+</ul>
+<h4 id="box-sizing-border-box"><a href="#box-sizing-border-box" class="headerlink" title="box-sizing: border-box"></a>box-sizing: border-box</h4><ul>
+<li>width、height包含border、padding、content</li>
+</ul>
+<h3 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h3><p>对于超出盒子大小的内容，可通过overflow的属性值来指定其显示情况</p>
+<ul>
+<li>vidible 可见</li>
+<li>hidden 隐藏</li>
+<li>scroll 滚动条</li>
+</ul>
+<h2 id="常规流布局-Normal-Flow"><a href="#常规流布局-Normal-Flow" class="headerlink" title="常规流布局 Normal Flow"></a>常规流布局 Normal Flow</h2><ul>
+<li>根元素、浮动和绝对定位的元素会脱离常规流</li>
+<li>其他元素都在常规流之内（in-flow）</li>
+<li>常规流中的盒子，在某种<strong>排版上下文</strong>中参与布局</li>
+</ul>
+<h3 id="行级元素"><a href="#行级元素" class="headerlink" title="行级元素"></a>行级元素</h3><p>span、em、strong、cite、code等</p>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><p>body、article、div、main、section、h1-6、p、ul、li等</p>
+<h3 id="行级排版上下文"><a href="#行级排版上下文" class="headerlink" title="行级排版上下文"></a>行级排版上下文</h3><ul>
+<li>Inline Formatting Context (IFC)</li>
+<li><strong>只包含行级盒子</strong>的容器会创建一个IFC</li>
+<li>IFC内的排版规则<ul>
+<li>盒子在一行内水平摆放</li>
+<li>一行放不下时，换行显示</li>
+<li>text-align决定一行内盒子的水平对齐</li>
+<li>vertical-align决定一个盒子在行内的垂直对齐</li>
+<li>避开浮动(float)元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="块级排版上下文"><a href="#块级排版上下文" class="headerlink" title="块级排版上下文"></a>块级排版上下文</h3><ul>
+<li>Block Formatting Context (BFC)</li>
+<li>某些容器会创建一个BFC<ul>
+<li>根元素</li>
+<li>浮动、绝对定位、inline-block</li>
+<li>Flex子项和Grid子项</li>
+<li>overflow值不是visible的块盒</li>
+<li>display: flow-root;</li>
+</ul>
+</li>
+<li>BFC内的排版规则<ul>
+<li>盒子从上到下摆放</li>
+<li>垂直margin合并</li>
+<li>BFC内盒子的margin不会与外面的合并</li>
+<li>BFC不会和浮动元素重叠</li>
+</ul>
+</li>
+</ul>
+<h3 id="Flex-Box-排版上下文"><a href="#Flex-Box-排版上下文" class="headerlink" title="Flex Box 排版上下文"></a>Flex Box 排版上下文</h3><ul>
+<li>它可以控制子级盒子的<ul>
+<li>摆放的流向</li>
+<li>摆放顺序</li>
+<li>盒子宽度和高度</li>
+<li>水平和垂直方向的对齐</li>
+<li>是否允许折行</li>
+</ul>
+</li>
+</ul>
+<p>参考文档：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+<p>Webkit 内核的浏览器，必须加上-webkit前缀。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-flex; <span class="comment">/* Safari */</span></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>容器的属性</strong></p>
+<ul>
+<li>flex-direction<ul>
+<li>决定主轴的方向（即项目的排列方向）</li>
+<li><code>row</code>（默认值）：主轴为水平方向，起点在左端</li>
+<li><code>row-reverse</code>：主轴为水平方向，起点在右端</li>
+<li><code>column</code>：主轴为垂直方向，起点在上沿</li>
+<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿</li>
+</ul>
+</li>
+<li>flex-wrap<ul>
+<li>属性定义，如果一条轴线排不下，如何换行</li>
+<li><code>nowrap</code>（默认）：不换行</li>
+<li><code>wrap</code>：换行，第一行在上方</li>
+<li><code>wrap-reverse</code>：换行，第一行在下方</li>
+</ul>
+</li>
+<li>flex-flow<ul>
+<li>flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</li>
+</ul>
+</li>
+<li>justify-content<ul>
+<li>项目在主轴上的对齐方式</li>
+<li><code>flex-start</code>（默认值）：左对齐</li>
+<li><code>flex-end</code>：右对齐</li>
+<li><code>center</code>： 居中</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li>
+</ul>
+</li>
+<li>align-items<ul>
+<li>项目在交叉轴上如何对齐</li>
+<li><code>flex-start</code>：交叉轴的起点对齐</li>
+<li><code>flex-end</code>：交叉轴的终点对齐</li>
+<li><code>center</code>：交叉轴的中点对齐</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐</li>
+<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度</li>
+</ul>
+</li>
+<li>align-content<ul>
+<li>定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用</li>
+<li><code>flex-start</code>：与交叉轴的起点对齐</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐</li>
+<li><code>center</code>：与交叉轴的中点对齐</li>
+<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴</li>
+</ul>
+</li>
+</ul>
+<p><strong>子项目的属性</strong></p>
+<ul>
+<li><code>order</code><ul>
+<li>项目的排列顺序。数值越小，排列越靠前，默认为0</li>
+</ul>
+</li>
+<li><code>flex-grow</code><ul>
+<li>项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大</li>
+</ul>
+</li>
+<li><code>flex-shrink</code><ul>
+<li>项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</li>
+<li>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小</li>
+</ul>
+</li>
+<li><code>flex-basis</code><ul>
+<li>定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小</li>
+<li>可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间</li>
+</ul>
+</li>
+<li><code>flex</code><ul>
+<li><code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选</li>
+</ul>
+</li>
+<li><code>align-self</code><ul>
+<li>允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="Grid-布局"><a href="#Grid-布局" class="headerlink" title="Grid 布局"></a>Grid 布局</h3><p>二维布局</p>
+<h2 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动 float"></a>浮动 float</h2><p>通过浮动图片，可以实现文字环绕图片的效果</p>
+<p>对于左右布局之类可以用flex布局等来实现，避免清除浮动等问题</p>
+<h2 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h2><p>position属性</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>static</td>
+<td>默认值，非定位元素</td>
+</tr>
+<tr>
+<td>relative</td>
+<td>相对自身原本位置偏移，不脱离文档流</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>绝对定位，相对于最近的非static祖先元素定位，脱离常规流</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>相对于视口绝对定位</td>
+</tr>
+<tr>
+<td>sticky</td>
+<td>粘性定位</td>
+</tr>
+</tbody></table>
 <h1 id="常见样式"><a href="#常见样式" class="headerlink" title="常见样式"></a>常见样式</h1><h2 id="水平和垂直居中"><a href="#水平和垂直居中" class="headerlink" title="水平和垂直居中"></a>水平和垂直居中</h2><p>HTML代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -384,13 +633,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/12/31/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" rel="prev" title="2022年度总结">
-                  <i class="fa fa-chevron-left"></i> 2022年度总结
+                <a href="/2023/01/07/Git/" rel="prev" title="Git">
+                  <i class="fa fa-chevron-left"></i> Git
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/07/Git/" rel="next" title="Git">
-                  Git <i class="fa fa-chevron-right"></i>
+                <a href="/2023/01/16/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML/" rel="next" title="前端与HTML">
+                  前端与HTML <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
