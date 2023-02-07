@@ -1,6 +1,6 @@
 ---
-title: 深入CSS
-date: 2023-01-16 15:47:02
+title: TypeScript
+date: 2023-02-07 15:47:02
 tags:
 - TypeScript
 categories:
