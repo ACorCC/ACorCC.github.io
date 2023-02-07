@@ -29,7 +29,7 @@
 <meta property="og:description" content="在开发中，如果有必要修改node_modules里的代码，有哪几种方法呢？哪种方法最好呢？ 第一种：直接改这种很容易理解，就是直接进node_modules中，找到相关包的代码，并修改相应位置代码，然后重启项目即可。但是这样做存在如下弊端：  只能是你自己本地用你修改的代码，其他人用不了； 下次npm install 之后之前修改的代码都会恢复原状；  第二种：独立维护一个包假如我使用了包A，它限">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-04T15:05:50.000Z">
-<meta property="article:modified_time" content="2023-02-04T15:11:53.080Z">
+<meta property="article:modified_time" content="2023-02-07T11:20:43.698Z">
 <meta property="article:author" content="ACorCC">
 <meta property="article:tag" content="工程化">
 <meta name="twitter:card" content="summary">
@@ -141,12 +141,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,9 +202,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-02-04 23:05:50 / 修改时间：23:11:53" itemprop="dateCreated datePublished" datetime="2023-02-04T23:05:50+08:00">2023-02-04</time>
+      <time title="创建时间：2023-02-04 23:05:50" itemprop="dateCreated datePublished" datetime="2023-02-04T23:05:50+08:00">2023-02-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-02-07 19:20:43" itemprop="dateModified" datetime="2023-02-07T19:20:43+08:00">2023-02-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -232,7 +238,7 @@
 <li>只能是你自己本地用你修改的代码，其他人用不了；</li>
 <li>下次npm install 之后之前修改的代码都会恢复原状；</li>
 </ol>
-<h1 id="第二种：独立维护一个包"><a href="#第二种：独立维护一个包" class="headerlink" title="第二种：独立维护一个包"></a>第二种：独立维护一个包</h1><p>假如我使用了包A，它限制了上传文件的格式，但是我的业务要求是放开所有限制，此时我可以这样：在原有包的基础上copy一个包B，，修改相关代码后把包B推送到npm上，此时我的项目中不需要原来的包了，用我刚维护的包B就可以了，这样就可以达到效果。以前我也是这么做的。这样做的缺点就是会增加维护的成本，当然个人认为这种成本可以忽略不计，因为我改完后很长时间从来没有再次改动过。</p>
+<h1 id="第二种：独立维护一个包"><a href="#第二种：独立维护一个包" class="headerlink" title="第二种：独立维护一个包"></a>第二种：独立维护一个包</h1><p>假如我使用了包A，它限制了上传文件的格式，但是我的业务要求是放开所有限制，此时我可以这样：在原有包的基础上copy一个包B，修改相关代码后把包B推送到npm上，此时项目中不需要原来的包了，用刚维护的包B就可以了，这样就可以达到效果。这样做的缺点就是会增加维护的成本。</p>
 <h1 id="第三种-patch-package"><a href="#第三种-patch-package" class="headerlink" title="第三种: patch-package"></a>第三种: patch-package</h1><p>这是一个专门用来修改node_modules中包的代码的工具，使用方式也很简单：</p>
 <ol>
 <li>安装patch-package</li>

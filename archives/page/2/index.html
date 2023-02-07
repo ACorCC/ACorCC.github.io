@@ -138,12 +138,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -161,6 +161,113 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2022/08/18/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/18/mysql/" class="post-title-link" itemprop="url">mysql</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-18 20:02:49" itemprop="dateCreated datePublished" datetime="2022-08-18T20:02:49+08:00">2022-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-02-04 21:45:30" itemprop="dateModified" datetime="2023-02-04T21:45:30+08:00">2023-02-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="在项目中使用mysql"><a href="#在项目中使用mysql" class="headerlink" title="在项目中使用mysql"></a>在项目中使用mysql</h1><h2 id="安装mysql模块"><a href="#安装mysql模块" class="headerlink" title="安装mysql模块"></a>安装mysql模块</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mysql</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入并配置mysql模块"><a href="#导入并配置mysql模块" class="headerlink" title="导入并配置mysql模块"></a>导入并配置mysql模块</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入mysql模块</span></span><br><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">&#x27;mysql&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接mysql数据库</span></span><br><span class="line"><span class="keyword">const</span> db = mysql.<span class="title function_">createPool</span>(&#123;</span><br><span class="line">  <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,    <span class="comment">// 连接的数据库所在ip地址</span></span><br><span class="line">  <span class="attr">user</span>: <span class="string">&#x27;root&#x27;</span>,         <span class="comment">// 数据库账号</span></span><br><span class="line">  <span class="attr">password</span>: <span class="string">&#x27;admin123&#x27;</span>, <span class="comment">// 数据库密码</span></span><br><span class="line">  <span class="attr">database</span>: <span class="string">&#x27;my_db_01&#x27;</span>, <span class="comment">// 指定要操作哪个数据库</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试mysql模块能否正常工作"><a href="#测试mysql模块能否正常工作" class="headerlink" title="测试mysql模块能否正常工作"></a>测试mysql模块能否正常工作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试mysql能否正常工作</span></span><br><span class="line">db.<span class="title function_">query</span>(<span class="string">&#x27;SELECT 1&#x27;</span>, <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="comment">// 如果results能打印出 [ RowDataPacket &#123; &#x27;1&#x27;: 1 &#125; ] 的结果，就说明数据库连接正常</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(results);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询users表中的所有数据</span></span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;select * from users&#x27;</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr, <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(results);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待插入数据</span></span><br><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">username</span>: <span class="string">&#x27;Jack&#x27;</span>, <span class="attr">password</span>: <span class="string">&#x27;jack123&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// sql语句，其中的?表示占位符</span></span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;insert into users (username, password) values (?, ?)&#x27;</span></span><br><span class="line"><span class="comment">// 使用数组的形式作为第二个参数，为?占位符指定具体的值</span></span><br><span class="line"><span class="comment">// 如果占位符只有一个，则可以省略数组</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr, [user.<span class="property">username</span>, user.<span class="property">password</span>], <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="keyword">if</span>(results.<span class="property">affectedRows</span> === <span class="number">1</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当user数据对象的属性，与数据表的字段一一对应时，可使用便捷写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待插入数据</span></span><br><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">username</span>: <span class="string">&#x27;Jack&#x27;</span>, <span class="attr">password</span>: <span class="string">&#x27;jack123&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// sql语句，其中的?表示占位符</span></span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;insert into users set ?&#x27;</span></span><br><span class="line"><span class="comment">// 使用数组的形式作为第二个参数，为?占位符指定具体的值</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr, user, <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="keyword">if</span> (results.<span class="property">affectedRows</span> === <span class="number">1</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;插入数据成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">id</span>: <span class="number">7</span>, <span class="attr">username</span>: <span class="string">&#x27;aaa&#x27;</span>, <span class="attr">password</span>: <span class="string">&#x27;000&#x27;</span> &#125;<span class="comment">// 要更新的数据对象</span></span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;update users set username=?, password=? where id=?&#x27;</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr, [user.<span class="property">username</span>, user.<span class="property">password</span>, user.<span class="property">id</span>], <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="keyword">if</span> (results.<span class="property">affectedRows</span> === <span class="number">1</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新数据成功！&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当user数据对象的属性，与数据表的字段一一对应时，可使用便捷写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">id</span>: <span class="number">7</span>, <span class="attr">username</span>: <span class="string">&#x27;aaa&#x27;</span>, <span class="attr">password</span>: <span class="string">&#x27;000&#x27;</span> &#125;</span><br><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;update users set ? where id=?&#x27;</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr, [user, user.<span class="property">id</span>], <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="keyword">if</span> (results.<span class="property">affectedRows</span> === <span class="number">1</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;更新数据成功！&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;delete from users where id=?&#x27;</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr, <span class="number">7</span>, <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="keyword">if</span> (results.<span class="property">affectedRows</span> === <span class="number">1</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除数据成功！&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用status等状态字段来标记数据，以模拟删除</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sqlStr = <span class="string">&#x27;update users set status=? where id=?&#x27;</span></span><br><span class="line">db.<span class="title function_">query</span>(sqlStr, [<span class="number">1</span>, <span class="number">7</span>], <span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(err.<span class="property">message</span>);</span><br><span class="line">  <span class="keyword">if</span> (results.<span class="property">affectedRows</span> === <span class="number">1</span>) <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除数据成功！&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
