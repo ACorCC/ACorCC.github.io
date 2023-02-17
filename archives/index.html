@@ -143,7 +143,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -161,6 +161,273 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/02/17/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%BA%8C%EF%BC%9A%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/17/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%BA%8C%EF%BC%9A%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Webpack入门系列二：常见配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-02-17 21:20:29 / 修改时间：21:59:45" itemprop="dateCreated datePublished" datetime="2023-02-17T21:20:29+08:00">2023-02-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="流程类配置"><a href="#流程类配置" class="headerlink" title="流程类配置"></a>流程类配置</h1><h2 id="entry、output"><a href="#entry、output" class="headerlink" title="entry、output"></a>entry、output</h2><p>文件结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- src</span><br><span class="line">	|-- index.js</span><br><span class="line">|-- webpack.config.js</span><br></pre></td></tr></table></figure>
+
+<p><strong>entry</strong>入口文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = &#123;</span><br><span class="line">    entry: <span class="string">&#x27;main.js&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>output</strong>产物出口</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&quot;[name].js&quot;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;./dist&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理CSS"><a href="#处理CSS" class="headerlink" title="处理CSS"></a>处理CSS</h2><p>文件结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- src</span><br><span class="line">	|-- index.js</span><br><span class="line">	|-- index.css</span><br><span class="line">|-- webpack.config.js</span><br></pre></td></tr></table></figure>
+
+<p><code>index.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> styles = <span class="built_in">require</span>(<span class="string">&#x27;./index.css&#x27;</span>)</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&#x27;./index.css&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>js本身只支持导入js文件，不支持其它格式的资源。因此需要使用相关Loader来处理。</p>
+<ol>
+<li><p>安装Loader</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm add iD css-loader style-loader</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加<code>module</code>处理css文件，test为匹配规则，use为链式调用的Loader（从后往前调用）</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&quot;[name].js&quot;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;./dist&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="comment">// css处理器</span></span><br><span class="line">        <span class="attr">rules</span>:[&#123;</span><br><span class="line">            <span class="attr">test</span>: <span class="regexp">/\.css/i</span>,</span><br><span class="line">            <span class="attr">use</span>: [</span><br><span class="line">                <span class="string">&#x27;style-loader&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;css-loader&#x27;</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p><code>index.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;Tecvan&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="keyword">new</span> <span class="title class_">Person</span>()).<span class="property">name</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">say</span> = (<span class="params"></span>) =&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Babel可以将es6语法转化为兼容低版本浏览器的js代码</p>
+<ol>
+<li><p>安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D @babel.core @babel/preset-env babel-loader</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>声明产物出口<code>output</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&quot;[name].js&quot;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;./dist&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="attr">rules</span>:[&#123;</span><br><span class="line">            <span class="attr">test</span>: <span class="regexp">/\.js?$/</span>,</span><br><span class="line">            <span class="attr">use</span>: [&#123;</span><br><span class="line">                <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">                <span class="attr">options</span>: &#123;</span><br><span class="line">                    <span class="attr">persets</span>: [</span><br><span class="line">                        [</span><br><span class="line">                            <span class="string">&#x27;@babel/preset-env&#x27;</span></span><br><span class="line">                        ]</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, ]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>npx webpack</code></p>
+</li>
+</ol>
+<h2 id="生成HTML"><a href="#生成HTML" class="headerlink" title="生成HTML"></a>生成HTML</h2><p>文件结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- src</span><br><span class="line">	|-- index.js</span><br><span class="line">|-- webpack.config.js</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D html-webpack-plugin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>声明产物出口<code>output</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&quot;[name].js&quot;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;./dist&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">plugin</span>: [<span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>npx webpack</code></p>
+</li>
+</ol>
+<p>文件结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|-- dist</span><br><span class="line">	|-- index.html</span><br><span class="line">	|-- main.js</span><br><span class="line">|-- src</span><br><span class="line">	|-- index.js</span><br><span class="line">|-- webpack.config.js</span><br></pre></td></tr></table></figure>
+
+<h1 id="工具类配置"><a href="#工具类配置" class="headerlink" title="工具类配置"></a>工具类配置</h1><h2 id="HMR"><a href="#HMR" class="headerlink" title="HMR"></a>HMR</h2><p>Hot Module Replacement，模块热替换</p>
+<ol>
+<li><p>开启HMR</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">hot</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动Webpack</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx webpack serve</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree-Shaking"></a>Tree-Shaking</h2><p>用于删除Dead Code，如没有被用到、不可到达的代码，执行结果不会被用到的代码……</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&quot;./src/index&quot;</span>,</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&quot;production&quot;</span>,</span><br><span class="line">    <span class="attr">devtool</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">optimization</span>: &#123;</span><br><span class="line">        <span class="attr">usedExports</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/02/17/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%B8%80%EF%BC%9A%E8%AE%A4%E8%AF%86Webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/17/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%B8%80%EF%BC%9A%E8%AE%A4%E8%AF%86Webpack/" class="post-title-link" itemprop="url">Webpack入门系列一：认识Webpack</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-02-17 20:47:37 / 修改时间：21:20:44" itemprop="dateCreated datePublished" datetime="2023-02-17T20:47:37+08:00">2023-02-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>一个前端项目由各种各样的资源构成，包括图片PNG、JPG、GIF等，代码资源JS、TS、CSS、LESS、VUE等等。</p>
+<p>假设如下情景，一个网页依赖了50个JS文件，且彼此之间有依赖，需要严格按依赖顺序书写。同时由于浏览器只支持CSS与JS，难以直接接入TS、LESS等资源，或对JS新特性存在兼容性问题。这种情况对开发效率的影响非常大。</p>
+<p>于是出现了诸如Webpack、Gulp、Vite等工程化工具，有效解决了上述问题，并有了”前端工程“的概念。</p>
+<h1 id="Webpack介绍"><a href="#Webpack介绍" class="headerlink" title="Webpack介绍"></a>Webpack介绍</h1><p>Webpack本质上是一种前端资源<strong>编译</strong>、<strong>打包</strong>工具。包括：</p>
+<ul>
+<li><strong>模块化处理css、图片等资源文件</strong></li>
+<li><strong>支持Babel、Eslint、TS、CoffeScript、Less、Sass</strong></li>
+<li><strong>多份资源文件打包成一个Bundle</strong></li>
+<li>支持HMR+开发服务器</li>
+<li>支持持续监听、持续构建</li>
+<li>支持代码分离</li>
+<li>支持Tree-shaking</li>
+<li>支持Sourcemap</li>
+</ul>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><ol>
+<li><p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D webpack webpack-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑配置文件 webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;main.js&#x27;</span>,</span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&quot;[name].js&quot;</span>,</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&quot;./dist&quot;</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="attr">rules</span>:[&#123;</span><br><span class="line">            <span class="attr">test</span>: <span class="regexp">/\.less$/i</span>,</span><br><span class="line">            <span class="attr">use</span>: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行编译命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx webpack</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="核心流程"><a href="#核心流程" class="headerlink" title="核心流程"></a>核心流程</h1><ol>
+<li><p>入口处理</p>
+<p>从<code>entry</code>文件开始，启动编译流程。</p>
+</li>
+<li><p>依赖解析</p>
+<p>根据<code>require</code>或<code>import</code>等语句找到依赖资源。</p>
+</li>
+<li><p>资源解析</p>
+<p>根据<code>module</code>配置，调用资源转移器，将png、css等非标准JS资源转译为JS内容。</p>
+<p>递归调用2、3，直到所有资源处理完毕。</p>
+</li>
+<li><p>资源合并打包</p>
+<p>将转译后的资源内容合并打包为可直接在浏览器运行的JS文件。</p>
+</li>
+</ol>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>关于Webpack的使用，基本都围绕<strong>配置</strong>展开，这些配置大致可划分为两类：</p>
+<ul>
+<li><p>流程类：作用于流程中某个or若干个环节，直接影响打包效果的配置项</p>
+<ul>
+<li>输入：<code>entry</code>、<code>context</code></li>
+<li>模块解析：<code>resolve</code>、<code>externals</code></li>
+<li>模块转移：<code>module</code></li>
+<li>后处理：<code>optimization</code>、<code>mode</code>、<code>target</code></li>
+</ul>
+</li>
+<li><p>工具类：主流程之外，提供更多工程化能力的配置项</p>
+<ul>
+<li>开发效率类：<code>watch</code>、<code>devtool</code>、<code>devServer</code></li>
+<li>性能优化类：<code>cache</code>、<code>performance</code></li>
+<li>日志类：<code>stats</code>、<code>infrastructureLogging</code></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -206,7 +473,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-02-08 00:49:01" itemprop="dateModified" datetime="2023-02-08T00:49:01+08:00">2023-02-08</time>
+      <time title="修改时间：2023-02-08 19:29:54" itemprop="dateModified" datetime="2023-02-08T19:29:54+08:00">2023-02-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,7 +517,7 @@
 
 <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getRepeatArr</span>(<span class="params">target</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">100</span>).<span class="title function_">fill</span>(target);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IGetRepeatArr</span> = <span class="function">(<span class="params">target: <span class="built_in">any</span></span>) =&gt;</span> <span class="built_in">any</span>[l;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 不预先指定具体的类型，而在使用的时候再指定类型的一种特性 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IGetRepeatArrR</span> = &lt;T&gt;<span class="function">(<span class="params">target: T</span>) =&gt;</span> T[];</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 泛型接口 &amp; 多泛型 */</span></span><br><span class="line"><span class="keyword">interface</span> IX&lt;T，U&gt; &#123;</span><br><span class="line">    <span class="attr">key</span>: T;</span><br><span class="line">    <span class="attr">val</span>: U;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 泛型类 */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">IMan</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="attr">instance</span>: T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 泛型别名 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">ITypeArr</span>&lt;T&gt; = <span class="title class_">Array</span>&lt;T&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 泛型约束: 限制泛型必须符合字符串 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IGetRepeatStringArr</span> = &lt;T <span class="keyword">extends</span> <span class="built_in">string</span>&gt;<span class="function">(<span class="params">target: T</span>) =&gt;</span> <span class="title class_">Tl</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="attr">getStrArr</span>: <span class="title class_">IGetRepeatStringArr</span> = <span class="function"><span class="params">target</span> =&gt;</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">100</span>).<span class="property">filltarget</span>);</span><br><span class="line"><span class="comment">/* 报错: 类型“number”的参数不能赋给类型“string”的参数 */</span></span><br><span class="line"><span class="title function_">getstrArr</span>(<span class="number">123</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 泛型参数默认类型 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IGetRepeatArr</span>&lt;T = <span class="built_in">number</span>&gt; = <span class="function">(<span class="params">target: T</span>) =&gt;</span> T[];</span><br><span class="line"><span class="keyword">const</span> <span class="attr">getRepeatArr</span>: <span class="title class_">IGetRepeatArr</span> = <span class="function"><span class="params">target</span> =&gt;</span> <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">100</span>).<span class="title function_">fill</span>(target);</span><br><span class="line"><span class="comment">/* 报错: 类型“string”的参数不能赋给类型“number”的参数 */</span></span><br><span class="line"><span class="title function_">getRepeatArr</span>(<span class="string">&#x27;123&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="类型别名-amp-类型断言"><a href="#类型别名-amp-类型断言" class="headerlink" title="类型别名 &amp; 类型断言"></a>类型别名 &amp; 类型断言</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 通过type关键字定义了IobjArr的别名类型 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IObjArr</span> = <span class="title class_">Array</span>&lt;&#123;</span><br><span class="line">    <span class="attr">key</span>: <span class="built_in">string</span>;</span><br><span class="line">    [<span class="attr">objKey</span>: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;&gt;</span><br><span class="line"><span class="keyword">function</span> keyBy&lt;T <span class="keyword">extends</span> <span class="title class_">IObjArr</span>&gt;(<span class="attr">objArr</span>: <span class="title class_">Array</span>&lt;T&gt;) [</span><br><span class="line">    <span class="comment">/* 未指定类型时，result类型为 &#123;&#125; */</span></span><br><span class="line">    <span class="keyword">const</span> result = objArr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">res, val, key</span>) =&gt;</span> &#123;</span><br><span class="line">        res[key] = val;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line">	<span class="comment">/* 通过as关键字，断言result类型为正确类型 */</span></span><br><span class="line">	<span class="keyword">return</span> result <span class="keyword">as</span> <span class="title class_">Record</span>&lt;<span class="built_in">string</span>，T&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类型别名-amp-类型断言"><a href="#类型别名-amp-类型断言" class="headerlink" title="类型别名 &amp; 类型断言"></a>类型别名 &amp; 类型断言</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 通过type关键字定义了IObjArr的别名类型 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IObjArr</span> = <span class="title class_">Array</span>&lt;&#123;</span><br><span class="line">    <span class="attr">key</span>: <span class="built_in">string</span>;</span><br><span class="line">    [<span class="attr">objKey</span>: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;&gt;</span><br><span class="line"><span class="keyword">function</span> keyBy&lt;T <span class="keyword">extends</span> <span class="title class_">IObjArr</span>&gt;(<span class="attr">objArr</span>: <span class="title class_">Array</span>&lt;T&gt;) [</span><br><span class="line">    <span class="comment">/* 未指定类型时，result类型为 &#123;&#125; */</span></span><br><span class="line">    <span class="keyword">const</span> result = objArr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">res, val, key</span>) =&gt;</span> &#123;</span><br><span class="line">        res[key] = val;</span><br><span class="line">		<span class="keyword">return</span> res;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line">	<span class="comment">/* 通过as关键字，断言result类型为正确类型 */</span></span><br><span class="line">	<span class="keyword">return</span> result <span class="keyword">as</span> <span class="title class_">Record</span>&lt;<span class="built_in">string</span>，T&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="字符串-x2F-数字-字面量"><a href="#字符串-x2F-数字-字面量" class="headerlink" title="字符串&#x2F;数字 字面量"></a>字符串&#x2F;数字 字面量</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 允许指定字符串/数字必须的固定值 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* IDomTag必须为html、body、div、span中的其一 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IDomTag</span> =<span class="string">&#x27;html&#x27;</span> | <span class="string">&#x27;body&#x27;</span> | <span class="string">&#x27;div&#x27;</span> | <span class="string">&#x27;span&#x27;</span>;</span><br><span class="line"><span class="comment">/* IOddNumber必须为1、3、5、7、9中的其一 */</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IOddNumber</span> = <span class="number">13579</span>;</span><br></pre></td></tr></table></figure>
 
@@ -268,9 +535,9 @@
 
 <h2 id="类型保护与类型守卫"><a href="#类型保护与类型守卫" class="headerlink" title="类型保护与类型守卫"></a>类型保护与类型守卫</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> lA &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">a1</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">interface</span> IB &#123; <span class="attr">b</span>: <span class="number">1</span>, <span class="attr">b1</span>: <span class="number">2</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 类型守卫: 定义一个函数，它的返回值是一个类型谓词，生效范围为子作用域 */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getlslA</span>(<span class="params">arg: IA | IB</span>): arg is <span class="variable constant_">IA</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> !!(arg <span class="keyword">as</span> <span class="variable constant_">IA</span>).<span class="property">a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">log2</span>(<span class="params">arg: IA | IB</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">getlslA</span>(arg)) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(arg.<span class="property">a1</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(arg.<span class="property">b1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现函数reverse</span></span><br><span class="line"><span class="comment">// 实现函数logBook类型</span></span><br><span class="line"><span class="comment">// 函数接受书本类型，并logger出相关特征</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">logBook</span>(<span class="params">book: IBookltem</span>) &#123;</span><br><span class="line">    <span class="comment">// 联合类型 + 类型保护 = 自动类型推断</span></span><br><span class="line">    <span class="keyword">if</span> (book.<span class="property">type</span> === <span class="string">&quot;history&#x27;) &#123;</span></span><br><span class="line"><span class="string">        console.log(book.range)</span></span><br><span class="line"><span class="string">	&#125; else &#123;</span></span><br><span class="line"><span class="string">        console.log(book.theme);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="高级类型-1"><a href="#高级类型-1" class="headerlink" title="高级类型"></a>高级类型</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现merge函数类型</span></span><br><span class="line"><span class="comment"> * 要求sourceObj必须为targetObj的子集</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">merge1</span>(<span class="params">sourceObj, targetObj</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> result = &#123; ...sourceObj &#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> targetObj) &#123;</span><br><span class="line">        <span class="keyword">const</span> itemVal = sourceObj[key];</span><br><span class="line">        itemVal &amp;&amp; ( result[key] = itemVal );</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">merge2</span>(<span class="params">sourceObj, targetObj</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; ...sourceObj, ...targetObj &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ISourceObj</span> &#123;</span><br><span class="line">	x?: <span class="built_in">string</span>;</span><br><span class="line">    y?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ITargetObj</span> &#123;</span><br><span class="line">    <span class="attr">x</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">y</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IMerge</span> = <span class="function">(<span class="params">sourceObj: ISourceObj, targetObj: ITargetObj</span>) =&gt;</span><span class="title class_">ITargetObj</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 类型实现繁琐: 若obi类型较为复杂，则声明source和target便需要大量重复2遍</span></span><br><span class="line"><span class="comment"> * 容易出错: 若target增加/减少key，则需要source联动去除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">IMerge</span>&#123;</span><br><span class="line">    &lt;T <span class="keyword">extends</span> <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; &gt;(<span class="attr">sourceObj</span>: <span class="title class_">Partial</span>&lt;T&gt;, <span class="attr">targetObj</span>: T): T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IPartial</span>&lt;T <span class="keyword">extends</span> <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; &gt; = &#123;</span><br><span class="line">    [P <span class="keyword">in</span> keyof T]?: T[P];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 索引类型: 关键字(keyof]，其相当于取值对象中的所有kev组成的字符串字面量,如</span></span><br><span class="line"><span class="keyword">type</span> lKeys = keyof &#123; <span class="attr">a</span>: <span class="built_in">string</span>; <span class="attr">b</span>: <span class="built_in">number</span> l; <span class="comment">// =&gt; type IKeys = &quot;a&quot; | &quot;b&quot;</span></span><br><span class="line"><span class="comment">// 关键字[in]，其相当于取值 字符串字面量 中的一种可能，配合泛型P,即表示每个key</span></span><br><span class="line"><span class="comment">// 关键字[?]，通过设定对象可选选项，即可自动推导出子集类型</span></span><br></pre></td></tr></table></figure>
+<h2 id="高级类型-1"><a href="#高级类型-1" class="headerlink" title="高级类型"></a>高级类型</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现merge函数类型</span></span><br><span class="line"><span class="comment"> * 要求sourceObj必须为targetObj的子集</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">merge1</span>(<span class="params">sourceObj, targetObj</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> result = &#123; ...sourceObj &#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> targetObj) &#123;</span><br><span class="line">        <span class="keyword">const</span> itemVal = sourceObj[key];</span><br><span class="line">        itemVal &amp;&amp; ( result[key] = itemVal );</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">merge2</span>(<span class="params">sourceObj, targetObj</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; ...sourceObj, ...targetObj &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ISourceObj</span> &#123;</span><br><span class="line">	x?: <span class="built_in">string</span>;</span><br><span class="line">    y?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">ITargetObj</span> &#123;</span><br><span class="line">    <span class="attr">x</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">y</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IMerge</span> = <span class="function">(<span class="params">sourceObj: ISourceObj, targetObj: ITargetObj</span>) =&gt;</span><span class="title class_">ITargetObj</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 类型实现繁琐: 若obi类型较为复杂，则声明source和target便需要大量重复2遍</span></span><br><span class="line"><span class="comment"> * 容易出错: 若target增加/减少key，则需要source联动去除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">IMerge</span>&#123;</span><br><span class="line">    &lt;T <span class="keyword">extends</span> <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; &gt;(<span class="attr">sourceObj</span>: <span class="title class_">Partial</span>&lt;T&gt;, <span class="attr">targetObj</span>: T): T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IPartial</span>&lt;T <span class="keyword">extends</span> <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; &gt; = &#123;</span><br><span class="line">    [P <span class="keyword">in</span> keyof T]?: T[P];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 索引类型: 关键字【keyof】，其相当于取值对象中的所有kev组成的字符串字面量,如</span></span><br><span class="line"><span class="keyword">type</span> lKeys = keyof &#123; <span class="attr">a</span>: <span class="built_in">string</span>; <span class="attr">b</span>: <span class="built_in">number</span> l; <span class="comment">// =&gt; type IKeys = &quot;a&quot; | &quot;b&quot;</span></span><br><span class="line"><span class="comment">// 关键字【in】，其相当于取值 字符串字面量 中的一种可能，配合泛型P,即表示每个key</span></span><br><span class="line"><span class="comment">// 关键字【?】，通过设定对象可选选项，即可自动推导出子集类型</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="函数返回值类型"><a href="#函数返回值类型" class="headerlink" title="函数返回值类型"></a>函数返回值类型</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现函数delayCall的类型声明</span></span><br><span class="line"><span class="comment">// delayCall接受一个函数作为入参,其实现延迟1s运行函数</span></span><br><span class="line"><span class="comment">// 其返回promise，结果为入参函数的返回结果</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">delayCall</span>(<span class="params">func</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(resolve = &gt; &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="number">0</span> =&gt; &#123;</span><br><span class="line">        	<span class="keyword">const</span> result = <span class="title function_">func</span>();</span><br><span class="line">        	<span class="title function_">resolve</span>(result);</span><br><span class="line">		&#125;, <span class="number">1000</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IDelayCall</span> = &lt;T <span class="keyword">extends</span> () =&gt; <span class="built_in">any</span>&gt;<span class="function">(<span class="params">func: T</span>) =&gt;</span> <span class="title class_">ReturnType</span>&lt;T&gt;;</span><br><span class="line"><span class="keyword">type</span> lReturnType&lt;T <span class="keyword">extends</span> (...<span class="attr">args</span>: <span class="built_in">any</span>) =&gt; <span class="built_in">any</span>&gt; = T <span class="keyword">extends</span> (..<span class="property">args</span>: <span class="built_in">any</span>) =&gt; infer R ? R : <span class="built_in">any</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 关键字(extends]跟随泛型出现时，表示类型推断，其表达可类比三元表达式</span></span><br><span class="line"><span class="comment">// 如 T === 判断类型 ? 类型A : 类型B</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 关键字(infer] 出现在类型推荐中，表示定义类型变量，可以用于指代类型</span></span><br><span class="line"><span class="comment">// 如 该场景下，将函数的返回值类型作为变量，使用新泛型R表示，使用在类型推荐命中的结果中</span></span><br></pre></td></tr></table></figure>
+<h2 id="函数返回值类型"><a href="#函数返回值类型" class="headerlink" title="函数返回值类型"></a>函数返回值类型</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现函数delayCall的类型声明</span></span><br><span class="line"><span class="comment">// delayCall接受一个函数作为入参,其实现延迟1s运行函数</span></span><br><span class="line"><span class="comment">// 其返回promise，结果为入参函数的返回结果</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">delayCall</span>(<span class="params">func</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(resolve = &gt; &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="number">0</span> =&gt; &#123;</span><br><span class="line">        	<span class="keyword">const</span> result = <span class="title function_">func</span>();</span><br><span class="line">        	<span class="title function_">resolve</span>(result);</span><br><span class="line">		&#125;, <span class="number">1000</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">IDelayCall</span> = &lt;T <span class="keyword">extends</span> () =&gt; <span class="built_in">any</span>&gt;<span class="function">(<span class="params">func: T</span>) =&gt;</span> <span class="title class_">ReturnType</span>&lt;T&gt;;</span><br><span class="line"><span class="keyword">type</span> lReturnType&lt;T <span class="keyword">extends</span> (...<span class="attr">args</span>: <span class="built_in">any</span>) =&gt; <span class="built_in">any</span>&gt; = T <span class="keyword">extends</span> (..<span class="property">args</span>: <span class="built_in">any</span>) =&gt; infer R ? R : <span class="built_in">any</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 关键字【extends】跟随泛型出现时，表示类型推断，其表达可类比三元表达式</span></span><br><span class="line"><span class="comment">// 如 T === 判断类型 ? 类型A : 类型B</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 关键字【infer】出现在类型推荐中，表示定义类型变量，可以用于指代类型</span></span><br><span class="line"><span class="comment">// 如 该场景下，将函数的返回值类型作为变量，使用新泛型R表示，使用在类型推荐命中的结果中</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -1715,234 +1982,6 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PostSpider</span>(scrapy.Spider):</span><br><span class="line">    name = <span class="string">&#x27;post&#x27;</span></span><br><span class="line">    allowed_domains = [<span class="string">&#x27;fanyi.baidu.com&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">start_requests</span>(<span class="params">self</span>):</span><br><span class="line">        url = <span class="string">&#x27;https://fanyi.baidu.com/sug&#x27;</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;kw&#x27;</span>: <span class="string">&#x27;final&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">yield</span>  scrapy.FormRequest(url=url, formdata=data, callback=self.parse_second)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">parse_second</span>(<span class="params">self, response</span>):</span><br><span class="line">        content = response.text</span><br><span class="line">        obj = json.loads(content, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(obj)</span><br></pre></td></tr></table></figure>
 
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2022/11/30/%E7%A7%8B%E6%8B%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ACorCC">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ACorCC的个人网站">
-      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ACorCC的个人网站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/30/%E7%A7%8B%E6%8B%9B/" class="post-title-link" itemprop="url">秋招</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-30 00:06:15" itemprop="dateCreated datePublished" datetime="2022-11-30T00:06:15+08:00">2022-11-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-02-04 21:43:23" itemprop="dateModified" datetime="2023-02-04T21:43:23+08:00">2023-02-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B6%E5%AE%83/" itemprop="url" rel="index"><span itemprop="name">其它</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="秋招情况"><a href="#秋招情况" class="headerlink" title="秋招情况"></a>秋招情况</h1><h2 id="投递"><a href="#投递" class="headerlink" title="投递"></a>投递</h2><p>投递了不知道有没有100家公司，刚开始会记录投递的公司以及反馈情况。但因为是海投，所以到了后面不想记录了（懒）。越是大厂&#x2F;国企，就需要通过公司官方提供的方式（官网投递）去投递，此时需要在公司提供的简历模板上去填写各个公司要求提供的资料（主要是个人基本信息、实习&#x2F;工作&#x2F;项目&#x2F;校园&#x2F;科研&#x2F;获奖经历等。听其来倒没什么，但对于海投选手来说，每投递一家公司就要填写一次，短时间内投的公司多了，会累。根据华为HR的说法（学校提供的“模拟求职”大赛培训环节）。现在大厂基本会采用自己公司提供的简历模板的投递方式，便于他们内部筛选人才。而国企也基本是这种方式，大家可以想一想，采用公司的模板去投递，公司就可以很方便地把候选者存储在数据库里。当华为面对几十万份简历时，只需要在数据库里一键筛选出985211硕士就可以快速筛掉十几万人了……</p>
-<p>素质测评+笔试+面试一共一百多场，前期每投递一家大厂就要做一次测评，一个测评快得也要半个多小时，慢的像腾讯好像要两个来小时，有时候一个下午投递了三四家公司，做完测评后下午就结束了。而每次做的题目基本都是一样的，做到后面属实是有点恶心想吐了。</p>
-<h2 id="岗位"><a href="#岗位" class="headerlink" title="岗位"></a>岗位</h2><p>只投了前端的，因为只会前端（菜鸡就是我）。</p>
-<p>地点广州深圳珠海。</p>
-<p>行业互联网、金融、房地产等（饥不择食了），私企国企都投。</p>
-<h2 id="offer"><a href="#offer" class="headerlink" title="offer"></a>offer</h2><p>11月中后旬先后拿了广州和珠海的offer，对珠海的offer很知足满意了，并且经过了两个月的秋招也很累，很想上岸了，果断拒了广州offer，签了珠海的。月底又收到深圳的意向电话，和珠海的offer不相上下，拒了。</p>
-<h1 id="秋招建议"><a href="#秋招建议" class="headerlink" title="秋招建议"></a>秋招建议</h1><p>建议不会很详细，更多的是消除信息差，提供一个了解的方向。</p>
-<h2 id="投递-1"><a href="#投递-1" class="headerlink" title="投递"></a>投递</h2><h3 id="简历"><a href="#简历" class="headerlink" title="简历"></a>简历</h3><p>简历尽早准备，但不是一蹴而就的，我的简历在整个秋招中一直在打磨。推荐使用超级简历网站。</p>
-<h3 id="海投"><a href="#海投" class="headerlink" title="海投"></a>海投</h3><p>对于普通人，建议大中小厂都投。根据我十月中下旬在51前程无忧的投递情况（会提供简历编号），不知名小破厂都是几千份简历，电信是12万了。大部分公司（无论大中小厂）投完简历都是石沉大海（这也跟我是非科班本有关）。投完第一个公司可能会有点期待，但是别把自己当回事了，做个无情的投递机器就行了。</p>
-<h3 id="内推"><a href="#内推" class="headerlink" title="内推"></a>内推</h3><p>最好能找到内推人，方便后面催流程。字节的话找内推熊。没有的话直接小红薯搜一个内推码吧。</p>
-<h3 id="渠道"><a href="#渠道" class="headerlink" title="渠道"></a>渠道</h3><p>有些公司是只能官网，有些只能在51前程无忧。一般大中厂都是在官网投递（boss上的大厂基本是hr&#x2F;内推），小厂可能是51，不知道小企业（一两百人那种在boss之类的），不嫌烦的话可以把每个途径的都投一遍，增加简历被HR看到的机会。</p>
-<p>我的秋招情况的话，官网投递、51、牛客是主战场，占90%以上。智联招聘基本没啥用，还有其他平台投完基本等于没投。</p>
-<h3 id="心态"><a href="#心态" class="headerlink" title="心态"></a>心态</h3><p>有的厂七月提前批，有的厂九月发offer，有的厂十月才开始网申，要做好打持久战的准备，九月十月可能颗粒无收，十一月再收到offer，心态上别摆烂，也别太急了。当然，也要尽早准备秋招。</p>
-<h2 id="素质测评"><a href="#素质测评" class="headerlink" title="素质测评"></a>素质测评</h2><p>可能是性格、逻辑、素质之类的测评，跟行测类似吧。</p>
-<p>性格题不是真的按性格来，而是你觉得这个职位想要你是什么性格，一方面能说明你是这种人，另一方面就算你不是，但你能意识到需要有这种性格。</p>
-<p>逻辑题，文字&#x2F;数学类的就是初中高中的基本功了，图形题就是有规律的旋转、增加、删减等变换了（我测评做多了就知道规律了。。）</p>
-<p>我也不知道这种测评有没有用，反正当时腾讯的两三小时测评我直接开摆了，觉得没希望拿offer的，然后全部乱选了，最后也进入下一个环节笔试环节了。</p>
-<h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><p>主要是互联网技术岗才有笔试</p>
-<h3 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h3><p>每次做完可以及时回忆记录一下，看看哪些不会的就学一下，等下一家公司笔试就会了。所以整个秋招就是打怪升级，到了秋招后期，做笔试快的飞起。。</p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>至少把leetcode上的剑指offer刷了。不同规模的厂对算法的要求不同，看自己追求和时间安排吧。和leetcode之类的写核心代码模式不同，注意大部分笔试OJ平台都是包含文件输入输出等代码的，这个直接复制示例代码就行了。</p>
-<h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><h3 id="复盘-1"><a href="#复盘-1" class="headerlink" title="复盘"></a>复盘</h3><p>现在都是线上面试，可以录下来，结束后回看自己的表现。并复盘好的地方不好的地方。有些问题多个面试官都问到了，就是面经的重点了。</p>
-<h3 id="地点"><a href="#地点" class="headerlink" title="地点"></a>地点</h3><p>秋招后期我找到了一个校内绝佳的面试地点，就是宿舍阳台，随便找点书当椅子，椅子当桌子放笔记本电脑，开个虚拟背景就可以面试了。学校内的其它地方我尝试过几处，要么不方便，要不效果差，要么二者兼具。</p>
-<h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><p>平时注意一道题的多种解法，才能和面试官侃侃而谈。注意代码的优雅性。</p>
-<h3 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h3><p>面经在你秋招开始前一个月就可以开始背了，我是九月份开始背的，导致我九月份开始的笔试面试，很多知识点说的不好或者不会。面经说是背，但是还是要懂要理解的，没实践过不要紧，要会吹水。</p>
-<h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><p>一定要对简历上的每一个字都了如指掌，写的内容不一定要真的做了，但是能吹水吹的明白就行。</p>
-<h3 id="反问"><a href="#反问" class="headerlink" title="反问"></a>反问</h3><p>至少准备1-2个恰当的问题</p>
-<h1 id="转行"><a href="#转行" class="headerlink" title="转行"></a>转行</h1><h2 id="为什么转行"><a href="#为什么转行" class="headerlink" title="为什么转行"></a>为什么转行</h2><p>我的专业是海洋科学，私以为和生化环材并无实质性区别，于是曲线救国</p>
-<h2 id="为什么是前端"><a href="#为什么是前端" class="headerlink" title="为什么是前端"></a>为什么是前端</h2><p>没有为什么。没得选。</p>
-<p>有后选后，无后选前，无后无前，算法也甜，条件允许，无脑后端，前途无量，预定高管，其次前端，需求频繁，温饱有余，人上人难，算法数据，收入可观，最好硕博，高端饭碗，测试开发，也可一战，随手一点，月入过万，走投无路，回家种田，日出日落，生活美满，鬼迷心窍，来客户端，表面繁荣，实则内卷，工作清闲，面试火箭，不到三年，全部玩完，65在后，绿帽在前，苦口婆心，金玉良言，奉劝诸位，擦亮双眼，有则改之，无则加勉。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2022/11/23/cs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ACorCC">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ACorCC的个人网站">
-      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | ACorCC的个人网站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/23/cs/" class="post-title-link" itemprop="url">cs</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-23 18:22:05" itemprop="dateCreated datePublished" datetime="2022-11-23T18:22:05+08:00">2022-11-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-02-04 21:45:26" itemprop="dateModified" datetime="2023-02-04T21:45:26+08:00">2023-02-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="计算机原理"><a href="#计算机原理" class="headerlink" title="计算机原理"></a>计算机原理</h1><p>计算机中的很多事情，底层其实都很简单。</p>
-<p>让人难以理解的，是一层层精妙的抽象。</p>
-<h2 id="电子计算机"><a href="#电子计算机" class="headerlink" title="电子计算机"></a>电子计算机</h2><p>继电器-真空管-晶体管，前两者通过电路开闭让马达和齿轮计数，后者通过半导体实现电路闭合</p>
-<h2 id="逻辑门"><a href="#逻辑门" class="headerlink" title="逻辑门"></a>逻辑门</h2><p>晶体管的不同组合实现NOT、AND、OR、XOR</p>
-<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>1byte &#x3D; 8 bits</p>
-<h2 id="算术逻辑单元ALU"><a href="#算术逻辑单元ALU" class="headerlink" title="算术逻辑单元ALU"></a>算术逻辑单元ALU</h2><p>逻辑门 -&gt; 半加器 -&gt; 全加器 -&gt; 算数&#x2F;逻辑单元</p>
-<h2 id="内存Memory"><a href="#内存Memory" class="headerlink" title="内存Memory"></a>内存Memory</h2><p>门锁存储一个位 -&gt; 一组锁存器&#x3D;寄存器，32位寄存器的32就是位宽 -&gt; 设计为矩阵（m*n&#x3D;位宽）的寄存器 -&gt; 8个寄存器并排，可以存储32个数（32个内存地址），每个数是8位（8bit，即1byte） -&gt; 一个可寻址内存 -&gt; 随机存取存储器RAM（这里是SRAM，还有DRAM、闪存、NVRAM）</p>
-<h2 id="中央处理单元CPU"><a href="#中央处理单元CPU" class="headerlink" title="中央处理单元CPU"></a>中央处理单元CPU</h2><p>控制单元：取指令、解码、执行，通过RAM存取数据，ALU来计算，可以运行一个程序（一个程序多个指令）。</p>
-<p>由一个时钟以精确的间隔，触发电信号，控制单元利用这个信号推进CPU的内部操作。时钟速度Clock Speed，单位是赫兹Hz。</p>
-<p>控制单元+ALU+时钟&#x3D;CPU，通过地址线、数据线、允许读&#x2F;写线与RAM进行通信。</p>
-<h2 id="高级CPU设计"><a href="#高级CPU设计" class="headerlink" title="高级CPU设计"></a>高级CPU设计</h2><p>给CPU里加一点RAM，称为Cache</p>
-<h2 id="早期编程方式"><a href="#早期编程方式" class="headerlink" title="早期编程方式"></a>早期编程方式</h2><p>穿线板、开关、穿控纸卡等方式写机器码。相当于直接输入1和0</p>
-<h2 id="编程发展"><a href="#编程发展" class="headerlink" title="编程发展"></a>编程发展</h2><p>编译器，编程语言，语句-&gt;函数，算法与数据结构</p>
-<h2 id="阿兰·图灵-Alan-Turing"><a href="#阿兰·图灵-Alan-Turing" class="headerlink" title="阿兰·图灵 Alan Turing"></a>阿兰·图灵 Alan Turing</h2><h2 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h2><p>面向对象编程</p>
-<p>集成开发环境IDE</p>
-<p>API，文档和注释</p>
-<p>版本控制</p>
-<p>质量控制 Quality Assurance testing, QA</p>
-<p>Beta, Alpha</p>
-<h2 id="集成电路IC"><a href="#集成电路IC" class="headerlink" title="集成电路IC"></a>集成电路IC</h2><p>PCB</p>
-<h2 id="操作系统OS"><a href="#操作系统OS" class="headerlink" title="操作系统OS"></a>操作系统OS</h2><ol>
-<li><p>批处理程序</p>
-</li>
-<li><p>操作系统充当硬件和软件之间的媒介，操作系统提供API来抽象硬件，叫设备驱动程序，程序员使用标准化机制和输入输出硬件(I&#x2F;O)交互</p>
-</li>
-<li><p>多任务处理</p>
-</li>
-<li><p>动态内存分配（虚拟内存）、内存保护</p>
-</li>
-</ol>
-<h2 id="存储Storage"><a href="#存储Storage" class="headerlink" title="存储Storage"></a>存储Storage</h2><p>卡纸，磁：磁芯-磁带-磁盘，光学存储器：光盘CD、DVD。固态硬盘</p>
-<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2>
       
     </div>
 
