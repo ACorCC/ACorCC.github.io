@@ -184,7 +184,7 @@ getRepeatArr('123')
 ## 类型别名 & 类型断言
 
 ```typescript
-/* 通过type关键字定义了IobjArr的别名类型 */
+/* 通过type关键字定义了IObjArr的别名类型 */
 type IObjArr = Array<{
     key: string;
     [objKey: string]: any;
@@ -340,10 +340,10 @@ interface IMerge{
 type IPartial<T extends Record<string, any> > = {
     [P in keyof T]?: T[P];
 }
-// 索引类型: 关键字(keyof]，其相当于取值对象中的所有kev组成的字符串字面量,如
+// 索引类型: 关键字【keyof】，其相当于取值对象中的所有kev组成的字符串字面量,如
 type lKeys = keyof { a: string; b: number l; // => type IKeys = "a" | "b"
-// 关键字[in]，其相当于取值 字符串字面量 中的一种可能，配合泛型P,即表示每个key
-// 关键字[?]，通过设定对象可选选项，即可自动推导出子集类型
+// 关键字【in】，其相当于取值 字符串字面量 中的一种可能，配合泛型P,即表示每个key
+// 关键字【?】，通过设定对象可选选项，即可自动推导出子集类型
 ```
 
 ## 函数返回值类型
@@ -364,10 +364,10 @@ function delayCall(func) {
 type IDelayCall = <T extends () => any>(func: T) => ReturnType<T>;
 type lReturnType<T extends (...args: any) => any> = T extends (..args: any) => infer R ? R : any
 
-// 关键字(extends]跟随泛型出现时，表示类型推断，其表达可类比三元表达式
+// 关键字【extends】跟随泛型出现时，表示类型推断，其表达可类比三元表达式
 // 如 T === 判断类型 ? 类型A : 类型B
 
-// 关键字(infer] 出现在类型推荐中，表示定义类型变量，可以用于指代类型
+// 关键字【infer】出现在类型推荐中，表示定义类型变量，可以用于指代类型
 // 如 该场景下，将函数的返回值类型作为变量，使用新泛型R表示，使用在类型推荐命中的结果中
 ```
 
