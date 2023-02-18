@@ -21,26 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"acorcc.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ACorCC的个人网站">
-<meta property="og:url" content="https://acorcc.github.io/page/2/index.html">
+    <meta name="description" content="vue-cli脚手架特性create-react-app脚手架特性优化编译性能优化产物性能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack入门系列五：场景化">
+<meta property="og:url" content="https://acorcc.github.io/2023/02/18/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%BA%94%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96/index.html">
 <meta property="og:site_name" content="ACorCC的个人网站">
-<meta property="og:description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+<meta property="og:description" content="vue-cli脚手架特性create-react-app脚手架特性优化编译性能优化产物性能">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-17T16:18:59.000Z">
+<meta property="article:modified_time" content="2023-02-17T16:19:57.621Z">
 <meta property="article:author" content="ACorCC">
-<meta property="article:tag" content="blog">
+<meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://acorcc.github.io/page/2/">
+<link rel="canonical" href="https://acorcc.github.io/2023/02/18/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%BA%94%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://acorcc.github.io/2023/02/18/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%BA%94%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96/","path":"2023/02/18/Webpack入门系列五：场景化/","title":"Webpack入门系列五：场景化"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | ACorCC的个人网站</title>
+<title>Webpack入门系列五：场景化 | ACorCC的个人网站</title>
   
 
 
@@ -75,7 +77,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">ACorCC的个人网站</h1>
+      <p class="site-title">ACorCC的个人网站</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -101,7 +103,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 
       <!-- require APlayer -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
@@ -126,6 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-cli%E8%84%9A%E6%89%8B%E6%9E%B6%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">vue-cli脚手架特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#create-react-app%E8%84%9A%E6%89%8B%E6%9E%B6%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">create-react-app脚手架特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%BC%96%E8%AF%91%E6%80%A7%E8%83%BD"><span class="nav-number">3.</span> <span class="nav-text">优化编译性能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E4%BA%A7%E7%89%A9%E6%80%A7%E8%83%BD"><span class="nav-number">4.</span> <span class="nav-text">优化产物性能</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,218 +163,91 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 19 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://acorcc.github.io/2023/02/18/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%BA%94%EF%BC%9A%E5%9C%BA%E6%99%AF%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ACorCC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ACorCC的个人网站">
+      <meta itemprop="description" content="这是ACorCC的个人网站，包含网络日志、心情记录等等">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Webpack入门系列五：场景化 | ACorCC的个人网站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Webpack入门系列五：场景化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="创建时间：2023-02-18 00:18:59 / 修改时间：00:19:57" itemprop="dateCreated datePublished" datetime="2023-02-18T00:18:59+08:00">2023-02-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="vue-cli脚手架特性"><a href="#vue-cli脚手架特性" class="headerlink" title="vue-cli脚手架特性"></a>vue-cli脚手架特性</h1><h1 id="create-react-app脚手架特性"><a href="#create-react-app脚手架特性" class="headerlink" title="create-react-app脚手架特性"></a>create-react-app脚手架特性</h1><h1 id="优化编译性能"><a href="#优化编译性能" class="headerlink" title="优化编译性能"></a>优化编译性能</h1><h1 id="优化产物性能"><a href="#优化产物性能" class="headerlink" title="优化产物性能"></a>优化产物性能</h1>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-01-07T13:43:05+08:00"
-              content="2023-01-07">
-          01-07
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/01/07/Git/" itemprop="url">
-            <span itemprop="name">Git</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Webpack/" rel="tag"># Webpack</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/18/Webpack%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E5%9B%9B%EF%BC%9A%E7%90%86%E8%A7%A3%E6%8F%92%E4%BB%B6/" rel="prev" title="Webpack入门系列四：理解插件">
+                  <i class="fa fa-chevron-left"></i> Webpack入门系列四：理解插件
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-12-31T21:27:47+08:00"
-              content="2022-12-31">
-          12-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/12/31/2022%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" itemprop="url">
-            <span itemprop="name">2022年度总结</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-12-06T15:00:16+08:00"
-              content="2022-12-06">
-          12-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/12/06/%E7%88%AC%E8%99%AB/" itemprop="url">
-            <span itemprop="name">爬虫</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-11-30T00:06:15+08:00"
-              content="2022-11-30">
-          11-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/11/30/%E7%A7%8B%E6%8B%9B/" itemprop="url">
-            <span itemprop="name">秋招</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-11-23T18:22:05+08:00"
-              content="2022-11-23">
-          11-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/11/23/cs/" itemprop="url">
-            <span itemprop="name">cs</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-08-18T20:02:49+08:00"
-              content="2022-08-18">
-          08-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/08/18/mysql/" itemprop="url">
-            <span itemprop="name">mysql</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-08-18T20:02:49+08:00"
-              content="2022-08-18">
-          08-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/08/18/node/" itemprop="url">
-            <span itemprop="name">node</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-06-05T20:02:49+08:00"
-              content="2022-06-05">
-          06-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/05/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" itemprop="url">
-            <span itemprop="name">前端知识</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-11-21T16:00:00+08:00"
-              content="2020-11-21">
-          11-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/11/21/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98%E5%AF%BC%E8%AE%BA/" itemprop="url">
-            <span itemprop="name">机械键盘导论</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+
+
+
 
 </div>
   </main>
