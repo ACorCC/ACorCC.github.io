@@ -3,7 +3,7 @@ title: Webpack入门系列一：认识Webpack
 date: 2023-02-17 20:47:37
 tags:
 - Webpack
-catecories:
+categories:
 - [前端, 工程化, Webpack]
 ---
 

@@ -3,7 +3,7 @@ title: Webpack入门系列二：常见配置
 date: 2023-02-17 21:20:29
 tags:
 - Webpack
-catecories:
+categories:
 - [前端, 工程化, Webpack]
 ---
 

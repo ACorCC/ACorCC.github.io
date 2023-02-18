@@ -3,7 +3,7 @@ title: Webpack入门系列四：理解插件
 date: 2023-02-18 00:03:00
 tags:
 - Webpack
-catecories:
+categories:
 - [前端, 工程化, Webpack]
 ---
 

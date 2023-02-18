@@ -3,7 +3,7 @@ title: Webpack入门系列三：理解Loader
 date: 2023-02-17 22:18:55
 tags:
 - Webpack
-catecories:
+categories:
 - [前端, 工程化, Webpack]
 ---
 
