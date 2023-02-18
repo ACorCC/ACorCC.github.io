@@ -191,6 +191,16 @@ Babel可以将es6语法转化为兼容低版本浏览器的js代码
 |-- webpack.config.js
 ```
 
+## context
+
+## mode
+
+## target
+
+## module
+
+## plugins
+
 # 工具类配置
 
 ## HMR
@@ -229,9 +239,9 @@ module.exports = {
 }
 ```
 
+## devtool
 
+## devServer
 
-
-
-
+## watch
 
