@@ -8,6 +8,7 @@ next
 https://theme-next.js.org/#Feedback
 
 ```
+hexo new "your article title" // 生成新文章
 hexo clean // 清除已生成的文章
 hexo g -d // 生成文章并部署
 hexo server // 本地服务器

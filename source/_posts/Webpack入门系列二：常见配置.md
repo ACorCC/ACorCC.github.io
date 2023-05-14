@@ -65,7 +65,7 @@ js本身只支持导入js文件，不支持其它格式的资源。因此需要�
 1. 安装Loader
 
    ```
-   npm add iD css-loader style-loader
+   npm add -D css-loader style-loader
    ```
 
 2. 添加`module`处理css文件，test为匹配规则，use为链式调用的Loader（从后往前调用）
